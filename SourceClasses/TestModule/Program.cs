@@ -13,11 +13,13 @@ namespace TestModule
     {
         static void Main(string[] args)
         {
-            TestBoard.CreateRoomLayoutNumbersAndPosition();
+           //var dump = RoomActions.GetAllRoomActions().Where(r=>r.Method.Name=="Armory");
+            var test = new PlayerTest();
+            test.SetupTwo();
 
 
-            Console.WriteLine("done");
-            Console.Read();
+            //Console.WriteLine("done");
+            //Console.Read();
         }
 
         
@@ -35,7 +37,29 @@ namespace TestModule
 
         public void SetupTwo()
         {
-
+            Random random = new Random();
+            board = new Board();
+            var bs = TestBoard.Load<BoardSetup>(TestBoard.setupFileName);
+            board.rooms = bs.boardLayout;
+            board.corridors = bs.corridors;
+            foreach (var room in board.rooms.Where(r => r.name == "basic room"))
+            {
+                var replacement = bs.basicRooms[random.Next(bs.basicRooms.Count())];
+                bs.basicRooms.Remove(replacement);
+                room.name = replacement.name;
+                room.actionName = replacement.actionName;
+                room.description = replacement.description;
+                room.action = RoomActions.GetAllRoomActions().SingleOrDefault(r => r.Method.Name == room.actionName);
+            }
+            foreach(var room in board.rooms.Where(r=>r.name== "additional room"))
+            {
+                var replacement = bs.additionalRooms[random.Next(bs.additionalRooms.Count())];
+                bs.additionalRooms.Remove(replacement);
+                room.name = replacement.name;
+                room.actionName = replacement.actionName;
+                room.description = replacement.description;
+                room.action = RoomActions.GetAllRoomActions().SingleOrDefault(r => r.GetType().Name == room.actionName);
+            }
         }
 
         public void SetupOne()

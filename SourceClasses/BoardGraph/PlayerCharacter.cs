@@ -30,8 +30,9 @@ namespace BoardGraph
                 Pass();
             else
             {
-                int cardsLeft = handCards.Count();
+                int cardsLeft = handCards.Count(a => !a.contamination);
                 Room room = board.rooms.Single(r => r.id == roomId);
+                options.AddRange(room.GetOptions(this));
                 foreach (var corridor in room.corridors.Distinct().Where(r => !r.isMonsterTunnel && !r.doorClosed))
                 {
                     Room destination = board.rooms.Single(r => r.id != room.id);
@@ -101,6 +102,7 @@ namespace BoardGraph
     {
         public static void Move(PlayerCharacter player, Target target, Room room, Room destination)
         {
+
             player.roomId = destination.id;
         }
     }
@@ -125,7 +127,7 @@ namespace BoardGraph
     {
         public string name;
         public string description;
-        public int actionCost;
+        public int actionCost = 2;
         public Action<PlayerCharacter, Target, Room, Room> action;
         public PlayerCharacter player;
         public Target target;

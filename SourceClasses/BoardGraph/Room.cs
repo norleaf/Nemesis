@@ -71,32 +71,52 @@ namespace BoardGraph
             }
             return description;
         }
+
+        public virtual IEnumerable<Option> GetOptions(PlayerCharacter player)
+        {
+            var list = new List<Option>
+            {
+                new Option
+                {
+                        name = actionName,
+                        action = action,
+                        actionCost = actionCost,
+                        player = player
+                }
+            };
+            return list;
+        }
     }
 
-    public class Corridor
+    public class CockPit: Room
     {
-        public bool noise;
-        public bool doorClosed;
-        public bool doorBroken;
-        public bool isMonsterTunnel;
-        public int width;
-        public int[] rooms;
-        
+        public static void CheckDestination(PlayerCharacter player, Target target, Room room, Room destination)
+        {
 
-        public Corridor()
+        }
+        public static void SetDestination(PlayerCharacter player, Target target, Room room, Room destination)
         {
             
         }
 
-        public Corridor(Room roomA, Room roomB, int width = 1, bool tunnel = false)
+        public override IEnumerable<Option> GetOptions(PlayerCharacter player)
         {
-            this.isMonsterTunnel = tunnel;
-            this.width = width;
-            rooms = new int[2];
-            rooms[0] = roomA.id;
-            rooms[1] = roomB.id;
-            roomA.corridors.Add(this);
-            roomB.corridors.Add(this);
+            var list = new List<Option>
+            {
+                new Option
+                {
+                        name = "Check Destination",
+                        action = CheckDestination,
+                        player = player
+                },
+                new Option
+                {
+                        name = "Set New Course",
+                        action = SetDestination,
+                        player = player
+                }
+            };
+            return list;
         }
     }
 
