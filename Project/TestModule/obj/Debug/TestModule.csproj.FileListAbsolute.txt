@@ -1,0 +1,11 @@
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug\TestModule.exe.config
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug\TestModule.exe
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug\TestModule.pdb
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug\BoardGraph.dll
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug\BoardGraph.pdb
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\obj\Debug\TestModule.csprojResolveAssemblyReference.cache
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\obj\Debug\TestModule.exe
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\obj\Debug\TestModule.pdb

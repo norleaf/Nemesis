@@ -1,0 +1,8 @@
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\BoardGraph\bin\Debug\BoardGraph.dll
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\BoardGraph\bin\Debug\BoardGraph.pdb
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\BoardGraph\obj\Debug\BoardGraph.csprojResolveAssemblyReference.cache
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\BoardGraph\obj\Debug\BoardGraph.dll
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\BoardGraph\obj\Debug\BoardGraph.pdb
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\BoardGraph\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\BoardGraph\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\BoardGraph\bin\Debug\Newtonsoft.Json.xml
