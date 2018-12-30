@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,8 @@ namespace BoardGraph
         public bool doorBroken;
         public bool isMonsterTunnel;
         public int width;
-        public int[] rooms;
+        public int[] roomIDs;
+        
 
 
         public Corridor()
@@ -25,9 +27,9 @@ namespace BoardGraph
         {
             this.isMonsterTunnel = tunnel;
             this.width = width;
-            rooms = new int[2];
-            rooms[0] = roomA.id;
-            rooms[1] = roomB.id;
+            roomIDs = new int[2];
+            roomIDs[0] = roomA.id;
+            roomIDs[1] = roomB.id;
             roomA.corridors.Add(this);
             roomB.corridors.Add(this);
         }

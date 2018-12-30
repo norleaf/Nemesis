@@ -4,25 +4,38 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Sprites;
+using BoardGraph;
+using NemesisMonoUI;
+using MonoGameLib;
+using TestModule;
 
-namespace Game1
+namespace NemesisGame
 {
+    
+
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class GameNemesis : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        GraphicsBatch graphicsBatch;
         private List<SpriteGroup> sprites;
+        Board board;
 
         private InputController inputController;
 
 
-        public Game1()
+        public GameNemesis()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.HardwareModeSwitch = false;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.ToggleFullScreen();
             Content.RootDirectory = "Content";
+            var test = new PlayerTest();
+            board = test.TestTwo();
 
         }
 
@@ -48,8 +61,8 @@ namespace Game1
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            graphicsBatch = new GraphicsBatch(GraphicsDevice);
+            graphicsBatch.DefaultFont = Content.Load<SpriteFont>("defaultFont");
             ImageLoader.LoadImages(Content, sprites);
             
 
@@ -93,14 +106,12 @@ namespace Game1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-            spriteBatch.Begin(SpriteSortMode.BackToFront);
-            foreach (var spriteGroup in sprites)
-            {
-                var sprite = spriteGroup.Current;
-                spriteBatch.Draw(sprite.Tex, sprite.Pos, Color.White);
-            }
+            graphicsBatch.Begin(SpriteSortMode.BackToFront);
+            
+            board.Draw(graphicsBatch);
+            
 
-            spriteBatch.End();
+            graphicsBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

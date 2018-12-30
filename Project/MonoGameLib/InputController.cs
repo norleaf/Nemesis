@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Sprites;
 using Microsoft.Xna.Framework.Input;
 
-namespace Game1
+namespace NemesisGame
 {
     public class InputController
     {

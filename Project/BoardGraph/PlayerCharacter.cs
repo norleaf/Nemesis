@@ -21,6 +21,11 @@ namespace BoardGraph
         public List<Objective> objectives = new List<Objective>();
         Random random = new Random();
 
+        public PlayerCharacter()
+        {
+            isHostile = false;
+        }
+
         public void CalculateOptions(Board board)
         {
             options.Clear();
@@ -42,7 +47,7 @@ namespace BoardGraph
                         action = BasicActions.Move,
                         actionCost = 1,
                         description = destination.RemoteDescription(board),
-                        destination = destination,
+                        targetRoom = destination,
                         player = this,
                         room = room,
                         target = null
@@ -121,34 +126,8 @@ namespace BoardGraph
         public string name;
         public int roomId;
         public int lightWounds = 0;
+        public bool isHostile = true;
     }
 
-    public class Option
-    {
-        public string name;
-        public string description;
-        public int actionCost = 2;
-        public Action<PlayerCharacter, Target, Room, Room> action;
-        public PlayerCharacter player;
-        public Target target;
-        public Room room;
-        public Room destination;
-
-        public void ChooseOption()
-        {
-            player.actionsTakenInTurn++;
-            player.PayActionCost(actionCost);
-            action(player, target, room, destination);
-        }
-    }
-
-    public class Item : Option
-    {
-        public bool oneUse;
-    }
-
-    public class Card : Option
-    {
-        public bool contamination;
-    }
+    
 }

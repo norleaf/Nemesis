@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollisionController.cs" />
+    <Compile Include="GraphicsBatch.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="InputController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,13 +13,14 @@ namespace TestModule
     {
         static void Main(string[] args)
         {
-           //var dump = RoomActions.GetAllRoomActions().Where(r=>r.Method.Name=="Armory");
-            var test = new PlayerTest();
-            test.SetupTwo();
+            //var dump = RoomActions.GetAllRoomActions().Where(r=>r.Method.Name=="Armory");
+            //TestBoard.ConnectRooms();
+             var test = new PlayerTest();
+            test.TestTwo();
 
 
             //Console.WriteLine("done");
-            //Console.Read();
+            Console.Read();
         }
 
         
@@ -35,7 +36,19 @@ namespace TestModule
             player = new PlayerCharacter();
         }
 
-        public void SetupTwo()
+        public Board TestTwo()
+        {
+            var board = SetupTwo();
+            var hibernatorium = board.rooms.Where(r => r.name == "Hibernatorium").Single();
+            var adjoined = hibernatorium.GetAdjoiningRooms(board);
+            foreach (var adj in adjoined)
+            {
+                Console.WriteLine(adj.name + ", " + adj.isDiscovered);
+            }
+            return board;
+        }
+
+        public Board SetupTwo()
         {
             Random random = new Random();
             board = new Board();
@@ -49,7 +62,7 @@ namespace TestModule
                 room.name = replacement.name;
                 room.actionName = replacement.actionName;
                 room.description = replacement.description;
-                room.action = RoomActions.GetAllRoomActions().SingleOrDefault(r => r.Method.Name == room.actionName);
+                
             }
             foreach(var room in board.rooms.Where(r=>r.name== "additional room"))
             {
@@ -58,8 +71,16 @@ namespace TestModule
                 room.name = replacement.name;
                 room.actionName = replacement.actionName;
                 room.description = replacement.description;
-                room.action = RoomActions.GetAllRoomActions().SingleOrDefault(r => r.GetType().Name == room.actionName);
+                
             }
+            foreach (var room in board.rooms)
+            {
+                var corridors = board.corridors
+                    .Where(c => c.roomIDs.Any(i => i == room.id));
+                room.corridors.AddRange(corridors);
+            }
+
+            return board;
         }
 
         public void SetupOne()

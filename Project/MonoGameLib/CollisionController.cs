@@ -2,7 +2,7 @@
 using Sprites;
 using System.Collections.Generic;
 
-namespace Game1
+namespace NemesisGame
 {
     public class CollisionController
     {

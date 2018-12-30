@@ -16,7 +16,7 @@ namespace BoardGraph
         public int actionCost = 2;
         public string actionName;
         [JsonIgnore]
-        public Action<PlayerCharacter, Target, Room, Room> action;
+        public List<Option> options = new List<Option>();
         public string name;
         public string description;
         [JsonIgnore]
@@ -74,51 +74,20 @@ namespace BoardGraph
 
         public virtual IEnumerable<Option> GetOptions(PlayerCharacter player)
         {
-            var list = new List<Option>
-            {
-                new Option
-                {
-                        name = actionName,
-                        action = action,
-                        actionCost = actionCost,
-                        player = player
-                }
-            };
-            return list;
+            return options;
+        }
+
+        public List<Room> GetAdjoiningRooms(Board board)
+        {
+            return
+                board.rooms
+                .Where(room => corridors.SelectMany(c => c.roomIDs.Where(r => r != id))
+                .Contains(room.id))
+                .ToList();
         }
     }
 
-    public class CockPit: Room
-    {
-        public static void CheckDestination(PlayerCharacter player, Target target, Room room, Room destination)
-        {
-
-        }
-        public static void SetDestination(PlayerCharacter player, Target target, Room room, Room destination)
-        {
-            
-        }
-
-        public override IEnumerable<Option> GetOptions(PlayerCharacter player)
-        {
-            var list = new List<Option>
-            {
-                new Option
-                {
-                        name = "Check Destination",
-                        action = CheckDestination,
-                        player = player
-                },
-                new Option
-                {
-                        name = "Set New Course",
-                        action = SetDestination,
-                        player = player
-                }
-            };
-            return list;
-        }
-    }
+   
 
     
 

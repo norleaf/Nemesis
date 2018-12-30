@@ -36,6 +36,9 @@ namespace TestModule
             boardSetup.boardLayout.AddRange(boardSetup.additionalRooms);
 
             //boardSetup
+            var techCorridors = new Room { x = 5, y = 5, isDiscovered = true, name = "TechnicalCorridors", id = 999 };
+            boardSetup.fixedRooms.Add(techCorridors);
+            boardSetup.boardLayout.Add(techCorridors);
 
             Save(boardSetup, setupFileName);
 
@@ -62,9 +65,7 @@ namespace TestModule
         public static void ConnectRooms()
         {
             var bs = Load<BoardSetup>(setupFileName);
-            var techCorridors = new Room { x = 5, y = 5, isDiscovered = true, name = "TechnicalCorridors", id = 999 };
-            bs.fixedRooms.Add(techCorridors);
-            bs.boardLayout.Add(techCorridors);
+            bs.corridors.Clear();
 
             bs.corridors.Add(
             new Corridor(bs.GetLayout(2), bs.GetLayout(6)),
