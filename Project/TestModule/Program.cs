@@ -97,7 +97,7 @@ namespace TestModule
             player.handCards.Add(new Card { contamination = true, name = "Scratched" });
             player.handCards.Add(new Card { contamination = false, name = "Search" });
             player.handCards.Add(new Card { contamination = false, name = "Search" });
-            player.handCards.Add(new Card { contamination = false, name = "Cover Fire", actionCost = 1 });
+            player.handCards.Add(new Card { contamination = false, name = "Cover Fire" });
             player.handCards.Shuffle();
             player.roomId = 2;
 

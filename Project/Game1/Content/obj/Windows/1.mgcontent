@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Hans/Documents/GitHub/Nemesis/Project/Game1/Content/1.png</SourceFile>
-  <SourceTime>2018-11-05T09:02:20+01:00</SourceTime>
-  <DestFile>C:/Users/Hans/Documents/GitHub/Nemesis/Project/Game1/Content/bin/Windows/1.xnb</DestFile>
-  <DestTime>2018-12-30T17:01:24.210712+01:00</DestTime>
+  <SourceFile>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/1.png</SourceFile>
+  <SourceTime>2018-12-31T07:36:40.2608962+01:00</SourceTime>
+  <DestFile>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/bin/Windows/1.xnb</DestFile>
+  <DestTime>2018-12-31T09:53:53.9708941+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

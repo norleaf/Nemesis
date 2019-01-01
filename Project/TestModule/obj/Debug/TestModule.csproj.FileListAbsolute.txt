@@ -9,3 +9,16 @@ C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\bin\Debug
 C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\obj\Debug\TestModule.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\obj\Debug\TestModule.exe
 C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TestModule\obj\Debug\TestModule.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.csprojAssemblyReference.cache
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.csproj.CoreCompileInputs.cache
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\TestModule.exe.config
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\TestModule.exe
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\TestModule.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\BoardGraph.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\BoardGraph.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.csproj.CopyComplete
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.exe
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.pdb

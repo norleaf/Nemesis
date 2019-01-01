@@ -16,12 +16,13 @@ namespace BoardGraph
         public Target target;
         public Room room;
         public Room targetRoom;
-        public bool requiresTarget;
-        public bool requiresTargetRoom;
-        public bool requiresCombat;
-        public bool requiresNoCombat;
+        public bool requiresTarget      = false;
+        public bool requiresTargetRoom  = false;
+        public bool requiresCombat      = false;
+        public bool requiresNoCombat    = false;
+        public bool requiresComputer    = false;
 
-        public bool CanTakeAction(Board board)
+        public virtual bool CanTakeAction(Board board)
         {
             var missingTarget = requiresTarget && target == null;
             var missingRoom = requiresTargetRoom && targetRoom == null;
@@ -29,13 +30,15 @@ namespace BoardGraph
             var hostiles = room.GetRoomOccupants(board).Any(a => a.isHostile);
             var onlyInCombat = requiresCombat && !hostiles;
             var onlyOutOfCombat = requiresNoCombat && hostiles;
+            var missingComputer = requiresComputer && !room.hasComputer;
 
             return
                 !missingTarget &&
                 !missingRoom &&
                 !notEnoughCards &&
                 !onlyInCombat &&
-                !onlyOutOfCombat;
+                !onlyOutOfCombat &&
+                !missingComputer;
         }
 
         public void ChooseOption()
@@ -46,13 +49,5 @@ namespace BoardGraph
         }
     }
 
-    public class Item : Option
-    {
-        public bool oneUse;
-    }
-
-    public class Card : Option
-    {
-        public bool contamination;
-    }
+    
 }

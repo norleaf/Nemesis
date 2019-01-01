@@ -1,0 +1,2 @@
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\ClassLibrary1.csprojAssemblyReference.cache
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CoreCompileInputs.cache

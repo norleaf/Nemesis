@@ -13,8 +13,8 @@ namespace BoardGraph
         public int id;
         public int x;
         public int y;
-        public int actionCost = 2;
-        public string actionName;
+        //public int actionCost = 2;
+        //public string actionName;
         [JsonIgnore]
         public List<Option> options = new List<Option>();
         public string name;
@@ -22,6 +22,7 @@ namespace BoardGraph
         [JsonIgnore]
         public List<Corridor> corridors = new List<Corridor>();
         public bool isDiscovered = false;
+        public bool hasComputer;
 
         public int NoiseLevel()
         {

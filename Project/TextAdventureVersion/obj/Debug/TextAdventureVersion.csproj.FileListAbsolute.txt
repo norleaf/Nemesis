@@ -7,3 +7,14 @@ C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TextAdventureVersion
 C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TextAdventureVersion\obj\Debug\TextAdventureVersion.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TextAdventureVersion\obj\Debug\TextAdventureVersion.exe
 C:\Users\Hans\Documents\Visual Studio 2017\Projects\Nemesis\TextAdventureVersion\obj\Debug\TextAdventureVersion.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.exe.config
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.exe
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csprojAssemblyReference.cache
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csproj.CoreCompileInputs.cache
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csproj.CopyComplete
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.exe
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.pdb

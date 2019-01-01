@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="Card.cs" />
     <Compile Include="Corridor.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

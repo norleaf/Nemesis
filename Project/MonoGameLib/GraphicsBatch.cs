@@ -9,6 +9,7 @@ namespace MonoGameLib
 {
     public class GraphicsBatch : SpriteBatch
     {
+        public Texture2D Pixel { get; set; }
         public SpriteFont DefaultFont { get; set; }
         public GraphicsBatch(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {

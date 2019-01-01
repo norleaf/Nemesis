@@ -11,7 +11,10 @@ namespace NemesisMonoUI
 {
     public static class BoardView
     {
-        
+        public static void DrawText(this Board board, GraphicsBatch graphicsBatch)
+        {
+            foreach (var room in board.rooms) room.DrawText(graphicsBatch);
+        }
 
         public static void Draw(this Board board, GraphicsBatch graphicsBatch)
         {

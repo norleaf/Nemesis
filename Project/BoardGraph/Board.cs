@@ -21,6 +21,8 @@ namespace BoardGraph
             roomEvents = new Queue<RoomEvent>();
             targets = new List<Target>();
         }
+
+        
     }
 
     public class BoardSetup
