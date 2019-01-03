@@ -8,7 +8,7 @@ namespace BoardGraph
 {
     public class Board
     {
-        
+        public Random random;
         public List<Room> rooms;
         public List<Corridor> corridors;
         public Queue<RoomEvent> roomEvents;
@@ -16,6 +16,7 @@ namespace BoardGraph
 
         public Board()
         {
+            random = new Random();
             rooms = new List<Room>();
             corridors = new List<Corridor>();
             roomEvents = new Queue<RoomEvent>();

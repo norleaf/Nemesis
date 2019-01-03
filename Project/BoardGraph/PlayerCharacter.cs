@@ -13,6 +13,7 @@ namespace BoardGraph
         public int actionsTakenInTurn = 0;
         public int actionLimit = 2;
         public int handLimit = 5;
+        //TODO list of selected cards for moving handcards to discards when paying cost
         public List<Card> handCards = new List<Card>();
         public List<Card> discards = new List<Card>();
         public List<Card> drawPile = new List<Card>();
@@ -38,25 +39,34 @@ namespace BoardGraph
                 int cardsLeft = handCards.Count(a => !a.contamination);
                 Room room = board.rooms.Single(r => r.id == roomId);
                 options.AddRange(room.GetOptions(this));
-                foreach (var corridor in room.corridors.Distinct().Where(r => !r.isMonsterTunnel && !r.doorClosed))
+                List<Target> targets = room.GetRoomOccupants(board);
+                bool inCombat = targets.Any(t => t.isHostile);
+                if (inCombat)
                 {
-                    Room destination = board.rooms.Single(r => r.id != room.id);
-                    options.Add(new Option
-                    {
-                        name = "MOVE",
-                        action = BasicActions.Move,
-                        actionCost = 1,
-                        description = destination.RemoteDescription(board),
-                        targetRoom = destination,
-                        player = this,
-                        room = room,
-                        target = null
-                    });
+
+                }
+                else
+                {
+                    options.AddRange(GetMoveOptions(room, board));
                 }
             }
         }
 
+        public List<Option> GetMoveOptions(Room currentRoom, Board board)
+            =>  currentRoom.GetAdjoiningRooms(board)
+                .Select(destination => new Option
+                {
+                    name = "MOVE",
+                    action = BasicActions.Move,
+                    actionCost = 1,
+                    description = destination.RemoteDescription(board),
+                    targetRoom = destination,
+                    player = this,
+                    room = currentRoom,
+                    target = null,
 
+                })
+                .ToList();
 
         public void Pass()
         {
@@ -105,10 +115,11 @@ namespace BoardGraph
 
     public class BasicActions
     {
-        public static void Move(PlayerCharacter player, Target target, Room room, Room destination)
+        public static void Move(Option option)
         {
 
-            player.roomId = destination.id;
+            option.player.roomId = option.targetRoom.id;
+            option.targetRoom.RollForNoise(option.board);
         }
     }
 
@@ -129,5 +140,5 @@ namespace BoardGraph
         public bool isHostile = true;
     }
 
-    
+
 }

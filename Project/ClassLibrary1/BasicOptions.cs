@@ -9,6 +9,6 @@ namespace ClassLibrary1
 {
     public static class BasicOptions
     {
-        public static List<Option> 
+        public static List<Option> list;
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BoardGraph
 {
-    
+
     public class Room
     {
         public int id;
@@ -41,10 +41,10 @@ namespace BoardGraph
             if (occupants.Any())
             {
                 description = String.Format("A corridor leads to {0}, where you know ", name);
-                for(int i = 0; i < occupants.Count(); i++)
+                for (int i = 0; i < occupants.Count(); i++)
                 {
-                    if      (i == 0) description += occupants[i].name;
-                    else if (i >=1 && i <= occupants.Count()-2) description += ", " + occupants[i].name;
+                    if (i == 0) description += occupants[i].name;
+                    else if (i >= 1 && i <= occupants.Count() - 2) description += ", " + occupants[i].name;
                     else if (i == occupants.Count() - 1) description += " and " + occupants[i].name;
                 }
                 description += (occupants.Count() == 1 ? " is " : " are ") + "present.";
@@ -82,15 +82,31 @@ namespace BoardGraph
         {
             return
                 board.rooms
-                .Where(room => corridors.SelectMany(c => c.roomIDs.Where(r => r != id))
-                .Contains(room.id))
+                .Where(room => corridors.Where(c => !c.doorClosed).SelectMany(c => c.roomIDs).Contains(room.id))
+                .Where(room => room.id != this.id && room.id != 999)
                 .ToList();
+
+
+
+        }
+
+        public void RollForNoise(Board board)
+        {
+            if (GetRoomOccupants(board).Count() > 1)
+            {
+                //TODO check for claw and X
+                int noiseLimit = corridors.Sum(c => c.width);
+                int currentNoise = corridors.Where(c=>c.noise).Sum(c => c.width);
+                int result = board.random.Next(noiseLimit) + 1;
+
+            }
+
         }
     }
 
-   
 
-    
+
+
 
     public class RoomEvent
     {

@@ -134,7 +134,7 @@ namespace TestModule
             boardSetup.basicRooms.Clear();
             foreach (var room in basics)
             {
-                boardSetup.basicRooms.Add(new Room { name = room.Key, actionName = room.Value, id = 0 });
+                boardSetup.basicRooms.Add(new Room { name = room.Key,  id = 0 });
             }
 
             Dictionary<string, string> additional = new Dictionary<string, string>
@@ -152,7 +152,7 @@ namespace TestModule
             boardSetup.additionalRooms.Clear();
             foreach (var room in additional)
             {
-                boardSetup.additionalRooms.Add(new Room { name = room.Key, actionName = room.Value, id = 0 });
+                boardSetup.additionalRooms.Add(new Room { name = room.Key,  id = 0 });
             }
 
 

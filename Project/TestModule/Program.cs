@@ -60,7 +60,7 @@ namespace TestModule
                 var replacement = bs.basicRooms[random.Next(bs.basicRooms.Count())];
                 bs.basicRooms.Remove(replacement);
                 room.name = replacement.name;
-                room.actionName = replacement.actionName;
+                
                 room.description = replacement.description;
                 
             }
@@ -69,7 +69,7 @@ namespace TestModule
                 var replacement = bs.additionalRooms[random.Next(bs.additionalRooms.Count())];
                 bs.additionalRooms.Remove(replacement);
                 room.name = replacement.name;
-                room.actionName = replacement.actionName;
+                 
                 room.description = replacement.description;
                 
             }
@@ -93,11 +93,7 @@ namespace TestModule
                 player = player,
 
             });
-            player.handCards.Add(new Card { contamination = true, name = "Slimed" });
-            player.handCards.Add(new Card { contamination = true, name = "Scratched" });
-            player.handCards.Add(new Card { contamination = false, name = "Search" });
-            player.handCards.Add(new Card { contamination = false, name = "Search" });
-            player.handCards.Add(new Card { contamination = false, name = "Cover Fire" });
+            
             player.handCards.Shuffle();
             player.roomId = 2;
 
