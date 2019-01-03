@@ -11,11 +11,12 @@ namespace BoardGraph
         public string name;
         public string description;
         public int actionCost = 2;
-        public Action<PlayerCharacter, Target, Room, Room> action;
+        public Action<Option> action;
         public PlayerCharacter player;
         public Target target;
         public Room room;
         public Room targetRoom;
+        public Board board;
         public bool requiresTarget      = false;
         public bool requiresTargetRoom  = false;
         public bool requiresCombat      = false;
@@ -45,7 +46,7 @@ namespace BoardGraph
         {
             player.actionsTakenInTurn++;
             player.PayActionCost(actionCost);
-            action(player, target, room, targetRoom);
+            action(this);
         }
     }
 
