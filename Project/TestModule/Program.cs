@@ -94,7 +94,7 @@ namespace TestModule
 
             });
             
-            player.handCards.Shuffle();
+            
             player.roomId = 2;
 
             Room roomA = new Room { id = 1, name = "Generator Room" };
@@ -108,7 +108,7 @@ namespace TestModule
         public void PerformTestAction()
         {
             player.options.Single(o => o.name == "TEST ACTION").ChooseOption();
-            player.handCards.Log();
+            
         }
 
         public void PerformOptionsInspection()

@@ -20,12 +20,68 @@ namespace ClassLibrary1
         {
             deck = new List<AttackCard>();
 
+            deck.Add(
+                new AttackCard
+                {
+                    attack = Summoning,
+                    types = SetTypes(Type.creeper,Type.queen),
+                    name = "Summoning",
+                    life = 0
+                }
+                );
             
+        }
+
+        public string[] SetTypes(params Type[] types)
+        {
+            return types.Select(t => t.ToString()).ToArray();
+        }
+
+        public string Summoning(AttackCard ac, Board board)
+        {
+            throw new NotImplementedException();
+            return "";
         }
 
         public string Transformation(AttackCard ac, Board board)
         {
             return "The creeper convulses and shakes as it undergoes metamorphorsis and changes into something much more hideous and dangerous...";
+        }
+
+        public string Scratch(AttackCard ac, Board board)
+        {
+            throw new NotImplementedException();
+            return "";
+        }
+
+        public string Frenzy(AttackCard ac, Board board)
+        {
+            throw new NotImplementedException();
+            return "";
+        }
+
+        public string Bite(AttackCard ac, Board board)
+        {
+            throw new NotImplementedException();
+            return "";
+        }
+
+        public string TailAttack(AttackCard ac, Board board)
+        {
+            throw new NotImplementedException();
+            return "";
+        }
+
+        public string Slime(AttackCard ac, Board board)
+        {
+            throw new NotImplementedException();
+            return "";
+        }
+
+        public string ClawAttack(AttackCard ac, Board board)
+        {
+            throw new NotImplementedException();
+            return "";
         }
     }
 

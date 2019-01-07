@@ -18,7 +18,6 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Conte
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\betonblander.xnb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\bus.xnb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\D.xnb
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\defaultFont.xnb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\dinosaur.xnb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\E.xnb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\G.xnb
@@ -49,7 +48,6 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Conte
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\tiger.xnb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\tog.xnb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\traktor.xnb
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\1.xnb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Game1.exe.config
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Game1.exe
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Game1.pdb
@@ -66,7 +64,6 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Sharp
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.XInput.dll
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\BoardGraph.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\MonoGameLib.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\NemesisMonoUI.pdb
@@ -82,7 +79,6 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Sharp
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\Game1.exe
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\Game1.pdb
@@ -173,3 +169,6 @@ C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csproj.CopyComplete
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\Game1.exe
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\Game1.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\pixel.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csproj.CoreCompileInputs.cache
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csproj.CopyComplete

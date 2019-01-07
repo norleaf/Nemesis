@@ -123,7 +123,6 @@ namespace BoardGraph
         public int roomId;
         public int lightWounds = 0;
         public bool isHostile;
-        
     }
 
     public class Enemy : Target

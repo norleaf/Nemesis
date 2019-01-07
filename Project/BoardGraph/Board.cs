@@ -13,6 +13,7 @@ namespace BoardGraph
         public List<Corridor> corridors;
         public Queue<RoomEvent> roomEvents;
         public List<Target> targets;
+        public Bag<Enemy> enemies;
         public Deck<AttackCard> attackCards;
 
         public Board()
@@ -22,10 +23,9 @@ namespace BoardGraph
             corridors = new List<Corridor>();
             roomEvents = new Queue<RoomEvent>();
             targets = new List<Target>();
+            enemies = new Bag<Enemy>();
             attackCards = new Deck<AttackCard>();
         }
-
-        
     }
 
     public class BoardSetup
