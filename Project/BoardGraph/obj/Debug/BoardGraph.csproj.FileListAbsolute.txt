@@ -11,7 +11,6 @@ C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.dll
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.pdb
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csprojAssemblyReference.cache
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csproj.CoreCompileInputs.cache
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csproj.CopyComplete
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.dll

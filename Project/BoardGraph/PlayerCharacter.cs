@@ -14,9 +14,7 @@ namespace BoardGraph
         public int actionLimit = 2;
         public int handLimit = 5;
         //TODO list of selected cards for moving handcards to discards when paying cost
-        public List<Card> handCards = new List<Card>();
-        public List<Card> discards = new List<Card>();
-        public List<Card> drawPile = new List<Card>();
+        public Deck<Card> deck = new Deck<Card>(); 
         public List<Item> items = new List<Item>();
         public List<Option> options = new List<Option>();
         public List<Objective> objectives = new List<Objective>();
@@ -32,11 +30,11 @@ namespace BoardGraph
             options.Clear();
             if (actionsTakenInTurn >= actionLimit)
                 EndTurn();
-            else if (handCards.Count(a => !a.contamination) == 0)
+            else if (deck.HandCards.Count(a => !a.contamination) == 0)
                 Pass();
             else
             {
-                int cardsLeft = handCards.Count(a => !a.contamination);
+                int cardsLeft = deck.HandCards.Count(a => !a.contamination);
                 Room room = board.rooms.Single(r => r.id == roomId);
                 options.AddRange(room.GetOptions(this));
                 List<Target> targets = room.GetRoomOccupants(board);
@@ -70,43 +68,30 @@ namespace BoardGraph
 
         public void Pass()
         {
-            while (handCards.Count() < handLimit) DrawCard();
+            while (deck.HandCards.Count() < handLimit) DrawCard();
         }
 
         public void DrawCard()
         {
-            if (drawPile.Count() == 0) ShuffleDiscards();
-            Card card = drawPile[0];
-            handCards.Add(card);
-            drawPile.Remove(card);
+            deck.DrawCard(); 
         }
 
         public void Discard(Card card)
         {
-            handCards.Remove(card);
-            discards.Add(card);
+            deck.Discard(card);
         }
 
         public void PayActionCost(int amount)
         {
             for (int i = 0; i < amount; i++)
             {
-                List<Card> eligibleCards = handCards.Where(c => !c.contamination).ToList();
+                List<Card> eligibleCards = deck.HandCards.Where(c => !c.contamination).ToList();
                 var card = eligibleCards[random.Next(eligibleCards.Count())];
                 Discard(card);
             }
         }
 
-        private void ShuffleDiscards()
-        {
-            while (discards.Any())
-            {
-                var card = discards[random.Next(discards.Count())];
-                drawPile.Add(card);
-                discards.Remove(card);
-            }
-        }
-
+   
         private void EndTurn()
         {
             actionsTakenInTurn = 0;
@@ -137,7 +122,36 @@ namespace BoardGraph
         public string name;
         public int roomId;
         public int lightWounds = 0;
-        public bool isHostile = true;
+        public bool isHostile;
+        
+    }
+
+    public class Enemy : Target
+    {
+        public int size;
+        public int surpriseAttackChance;
+
+        public Enemy(int size, int surpriseAttackChance)
+        {
+            isHostile = true;
+            this.size = size;
+            this.surpriseAttackChance = surpriseAttackChance;
+        }
+
+        public virtual string Kill(Board b)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual string PainfulGrunt()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual string RunAway(Board b)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

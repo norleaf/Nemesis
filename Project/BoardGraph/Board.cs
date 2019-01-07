@@ -13,6 +13,7 @@ namespace BoardGraph
         public List<Corridor> corridors;
         public Queue<RoomEvent> roomEvents;
         public List<Target> targets;
+        public Deck<AttackCard> attackCards;
 
         public Board()
         {
@@ -21,6 +22,7 @@ namespace BoardGraph
             corridors = new List<Corridor>();
             roomEvents = new Queue<RoomEvent>();
             targets = new List<Target>();
+            attackCards = new Deck<AttackCard>();
         }
 
         
@@ -69,5 +71,7 @@ namespace BoardGraph
         {
             list.AddRange(elements);
         }
+
+        
     }
 }

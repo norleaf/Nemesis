@@ -27,7 +27,7 @@ namespace BoardGraph
         {
             var missingTarget = requiresTarget && target == null;
             var missingRoom = requiresTargetRoom && targetRoom == null;
-            var notEnoughCards = player.handCards.Count(a => !a.contamination) < actionCost;
+            var notEnoughCards = player.deck.HandCards.Count(a => !a.contamination) < actionCost;
             var hostiles = room.GetRoomOccupants(board).Any(a => a.isHostile);
             var onlyInCombat = requiresCombat && !hostiles;
             var onlyOutOfCombat = requiresNoCombat && hostiles;
