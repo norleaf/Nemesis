@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttackCard.cs" />
+    <Compile Include="Bag.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Corridor.cs" />
+    <Compile Include="Deck.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="PlayerCharacter.cs" />
