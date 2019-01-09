@@ -18,7 +18,7 @@ namespace BoardGraph
         public List<Item> items = new List<Item>();
         public List<Option> options = new List<Option>();
         public List<Objective> objectives = new List<Objective>();
-        Random random = new Random();
+        
 
         public PlayerCharacter()
         {
@@ -123,6 +123,7 @@ namespace BoardGraph
         public int roomId;
         public int lightWounds = 0;
         public bool isHostile;
+        public Random random = new Random();
     }
 
     public class Enemy : Target
@@ -137,19 +138,24 @@ namespace BoardGraph
             this.surpriseAttackChance = surpriseAttackChance;
         }
 
-        public virtual string Kill(Board b)
+        public virtual string Kill(Board board)
         {
-            throw new NotImplementedException();
+            board.GetRoom(this.roomId).heavyItemsOnGround.Add(new Carcass());
+            board.targets.Remove(this);
+            return name + " dies!";
+            
         }
 
         public virtual string PainfulGrunt()
         {
-            throw new NotImplementedException();
+            return name + " hisses and growls in pain but keeps on advancing...";
         }
 
         public virtual string RunAway(Board b)
         {
-            throw new NotImplementedException();
+            var room = b.GetRoom(roomId);
+            var corridors = room.corridors;
+            return name + " shrieks and howls with pain and retreats to ";
         }
     }
 

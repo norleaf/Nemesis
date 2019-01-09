@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace BoardGraph
@@ -11,13 +12,31 @@ namespace BoardGraph
         public bool nonCombat=false;
         public bool heavy=false;
         public CraftComponent craftComponent;
+        [JsonIgnore]
         public List<Option> options;
 
         public Item(string name, params Option[] optionParams)
         {
             this.name = name;
+            
             options = new List<Option>();
             options.AddRange(optionParams);
+        }
+    }
+
+    public class Carcass : Item
+    {
+        public Carcass() : base("carcass", null)
+        {
+            heavy = true;
+        }
+    }
+
+    public class PlayerCorpse : Item
+    {
+        public PlayerCorpse() : base("corpse", null)
+        {
+            heavy = true;
         }
     }
 

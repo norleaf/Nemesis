@@ -26,6 +26,11 @@ namespace BoardGraph
             enemies = new Bag<Enemy>();
             attackCards = new Deck<AttackCard>();
         }
+
+        public Room GetRoom(int id)
+        {
+            return rooms.Single(x => x.id == id);
+        }
     }
 
     public class BoardSetup
