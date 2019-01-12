@@ -91,6 +91,7 @@ namespace ClassLibrary1
 
         public Intruder(int size, int surpriseAttackChance, Type type) : base(size, surpriseAttackChance)
         {
+            name = type.ToString();
         }
     }
 

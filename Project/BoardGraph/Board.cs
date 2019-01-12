@@ -9,22 +9,54 @@ namespace BoardGraph
     public class Board
     {
         public Random random;
-        public List<Room> rooms;
+        public Dictionary<int,Room> rooms;
         public List<Corridor> corridors;
         public Queue<RoomEvent> roomEvents;
         public List<Target> targets;
         public Bag<Enemy> enemies;
         public Deck<AttackCard> attackCards;
+        public int turn;
+        public List<String> log;
 
         public Board()
         {
+            log = new List<string>();
+            turn = 0;
             random = new Random();
-            rooms = new List<Room>();
+            rooms = new Dictionary<int, Room>();
             corridors = new List<Corridor>();
             roomEvents = new Queue<RoomEvent>();
             targets = new List<Target>();
             enemies = new Bag<Enemy>();
             attackCards = new Deck<AttackCard>();
+        }
+
+        public void EventPhase()
+        {
+            AdvanceTurn();
+            EnemyAttacks();
+        }
+
+        private void EnemyAttacks()
+        {
+            foreach (var target in targets.Where(t=>t is Enemy) )
+            {
+                Enemy enemy = (Enemy)target;
+                if (enemy.isInCombat(this))
+                    enemy.Attack(board);
+                else enemy.Move(board);
+            }
+        }
+
+        public virtual void AdvanceTurn()
+        {
+            turn++;
+            Log("Turn {0} starting...", turn);
+        }
+
+        public void Log(string message, params object[] parameters)
+        {
+            log.Add( String.Format(message, parameters) );
         }
     }
 
@@ -53,6 +85,8 @@ namespace BoardGraph
 
     public static class Extensions
     {
+        
+
         public static List<T> Shuffle<T>(this List<T> list )
         {
             var random = new Random();

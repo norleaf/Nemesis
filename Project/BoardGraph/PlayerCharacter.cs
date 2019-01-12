@@ -20,7 +20,9 @@ namespace BoardGraph
         public List<Objective> objectives = new List<Objective>();
         Random random = new Random();
 
-        public PlayerCharacter()
+     
+
+    public PlayerCharacter()
         {
             isHostile = false;
         }
@@ -35,7 +37,7 @@ namespace BoardGraph
             else
             {
                 int cardsLeft = deck.HandCards.Count(a => !a.contamination);
-                Room room = board.rooms.Single(r => r.id == roomId);
+                Room room = GetRoom(board);
                 options.AddRange(room.GetOptions(this));
                 List<Target> targets = room.GetRoomOccupants(board);
                 bool inCombat = targets.Any(t => t.isHostile);
@@ -49,6 +51,8 @@ namespace BoardGraph
                 }
             }
         }
+
+        
 
         public List<Option> GetMoveOptions(Room currentRoom, Board board)
             =>  currentRoom.GetAdjoiningRooms(board)
@@ -123,6 +127,12 @@ namespace BoardGraph
         public int roomId;
         public int lightWounds = 0;
         public bool isHostile;
+
+        public Room GetRoom(Board board)
+        {
+            return board.rooms.Single(r => r.id == roomId);
+        }
+
     }
 
     public class Enemy : Target
@@ -148,6 +158,34 @@ namespace BoardGraph
         }
 
         public virtual string RunAway(Board b)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void DrawAttackCard(Board board)
+        {
+            AttackCard card = board.attackCards.DrawCard();
+            card.EnemyAttacksPlayer(this,)
+        }
+
+        internal bool isInCombat(Board board)
+        {
+            return GetRoom(board)
+                .GetRoomOccupants(board)
+                .Any(t => t is PlayerCharacter);
+        }
+
+        internal void Attack(Board board)
+        {
+            var player = PickTarget(board);
+        }
+
+        private object PickTarget(Board board)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Move(Board board)
         {
             throw new NotImplementedException();
         }
