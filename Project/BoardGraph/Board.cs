@@ -48,6 +48,12 @@ namespace BoardGraph
             }
         }
 
+        public Room GetRoom(int id)
+        {
+            return rooms.Single(x => x.id == id);
+        }
+    }
+
         public virtual void AdvanceTurn()
         {
             turn++;

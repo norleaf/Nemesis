@@ -23,6 +23,8 @@ namespace BoardGraph
         public List<Corridor> corridors = new List<Corridor>();
         public bool isDiscovered = false;
         public bool hasComputer;
+        public int itemsLeftToFind;
+        public List<Item> heavyItemsOnGround = new List<Item>();
 
         public int NoiseLevel()
         {
@@ -55,7 +57,7 @@ namespace BoardGraph
                 switch (NoiseLevel())
                 {
                     case 0:
-                        noise = "slithering and scraping not common among the ship sounds...";
+                        noise = "slithering and scraping sounds not common to the ship...";
                         break;
                     case 1:
                         noise = "noises that might or might not be mechanical.";
@@ -92,9 +94,16 @@ namespace BoardGraph
 
         public void RollForNoise(Board board)
         {
-            if (GetRoomOccupants(board).Count() > 1)
+            if (GetRoomOccupants(board).Count() == 1)
             {
                 //TODO check for claw and X
+                /* pseudo-code
+                 roll a percent die. <10=claw, <20=nothing if not slimed otherwise claw
+                 organise the corridors to spread over the remaining 80 percent dependent on width
+                 divide 80 by total corridor width to find interval size
+
+                 */
+
                 int noiseLimit = corridors.Sum(c => c.width);
                 int currentNoise = corridors.Where(c=>c.noise).Sum(c => c.width);
                 int result = board.random.Next(noiseLimit) + 1;
