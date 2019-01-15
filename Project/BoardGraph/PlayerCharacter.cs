@@ -130,12 +130,12 @@ namespace BoardGraph
 
         public Room GetRoom(Board board)
         {
-            return board.rooms.Single(r => r.id == roomId);
+            return board.rooms[roomId];
         }
         public Random random = new Random();
     }
 
-    }
+    
 
     public class Enemy : Target
     {
@@ -171,8 +171,7 @@ namespace BoardGraph
 
         public virtual void DrawAttackCard(Board board)
         {
-            AttackCard card = board.attackCards.DrawCard();
-            card.EnemyAttacksPlayer(this,)
+            
         }
 
         internal bool isInCombat(Board board)
@@ -185,11 +184,19 @@ namespace BoardGraph
         internal void Attack(Board board)
         {
             var player = PickTarget(board);
+            AttackCard card = board.attackCards.DrawCard();
+            card.EnemyAttacksPlayer(this, player, board);
         }
 
-        private object PickTarget(Board board)
+        private PlayerCharacter PickTarget(Board board)
         {
-            throw new NotImplementedException();
+            var players = GetRoom(board).GetRoomOccupants(board)
+                .Where(o => o is PlayerCharacter)
+                .Select(o=> (PlayerCharacter)o)
+                .OrderBy(o=>o.deck.HandCards.Count())
+                .ThenBy(o=>o.number)
+                .ToList();
+            return players[0];
         }
 
         internal void Move(Board board)

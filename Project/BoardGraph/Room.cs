@@ -84,8 +84,9 @@ namespace BoardGraph
         {
             return
                 board.rooms
-                .Where(room => corridors.Where(c => !c.doorClosed).SelectMany(c => c.roomIDs).Contains(room.id))
-                .Where(room => room.id != this.id && room.id != 999)
+                .Where(room => corridors.Where(c => !c.doorClosed).SelectMany(c => c.roomIDs).Contains(room.Key))
+                .Where(room => room.Key != this.id && room.Key != 999)
+                .Select(o=>o.Value)
                 .ToList();
 
 

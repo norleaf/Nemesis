@@ -43,16 +43,16 @@ namespace BoardGraph
             {
                 Enemy enemy = (Enemy)target;
                 if (enemy.isInCombat(this))
-                    enemy.Attack(board);
-                else enemy.Move(board);
+                    enemy.Attack(this);
+                else enemy.Move(this);
             }
         }
 
         public Room GetRoom(int id)
         {
-            return rooms.Single(x => x.id == id);
+            return rooms[id];
         }
-    }
+    
 
         public virtual void AdvanceTurn()
         {
