@@ -52,7 +52,24 @@ namespace BoardGraph
             }
         }
 
-        
+        public void HealLightWound(int wounds)
+        {
+            //cannot go below zero
+            throw new NotImplementedException();
+        }
+
+        public void GainLightWound(int wounds)
+        {
+            // if goes above 2 set to zero and add serious wound
+            throw new NotImplementedException();
+        }
+
+        public void GainSeriousWound()
+        {
+            //if 4th die
+            //else draw from pile and add to wounds
+            throw new NotImplementedException();
+        }
 
         public List<Option> GetMoveOptions(Room currentRoom, Board board)
             =>  currentRoom.GetAdjoiningRooms(board)

@@ -45,11 +45,13 @@ namespace ClassLibrary1
 
         public string Transformation(AttackCard ac, Board board)
         {
+            new NotImplementedException();
             return "The creeper convulses and shakes as it undergoes metamorphorsis and changes into something much more hideous and dangerous...";
         }
 
         public string Scratch(AttackCard ac, Board board)
         {
+            ac.player.GainLightWound(1);
             throw new NotImplementedException();
             return "";
         }

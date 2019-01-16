@@ -31,6 +31,11 @@ namespace BoardGraph
             attackCards = new Deck<AttackCard>();
         }
 
+        public List<Room> Rooms()
+        {
+            return rooms.Values.ToList();
+        }
+
         public void EventPhase()
         {
             AdvanceTurn();

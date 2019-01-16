@@ -13,12 +13,12 @@ namespace NemesisMonoUI
     {
         public static void DrawText(this Board board, GraphicsBatch graphicsBatch)
         {
-            foreach (var room in board.rooms) room.DrawText(graphicsBatch);
+            foreach (var room in board.rooms.Values) room.DrawText(graphicsBatch);
         }
 
         public static void Draw(this Board board, GraphicsBatch graphicsBatch)
         {
-            foreach (var room in board.rooms)
+            foreach (var room in board.rooms.Values)
             {
                 room.Draw(graphicsBatch);
             }

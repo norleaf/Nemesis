@@ -11,6 +11,7 @@
     <File>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/betonblander.jpg</File>
     <File>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/bus.jpg</File>
     <File>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/D.jpg</File>
+    <File>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/defaultFont.spritefont</File>
     <File>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/dinosaur.jpg</File>
     <File>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/E.png</File>
     <File>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/G.jpg</File>
@@ -44,6 +45,7 @@
     <File>C:/Users/Louise Rasmussen/Documents/GitHub/Nemesis/Project/Game1/Content/traktor.jpg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
