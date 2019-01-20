@@ -11,7 +11,14 @@ namespace BoardGraph
         public Func<AttackCard, Board, string> attack;
         public PlayerCharacter player;
         public Enemy enemy;
-        
+
+        public AttackCard(string name, int life, string[] types, Func<AttackCard, Board, string> attack)
+        {
+            this.name = name;
+            this.life = life;
+            this.types = types;
+            this.attack = attack;
+        }
 
         public string EnemyAttacksPlayer(Enemy e, PlayerCharacter p, Board board)
         {

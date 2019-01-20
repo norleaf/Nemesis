@@ -20,16 +20,14 @@ namespace ClassLibrary1
         {
             deck = new List<AttackCard>();
 
-            deck.Add(
-                new AttackCard
-                {
-                    attack = Summoning,
-                    types = SetTypes(Type.creeper,Type.queen),
-                    name = "Summoning",
-                    life = 0
-                }
-                );
-            
+            deck.Add(MakeCards("Summoning", SetTypes(Type.creeper, Type.queen), Summoning, 0, 2) );
+            deck.Add(MakeCards("Slime", SetTypes(Type.creeper, Type.adult), Slime, 0, 2) );
+
+        }
+
+        public AttackCard[] MakeCards(string name, string[] types, Func<AttackCard, Board, string> attack, params int[] life)
+        {
+            return life.Select(r => new AttackCard(name, r, types, attack)).ToArray();
         }
 
         public string[] SetTypes(params Type[] types)
