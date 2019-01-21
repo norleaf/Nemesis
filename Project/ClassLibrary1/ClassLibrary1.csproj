@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicOptions.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Captain.cs" />
+    <Compile Include="Items.cs" />
     <Compile Include="CraftOption.cs" />
     <Compile Include="IntruderAttackCards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
