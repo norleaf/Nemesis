@@ -40,11 +40,11 @@ namespace TestModule
         {
             var board = SetupTwo();
             var hibernatorium = board.Rooms().Where(r => r.name == "Hibernatorium").Single();
-            var adjoined = hibernatorium.GetAdjoiningRooms(board);
-            foreach (var adj in adjoined)
-            {
-                Console.WriteLine(adj.name + ", " + adj.isDiscovered);
-            }
+        //    var adjoined = hibernatorium.GetAdjoiningRooms(board);
+        //    foreach (var adj in adjoined)
+        //    {
+        //        Console.WriteLine(adj.name + ", " + adj.isDiscovered);
+        //    }
             return board;
         }
 

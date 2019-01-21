@@ -29,3 +29,8 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\Te
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csproj.CopyComplete
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.exe
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\BoardGraph.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.exe
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\BoardGraph.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.exe.config

@@ -10,6 +10,8 @@ namespace TextAdventureVersion
     {
         static void Main(string[] args)
         {
+            var log = new LogBook();
+            
         }
     }
 }

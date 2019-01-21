@@ -52,6 +52,33 @@ namespace BoardGraph
             }
         }
 
+        public string DescribeSituation(Board board)
+        {
+            Room room = GetRoom(board);
+            var description = "";
+            description += DescribeOccupants(board,room);
+            description += DescribeOptions(board,room);
+            return description;
+        }
+
+        private string DescribeOptions(Board board, Room room)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string DescribeOccupants(Board board, Room room)
+        {
+            string description = "";
+            var targets = room.GetRoomOccupants(board).Where(t => t != this);
+            foreach (var target in targets.OrderBy(t=>t.isHostile))
+            {
+                description += target.name + ", ";
+            }
+            if (targets.Count() == 0) description = "You are alone in the room.";
+            else description = description.TrimEnd(',') + "are in the room with you.";
+            return description;
+        }
+
         public void HealLightWound(int wounds)
         {
             //cannot go below zero

@@ -173,3 +173,4 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Conte
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csproj.CoreCompileInputs.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csproj.CopyComplete
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\defaultFont.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\defaultFont.xnb
