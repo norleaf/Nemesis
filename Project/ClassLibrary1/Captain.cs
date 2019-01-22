@@ -16,8 +16,19 @@ namespace ClassLibrary1
             Queue<Card> cards = new Queue<Card>();
             for (int i = 0; i < 10; i++)
             {
-                cards.Enqueue(new Card("default", new Option {name = "do nothing"}));
+                cards.Enqueue(
+                    new Card(
+                        "default", 
+                        new Option
+                        {
+                            name = "do nothing",
+                            description = "do nothing at all...",
+                            action = (option)=> { }
+                        }
+                    )
+                );
             }
+            return cards;
         }
 
     }

@@ -22,6 +22,8 @@ namespace BoardGraph
         [JsonIgnore]
         public List<Corridor> corridors = new List<Corridor>();
         public bool isDiscovered = false;
+        public bool isOnFire = false;
+        public bool isMalfunctioning = false;
         public bool hasComputer;
         public int itemsLeftToFind;
         public List<Item> heavyItemsOnGround = new List<Item>();

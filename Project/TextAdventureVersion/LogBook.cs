@@ -1,4 +1,5 @@
 ﻿using BoardGraph;
+using ClassLibrary1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,12 @@ namespace TextAdventureVersion
             var test = new PlayerTest();
             board = test.TestTwo();
             player = new PlayerCharacter();
-            player.CalculateOptions(board);
-            player.DescribeSituation(board);
+            player.deck.DrawPile = new Captain().CaptainCards();
+            player.Pass();
+            player.roomId = 11;
             Console.WriteLine("game started");
+            player.CalculateOptions(board);
+            Console.WriteLine( player.DescribeSituation(board));
             AwaitUserInput();
         }
 
@@ -41,9 +45,9 @@ namespace TextAdventureVersion
                     break;
                 default:
                     {
-                        int option = -1;
+                        int option = -1; // start at an invalid value
                         int.TryParse(input, out option);
-                        option -= 1;
+                        option -= 1; //reduce parsed integer to get it to zero based index
                         if(option >= 0 && option < player.options.Count())
                             PerformUserCommand(option);
                         else
@@ -61,7 +65,7 @@ namespace TextAdventureVersion
         {
             player.options[option].ChooseOption();
             player.CalculateOptions(board);
-            player.DescribeSituation(board);
+            Console.WriteLine( player.DescribeSituation(board));
             AwaitUserInput();
         }
     }
