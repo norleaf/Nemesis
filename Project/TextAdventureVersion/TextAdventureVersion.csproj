@@ -58,6 +58,10 @@
       <Project>{B9127170-CCD6-4954-84F3-51BE02F15503}</Project>
       <Name>BoardGraph</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{C0F74667-62DA-4687-9CD6-27F3DBB80F79}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestModule\TestModule.csproj">
       <Project>{6E2823DE-DDFE-4A5D-A34B-8EF9B9F389E5}</Project>
       <Name>TestModule</Name>

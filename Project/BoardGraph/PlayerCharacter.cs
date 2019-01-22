@@ -55,7 +55,8 @@ namespace BoardGraph
         public string DescribeSituation(Board board)
         {
             Room room = GetRoom(board);
-            var description = "";
+            var description = "You are in the " + room.name + ".";
+            if (room.isOnFire) description = description.Replace(".","") + " and the room is on fire. ";
             description += DescribeOccupants(board,room);
             description += DescribeOptions(board,room);
             return description;
@@ -63,12 +64,21 @@ namespace BoardGraph
 
         private string DescribeOptions(Board board, Room room)
         {
-            throw new NotImplementedException();
+            var description = " ";
+            if (room.isMalfunctioning) description += "The power is out. ";
+           
+            foreach (var option in options)
+            {
+                description += "\r\n";
+                description += string.Format("({0}) ",options.IndexOf(option) + 1 );
+                description += option.description + ".";
+            }
+            return description;
         }
 
         private string DescribeOccupants(Board board, Room room)
         {
-            string description = "";
+            string description = " ";
             var targets = room.GetRoomOccupants(board).Where(t => t != this);
             foreach (var target in targets.OrderBy(t=>t.isHostile))
             {
@@ -110,6 +120,7 @@ namespace BoardGraph
                     player = this,
                     room = currentRoom,
                     target = null,
+                    board = board
 
                 })
                 .ToList();
