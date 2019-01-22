@@ -22,3 +22,12 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 Project/.vs/NemesisSolution/v15/.suo
+*.cache
+*.ide-shm
+*.ide-shm
+*.ide-wal
+*.cache
+Project/TextAdventureVersion/obj/Debug/TextAdventureVersion.csprojResolveAssemblyReference.cache
+Project/TextAdventureVersion/obj/Debug/TextAdventureVersion.csproj.CoreCompileInputs.cache
+Project/TestModule/obj/Debug/TestModule.csprojResolveAssemblyReference.cache
+Project/TestModule/obj/Debug/TestModule.csproj.CoreCompileInputs.cache
