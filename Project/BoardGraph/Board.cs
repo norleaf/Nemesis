@@ -16,7 +16,7 @@ namespace BoardGraph
         public Bag<Enemy> enemies;
         public Deck<AttackCard> attackCards;
         public int turn;
-        public List<String> log;
+        public List<string> log;
 
         public Board()
         {
@@ -40,6 +40,18 @@ namespace BoardGraph
         {
             AdvanceTurn();
             EnemyAttacks();
+            FireDamage();
+            EvolveTokenBag();
+        }
+
+        private void FireDamage()
+        {
+           // throw new NotImplementedException();
+        }
+
+        private void EvolveTokenBag()
+        {
+           // throw new NotImplementedException();
         }
 
         private void EnemyAttacks()
@@ -67,27 +79,48 @@ namespace BoardGraph
 
         public void Log(string message, params object[] parameters)
         {
-            log.Add( String.Format(message, parameters) );
+            log.Add(string.Format(message, parameters) );
         }
 
-        public void NextPlayer(PlayerCharacter player)
+        public PlayerCharacter NextPlayer(PlayerCharacter player)
         {
-            var players = targets
+            var allPlayers = targets
                 .Where(t => t is PlayerCharacter)
-                .Select(t => (PlayerCharacter)t)
+                .Select(t => (PlayerCharacter)t);
+
+            var activePlayers = allPlayers
                 .Where(p=>p.HasUsableHandCards() && !p.passed);
 
-            //Todo: if players is empty go to next round... and skip below. first player token shifts.
+            var numbers = activePlayers
+                    .Select(r => r.number)
+                    .OrderBy(r => r)
+                    .ToList();
+            int index;
 
-            var numbers = players
-                .Select(r => r.number)
-                .OrderBy(r=>r)
-                .ToList();
+            if (!activePlayers.Any())
+            {
 
-            var index = numbers.IndexOf(player.number);
-            
-            //Todo: index +1 is it within bounds of array otherwise to 0. give turn to next player. 
+                foreach (var p in allPlayers)
+                {
+                    p.passed = false;
+                    p.actionsTakenInTurn = 0;
+                }
+                EventPhase();
+                index = numbers.IndexOf(allPlayers.Single(c => c.firstPlayer).number);
+            }
+            else
+            {
+                index = numbers.IndexOf(player.number);
+            }
+                
 
+                
+
+                //Todo: index +1 is it within bounds of array otherwise to 0. give turn to next player.
+                if(index +1 < numbers.Count)
+                {
+
+                }
         }
     }
 

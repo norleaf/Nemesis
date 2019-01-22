@@ -10,6 +10,7 @@ namespace BoardGraph
         public bool slimed = false;
         public bool signalSent = false;
         public bool passed = false;
+        public bool firstPlayer = false;
         public List<SevereWound> severeWounds = new List<SevereWound>();
         public int actionsTakenInTurn = 0;
         public int actionLimit = 2;
@@ -54,42 +55,7 @@ namespace BoardGraph
             }
         }
 
-        public string DescribeSituation(Board board)
-        {
-            Room room = GetRoom(board);
-            var description = "You are in the " + room.name + ".";
-            if (room.isOnFire) description = description.Replace(".","") + " and the room is on fire. ";
-            description += DescribeOccupants(board,room);
-            description += DescribeOptions(board,room);
-            return description;
-        }
-
-        private string DescribeOptions(Board board, Room room)
-        {
-            var description = " ";
-            if (room.isMalfunctioning) description += "The power is out. ";
-           
-            foreach (var option in options)
-            {
-                description += "\r\n";
-                description += string.Format("({0}) ",options.IndexOf(option) + 1 );
-                description += option.description + ".";
-            }
-            return description;
-        }
-
-        private string DescribeOccupants(Board board, Room room)
-        {
-            string description = " ";
-            var targets = room.GetRoomOccupants(board).Where(t => t != this);
-            foreach (var target in targets.OrderBy(t=>t.isHostile))
-            {
-                description += target.name + ", ";
-            }
-            if (targets.Count() == 0) description = "You are alone in the room.";
-            else description = description.TrimEnd(',') + "are in the room with you.";
-            return description;
-        }
+        
 
         public void HealLightWound(int wounds)
         {

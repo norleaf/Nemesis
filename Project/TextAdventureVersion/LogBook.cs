@@ -1,5 +1,5 @@
 ﻿using BoardGraph;
-using ClassLibrary1;
+using NemesisLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;

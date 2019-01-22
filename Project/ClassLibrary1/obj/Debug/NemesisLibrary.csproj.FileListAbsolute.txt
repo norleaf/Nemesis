@@ -1,0 +1,12 @@
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\bin\Debug\BoardGraph.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\bin\Debug\BoardGraph.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\NemesisLibrary.csprojAssemblyReference.cache
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\NemesisLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\NemesisLibrary.csproj.CopyComplete
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

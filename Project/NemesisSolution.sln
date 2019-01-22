@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGameLib", "MonoGameLib\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NemesisMonoUI", "NemesisMonoUI\NemesisMonoUI.csproj", "{AB4E1165-A031-4D5D-B0BE-50169AE3E965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{C0F74667-62DA-4687-9CD6-27F3DBB80F79}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NemesisLibrary", "ClassLibrary1\NemesisLibrary.csproj", "{C0F74667-62DA-4687-9CD6-27F3DBB80F79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
