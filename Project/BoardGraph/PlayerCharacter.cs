@@ -9,6 +9,7 @@ namespace BoardGraph
         public int number;
         public bool slimed = false;
         public bool signalSent = false;
+        public bool passed = false;
         public List<SevereWound> severeWounds = new List<SevereWound>();
         public int actionsTakenInTurn = 0;
         public int actionLimit = 2;
@@ -29,10 +30,11 @@ namespace BoardGraph
 
         public void CalculateOptions(Board board)
         {
+            
             options.Clear();
             if (actionsTakenInTurn >= actionLimit)
-                EndTurn();
-            else if (deck.HandCards.Count(a => !a.contamination) == 0)
+                EndTurn(board);
+            else if (!HasUsableHandCards())
                 Pass();
             else
             {
@@ -128,6 +130,7 @@ namespace BoardGraph
         public void Pass()
         {
             while (deck.HandCards.Count() < handLimit) DrawCard();
+            passed = true;
         }
 
         public void DrawCard()
@@ -150,10 +153,16 @@ namespace BoardGraph
             }
         }
 
+        public bool HasUsableHandCards()
+        {
+            return deck.HandCards
+                .Any(r => !r.contamination);
+        }
    
-        private void EndTurn()
+        private void EndTurn(Board board)
         {
             actionsTakenInTurn = 0;
+            board.NextPlayer(this);
         }
     }
 

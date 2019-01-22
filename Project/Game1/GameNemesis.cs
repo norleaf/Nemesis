@@ -47,7 +47,7 @@ namespace NemesisGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            
             this.IsMouseVisible = true;
             sprites = new List<SpriteGroup>();
             inputController = new InputController(sprites);
@@ -67,7 +67,7 @@ namespace NemesisGame
             ImageLoader.LoadImages(Content, sprites);
             
 
-            // TODO: use this.Content to load your game content here
+            
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace NemesisGame
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace NemesisGame
 
 
 
-            // TODO: Add your update logic here
+            
 
             base.Update(gameTime);
         }
@@ -115,7 +115,7 @@ namespace NemesisGame
             
 
             graphicsBatch.End();
-            // TODO: Add your drawing code here
+            
 
             base.Draw(gameTime);
         }

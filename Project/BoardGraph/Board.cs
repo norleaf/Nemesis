@@ -69,6 +69,26 @@ namespace BoardGraph
         {
             log.Add( String.Format(message, parameters) );
         }
+
+        public void NextPlayer(PlayerCharacter player)
+        {
+            var players = targets
+                .Where(t => t is PlayerCharacter)
+                .Select(t => (PlayerCharacter)t)
+                .Where(p=>p.HasUsableHandCards() && !p.passed);
+
+            //Todo: if players is empty go to next round... and skip below. first player token shifts.
+
+            var numbers = players
+                .Select(r => r.number)
+                .OrderBy(r=>r)
+                .ToList();
+
+            var index = numbers.IndexOf(player.number);
+            
+            //Todo: index +1 is it within bounds of array otherwise to 0. give turn to next player. 
+
+        }
     }
 
     public class BoardSetup

@@ -19,6 +19,8 @@ namespace BoardGraph
             HandCards = new List<T>();
         }
 
+        
+
         public T DrawCard()
         {
             if (!DrawPile.Any())
