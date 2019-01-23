@@ -64,6 +64,7 @@ namespace TextAdventureVersion
         private void PerformUserCommand(int option)
         {
             player.options[option].ChooseOption();
+            player = board.activePlayer;
             player.CalculateOptions(board);
             Console.WriteLine( player.DescribeSituation(board));
             AwaitUserInput();

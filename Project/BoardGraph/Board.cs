@@ -17,6 +17,7 @@ namespace BoardGraph
         public Deck<AttackCard> attackCards;
         public int turn;
         public List<string> log;
+        public PlayerCharacter activePlayer;
 
         public Board()
         {
@@ -39,9 +40,36 @@ namespace BoardGraph
         public void EventPhase()
         {
             AdvanceTurn();
+            PassFirstPlayerToken();
             EnemyAttacks();
             FireDamage();
             EvolveTokenBag();
+            PlayerPhase();
+        }
+
+        private void PlayerPhase()
+        {
+            var players = Players();
+            foreach (var player in players)
+            {
+                player.FillHand();
+            }
+            activePlayer = players.Single(c => c.firstPlayer);
+        }
+
+        private void PassFirstPlayerToken()
+        {
+            var players = Players();
+            foreach (var p in players)
+            {
+                p.passed = false;
+                p.actionsTakenInTurn = 0;
+            }
+            var numbers = players
+                .OrderBy(c => c.number )
+            
+            index = numbers.IndexOf(allPlayers.Single(c => c.firstPlayer).number);
+            //throw new NotImplementedException();
         }
 
         private void FireDamage()
@@ -82,13 +110,19 @@ namespace BoardGraph
             log.Add(string.Format(message, parameters) );
         }
 
+        public List<PlayerCharacter> Players()
+        {
+            return targets
+                .Where(t => t is PlayerCharacter)
+                .Select(t => (PlayerCharacter)t)
+                .ToList();
+        }
+
         public PlayerCharacter NextPlayer(PlayerCharacter player)
         {
-            var allPlayers = targets
-                .Where(t => t is PlayerCharacter)
-                .Select(t => (PlayerCharacter)t);
+            
 
-            var activePlayers = allPlayers
+            var activePlayers = Players()
                 .Where(p=>p.HasUsableHandCards() && !p.passed);
 
             var numbers = activePlayers
@@ -97,30 +131,19 @@ namespace BoardGraph
                     .ToList();
             int index;
 
-            if (!activePlayers.Any())
+            if (activePlayers.Any())
             {
-
-                foreach (var p in allPlayers)
-                {
-                    p.passed = false;
-                    p.actionsTakenInTurn = 0;
-                }
-                EventPhase();
-                index = numbers.IndexOf(allPlayers.Single(c => c.firstPlayer).number);
+                
+                index = numbers.IndexOf(player.number);
+                //Todo: index +1 is it within bounds of array otherwise to 0. give turn to next player.
+                int nextIndex = (index + 1) < numbers.Count ? index++ : 0;
+                return activePlayers.Single(c => c.number == numbers[nextIndex]);
             }
             else
             {
-                index = numbers.IndexOf(player.number);
+                return null;
             }
-                
-
-                
-
-                //Todo: index +1 is it within bounds of array otherwise to 0. give turn to next player.
-                if(index +1 < numbers.Count)
-                {
-
-                }
+            
         }
     }
 

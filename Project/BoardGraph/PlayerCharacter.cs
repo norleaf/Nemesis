@@ -95,8 +95,12 @@ namespace BoardGraph
 
         public void Pass()
         {
-            while (deck.HandCards.Count() < handLimit) DrawCard();
             passed = true;
+        }
+
+        public void FillHand()
+        {
+            while (deck.HandCards.Count() < handLimit) DrawCard();
         }
 
         public void DrawCard()

@@ -31,3 +31,5 @@ Project/TextAdventureVersion/obj/Debug/TextAdventureVersion.csprojResolveAssembl
 Project/TextAdventureVersion/obj/Debug/TextAdventureVersion.csproj.CoreCompileInputs.cache
 Project/TestModule/obj/Debug/TestModule.csprojResolveAssemblyReference.cache
 Project/TestModule/obj/Debug/TestModule.csproj.CoreCompileInputs.cache
+Project/.vs/NemesisSolution/v15/.suo
+*.ide
