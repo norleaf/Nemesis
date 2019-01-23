@@ -59,16 +59,20 @@ namespace BoardGraph
 
         private void PassFirstPlayerToken()
         {
-            var players = Players();
+            var players = Players()
+                .OrderBy(c => c.number)
+                .ToList();
+            var firstplayer = players.Single(r => r.firstPlayer);
             foreach (var p in players)
             {
                 p.passed = false;
                 p.actionsTakenInTurn = 0;
             }
-            var numbers = players
-                .OrderBy(c => c.number )
-            
-            index = numbers.IndexOf(allPlayers.Single(c => c.firstPlayer).number);
+                        
+            var index = players.IndexOf(firstplayer);
+            int nextIndex = (index + 1) < players.Count ? index++ : 0;
+            players[nextIndex].firstPlayer = true;
+            firstplayer.firstPlayer = false;
             //throw new NotImplementedException();
         }
 

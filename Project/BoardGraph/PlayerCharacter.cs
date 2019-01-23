@@ -20,7 +20,7 @@ namespace BoardGraph
         public List<Item> items = new List<Item>();
         public List<Option> options = new List<Option>();
         public List<Objective> objectives = new List<Objective>();
-        Random random = new Random();
+        
 
      
 
@@ -76,14 +76,14 @@ namespace BoardGraph
             throw new NotImplementedException();
         }
 
-        public List<Option> GetMoveOptions(Room currentRoom, Board board)
+        public List<MoveOption> GetMoveOptions(Room currentRoom, Board board)
             =>  currentRoom.GetAdjoiningRooms(board)
-                .Select(destination => new Option
+                .Select(destination => new MoveOption
                 {
                     name = "MOVE",
                     action = BasicActions.Move,
                     actionCost = 1,
-                    description = destination.RemoteDescription(board),
+                    description = "",
                     targetRoom = destination,
                     player = this,
                     room = currentRoom,
@@ -157,6 +157,7 @@ namespace BoardGraph
 
     public class Target
     {
+        public Random random = new Random();
         public string name;
         public int roomId;
         public int lightWounds = 0;
@@ -166,7 +167,6 @@ namespace BoardGraph
         {
             return board.rooms[roomId];
         }
-        public Random random = new Random();
     }
 
     

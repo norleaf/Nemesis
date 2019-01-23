@@ -38,44 +38,7 @@ namespace BoardGraph
             return board.targets.Where(t => t.roomId == id).ToList();
         }
 
-        public string RemoteDescription(Board board)
-        {
-            string description = "";
-            var occupants = GetRoomOccupants(board);
-            if (occupants.Any())
-            {
-                description = String.Format("A corridor leads to {0}, where you know ", name);
-                for (int i = 0; i < occupants.Count(); i++)
-                {
-                    if (i == 0) description += occupants[i].name;
-                    else if (i >= 1 && i <= occupants.Count() - 2) description += ", " + occupants[i].name;
-                    else if (i == occupants.Count() - 1) description += " and " + occupants[i].name;
-                }
-                description += (occupants.Count() == 1 ? " is " : " are ") + "present.";
-            }
-            else
-            {
-                string noise;
-                switch (NoiseLevel())
-                {
-                    case 0:
-                        noise = "slithering and scraping sounds not common to the ship...";
-                        break;
-                    case 1:
-                        noise = "noises that might or might not be mechanical.";
-                        break;
-                    case 2:
-                        noise = "leaking steam pipes whistling and working piston pumps and possibly something else...";
-                        break;
-                    default:
-                        noise = "the omnipresent hum of the ship generator.";
-                        break;
-                }
-                string room = isDiscovered ? "the " + name : "a unknown room";
-                description = string.Format("A corridor leads to {0}, where you hear {1}", room, noise);
-            }
-            return description;
-        }
+        
 
         public virtual IEnumerable<Option> GetOptions(PlayerCharacter player)
         {

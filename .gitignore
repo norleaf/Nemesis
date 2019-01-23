@@ -33,3 +33,5 @@ Project/TestModule/obj/Debug/TestModule.csprojResolveAssemblyReference.cache
 Project/TestModule/obj/Debug/TestModule.csproj.CoreCompileInputs.cache
 Project/.vs/NemesisSolution/v15/.suo
 *.ide
+Project/.vs/NemesisSolution/v15/.suo
+*.cache

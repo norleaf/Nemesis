@@ -50,5 +50,13 @@ namespace BoardGraph
         }
     }
 
+    public class MoveOption : Option
+    {
+        public MoveOption()
+        {
+
+        }
+    }
+
     
 }

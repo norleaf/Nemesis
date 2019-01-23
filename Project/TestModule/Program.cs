@@ -28,8 +28,8 @@ namespace TestModule
 
     public class PlayerTest
     {
-        PlayerCharacter player;
-        Board board;
+        public PlayerCharacter player;
+        public Board board;
 
         public PlayerTest()
         {

@@ -43,7 +43,7 @@ namespace NemesisLibrary
 
         public string Transformation(AttackCard ac, Board board)
         {
-            new NotImplementedException();
+            
             return "The creeper convulses and shakes as it undergoes metamorphorsis and changes into something much more hideous and dangerous...";
         }
 

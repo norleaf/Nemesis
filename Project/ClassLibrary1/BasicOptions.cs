@@ -20,7 +20,7 @@ namespace NemesisLibrary
             var description = "You are in the " + room.name + ".";
             if (room.isOnFire) description = description.Replace(".", "") + " and the room is on fire. ";
             description += player.DescribeOccupants(board, room);
-            description += player.DescribeOptions(room);
+            description += player.DescribeOptions(board, room);
             return description;
         }
 
@@ -39,13 +39,17 @@ namespace NemesisLibrary
             return description;
         }
 
-        public static string DescribeOptions(this PlayerCharacter player, Room room)
+        public static string DescribeOptions(this PlayerCharacter player, Board board, Room room)
         {
             var description = " ";
             if (room.isMalfunctioning) description += "The power is out. ";
 
             foreach (var option in player.options)
             {
+                if(option is MoveOption)
+                {
+                    option.description = option.targetRoom.RemoteDescription(board);
+                }
                 description += "\r\n";
                 description += string.Format("({0}) ", player.options.IndexOf(option) + 1);
                 description += option.description + ".";

@@ -19,10 +19,12 @@ namespace TextAdventureVersion
         {
             var test = new PlayerTest();
             board = test.TestTwo();
-            player = new PlayerCharacter();
+            player = test.player;
             player.deck.DrawPile = new Captain().CaptainCards();
-            player.Pass();
+            player.FillHand();
             player.roomId = 11;
+            board.activePlayer = player;
+            board.targets.Add(player);
             Console.WriteLine("game started");
             player.CalculateOptions(board);
             Console.WriteLine( player.DescribeSituation(board));
