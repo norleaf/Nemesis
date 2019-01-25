@@ -23,8 +23,6 @@ C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\BoardGraph.pdb
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.pdb
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.exe.config
-C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\ClassLibrary1.dll
-C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\ClassLibrary1.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.exe.config
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.exe
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.pdb
@@ -41,3 +39,5 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\Te
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.pdb
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.pdb

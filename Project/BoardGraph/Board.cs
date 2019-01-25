@@ -40,10 +40,10 @@ namespace BoardGraph
         public void EventPhase()
         {
             AdvanceTurn();
-            PassFirstPlayerToken();
             EnemyAttacks();
             FireDamage();
             EvolveTokenBag();
+            PassFirstPlayerToken();
             PlayerPhase();
         }
 
@@ -54,7 +54,7 @@ namespace BoardGraph
             {
                 player.FillHand();
             }
-            activePlayer = players.Single(c => c.firstPlayer);
+            activePlayer.CalculateOptions(this);
         }
 
         private void PassFirstPlayerToken()
@@ -62,18 +62,23 @@ namespace BoardGraph
             var players = Players()
                 .OrderBy(c => c.number)
                 .ToList();
-            var firstplayer = players.Single(r => r.firstPlayer);
+
+            var oldFirstplayer = players.Single(r => r.firstPlayer);
+
             foreach (var p in players)
             {
                 p.passed = false;
                 p.actionsTakenInTurn = 0;
             }
                         
-            var index = players.IndexOf(firstplayer);
+            var index = players.IndexOf(oldFirstplayer);
+            oldFirstplayer.firstPlayer = false;
+
             int nextIndex = (index + 1) < players.Count ? index++ : 0;
-            players[nextIndex].firstPlayer = true;
-            firstplayer.firstPlayer = false;
-            //throw new NotImplementedException();
+            var newFirstplayer = players[nextIndex];
+            newFirstplayer.firstPlayer = true;
+            activePlayer = newFirstplayer;
+            
         }
 
         private void FireDamage()
@@ -122,32 +127,28 @@ namespace BoardGraph
                 .ToList();
         }
 
-        public PlayerCharacter NextPlayer(PlayerCharacter player)
+        public void NextPlayer(PlayerCharacter player)
         {
-            
-
             var activePlayers = Players()
-                .Where(p=>p.HasUsableHandCards() && !p.passed);
-
-            var numbers = activePlayers
-                    .Select(r => r.number)
-                    .OrderBy(r => r)
-                    .ToList();
-            int index;
+                .Where(p=>p.HasUsableHandCards() && !p.passed)
+                .OrderBy(r => r.number)
+                .ToList();
 
             if (activePlayers.Any())
             {
-                
-                index = numbers.IndexOf(player.number);
-                //Todo: index +1 is it within bounds of array otherwise to 0. give turn to next player.
-                int nextIndex = (index + 1) < numbers.Count ? index++ : 0;
-                return activePlayers.Single(c => c.number == numbers[nextIndex]);
+                int index = activePlayers.IndexOf(player);
+                int nextIndex = (index + 1) >= activePlayers.Count ? index++ : 0;
+                var nextplayer = activePlayers[nextIndex];
+                activePlayer = nextplayer;
+                activePlayer.CalculateOptions(this);
             }
             else
             {
-                return null;
+                //The player phase is over.
+                //Todo: notify ui listeners. 
+                //Todo: implement observer listener.
+                EventPhase();
             }
-            
         }
     }
 

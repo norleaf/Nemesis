@@ -20,6 +20,8 @@ namespace TextAdventureVersion
             var test = new PlayerTest();
             board = test.TestTwo();
             player = test.player;
+            player.name = "CAPTAIN";
+            player.firstPlayer = true;
             player.deck.DrawPile = new Captain().CaptainCards();
             player.FillHand();
             player.roomId = 11;
@@ -70,6 +72,7 @@ namespace TextAdventureVersion
             player.CalculateOptions(board);
             Console.WriteLine( player.DescribeSituation(board));
             AwaitUserInput();
+            //TODO: discover rooms when enter
         }
     }
 }
