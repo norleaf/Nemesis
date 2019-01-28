@@ -36,7 +36,10 @@ namespace BoardGraph
             if (actionsTakenInTurn >= actionLimit)
                 EndTurn(board);
             else if (!HasUsableHandCards())
+            {
                 Pass();
+                EndTurn(board);
+            }
             else
             {
                 int cardsLeft = deck.HandCards.Count(a => !a.contamination);
@@ -96,6 +99,7 @@ namespace BoardGraph
         public void Pass()
         {
             passed = true;
+
         }
 
         public void FillHand()
@@ -142,6 +146,11 @@ namespace BoardGraph
         {
 
             option.player.roomId = option.targetRoom.id;
+            if(!option.targetRoom.isDiscovered)
+            {
+                //todo: pick a random event
+                option.targetRoom.isDiscovered = true;
+            }
             option.targetRoom.RollForNoise(option.board);
         }
     }

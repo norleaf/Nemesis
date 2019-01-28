@@ -72,7 +72,7 @@ namespace TextAdventureVersion
             player.CalculateOptions(board);
             Console.WriteLine( player.DescribeSituation(board));
             AwaitUserInput();
-            //TODO: discover rooms when enter
+           //todo: fix what happens when player is out of action cards
         }
     }
 }
