@@ -24,3 +24,11 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.J
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csprojResolveAssemblyReference.cache
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.pdb

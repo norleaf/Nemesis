@@ -23,10 +23,15 @@ namespace NemesisMonoUI
             
             graphicsBatch.Draw(
                 texture: graphicsBatch.Pixel,
-                destinationRectangle: new Rectangle(new Point(room.x * 20, room.y * 20), new Point(50, 30)),
+                destinationRectangle: new Rectangle(room.RoomPoint(), new Point(50, 30)),
                 color: Color.Gray
             //    layerDepth: LayerDepth
                 );
+        }
+
+        public static Point RoomPoint(this Room room)
+        {
+            return new Point(room.x * 20, room.y * 20);
         }
     }
 }

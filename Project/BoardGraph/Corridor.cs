@@ -33,5 +33,7 @@ namespace BoardGraph
             roomA.corridors.Add(this);
             roomB.corridors.Add(this);
         }
+
+        
     }
 }

@@ -22,6 +22,7 @@ namespace NemesisGame
         GraphicsBatch graphicsBatch;
         private List<SpriteGroup> sprites;
         Board board;
+        BoardView boardView;
 
         private InputController inputController;
 
@@ -36,6 +37,7 @@ namespace NemesisGame
             Content.RootDirectory = "Content";
             var test = new PlayerTest();
             board = test.TestTwo();
+            boardView = new BoardView(board,GraphicsDevice);
 
         }
 
@@ -110,8 +112,8 @@ namespace NemesisGame
             //   graphicsBatch.Begin(SpriteSortMode.BackToFront);
                graphicsBatch.Begin();
 
-            board.Draw(graphicsBatch);
-            board.DrawText(graphicsBatch);
+            boardView.Draw(graphicsBatch);
+            boardView.DrawText(graphicsBatch);
             
 
             graphicsBatch.End();
