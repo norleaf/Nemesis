@@ -36,6 +36,7 @@ namespace NemesisGame
             graphics.ToggleFullScreen();
             Content.RootDirectory = "Content";
             var test = new PlayerTest();
+            
             board = test.TestTwo();
             boardView = new BoardView(board,GraphicsDevice);
 

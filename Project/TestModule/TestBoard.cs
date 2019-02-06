@@ -68,6 +68,9 @@ namespace TestModule
             bs.corridors.Clear();
 
             bs.corridors.Add(
+            new Corridor(bs.GetLayout(1), bs.GetLayout(2)),
+            new Corridor(bs.GetLayout(1), bs.GetLayout(3)),
+            new Corridor(bs.GetLayout(1), bs.GetLayout(4)),
             new Corridor(bs.GetLayout(2), bs.GetLayout(6)),
             new Corridor(bs.GetLayout(2), bs.GetLayout(999), 2, true),
             new Corridor(bs.GetLayout(3), bs.GetLayout(7), 2),

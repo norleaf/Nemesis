@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace NemesisLibrary
 {
    public static class RoomDescriptions
-    {
-        //TODO: move this to extension class and also get rid of any refs to it within boardgraph
+   {
+        
         public static string RemoteDescription(this Room room, Board board)
         {
             string description = "";
@@ -27,22 +27,8 @@ namespace NemesisLibrary
             }
             else
             {
-                string noise;
-                switch (room.NoiseLevel())
-                {
-                    case 0:
-                        noise = "slithering and scraping sounds not common to the ship...";
-                        break;
-                    case 1:
-                        noise = "noises that might or might not be mechanical.";
-                        break;
-                    case 2:
-                        noise = "leaking steam pipes whistling and working piston pumps and possibly something else...";
-                        break;
-                    default:
-                        noise = "the omnipresent hum of the ship generator.";
-                        break;
-                }
+                string noise = room.NoiseLevel().RoomNoiseDescription();
+                
                 string roomname = room.isDiscovered ? "the " + room.name : "a unknown room";
                 description = string.Format("A corridor leads to {0}, where you hear {1}", roomname, noise);
             }

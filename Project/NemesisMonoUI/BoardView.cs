@@ -28,6 +28,8 @@ namespace NemesisMonoUI
         {
             this.board = board;
 
+            
+
             basicEffect = new BasicEffect(graphicsDevice);
             basicEffect.VertexColorEnabled = true;
             basicEffect.Projection = Matrix.CreateOrthographicOffCenter
@@ -39,8 +41,8 @@ namespace NemesisMonoUI
 
             vertices = new List<VertexPositionColor>();
 
-            vertices.Add(new VertexPositionColor(new Vector3(100, 100, 0), Color.Black));
-            vertices.Add(new VertexPositionColor(new Vector3(800, 200, 0), Color.Red));
+            var verts = board.corridors.SelectMany(r => r.GetVerts(board));
+            vertices.AddRange(verts);
 
             verticeArray = vertices.ToArray();
 

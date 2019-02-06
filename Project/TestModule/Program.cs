@@ -14,9 +14,9 @@ namespace TestModule
         static void Main(string[] args)
         {
             //var dump = RoomActions.GetAllRoomActions().Where(r=>r.Method.Name=="Armory");
-            //TestBoard.ConnectRooms();
-             var test = new PlayerTest();
-            test.TestTwo();
+            TestBoard.ConnectRooms();
+            // var test = new PlayerTest();
+            //test.TestTwo();
 
 
             //Console.WriteLine("done");

@@ -41,3 +41,19 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Ne
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.pdb
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.dll
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.exe.config
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.exe
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TextAdventureVersion.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\BoardGraph.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.exe
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\BoardGraph.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.exe.config
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csprojResolveAssemblyReference.cache
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.exe
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.pdb
