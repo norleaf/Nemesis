@@ -4,61 +4,79 @@
       "id": 1,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Cockpit",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 11,
       "x": 5,
       "y": 0,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Hibernatorium",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 21,
       "x": 9,
       "y": -3,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Engine One",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 20,
       "x": 9,
       "y": 0,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Engine Two",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 19,
       "x": 9,
       "y": 3,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Engine Three",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 999,
       "x": 0,
       "y": 3,
-      "actionCost": 2,
-      "actionName": null,
       "name": "TechnicalCorridors",
       "description": null,
-      "isDiscovered": true
+      "isDiscovered": true,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     }
   ],
   "basicRooms": [
@@ -66,111 +84,144 @@
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Armory",
       "name": "Armory",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "CommsRoom",
       "name": "Comms Room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "EmergencyRoom",
       "name": "Emergency Room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "EvacuationA",
       "name": "Evacuation Section A",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "EvacuationB",
       "name": "Evacuation Section B",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "FireControl",
       "name": "Fire Control System",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Generator",
       "name": "Generator",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Laboratory",
       "name": "Laboratory",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "TakeEgg",
       "name": "Nest",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Storage",
       "name": "Storage",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Surgery",
       "name": "Surgery",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     }
   ],
   "additionalRooms": [
@@ -178,91 +229,118 @@
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "AirlockControl",
       "name": "Airlock Control",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Cabins",
       "name": "Cabins",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Canteen",
       "name": "Canteen",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "CommandCenter",
       "name": "Command Center",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "EngineControl",
       "name": "Engine Control Room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "HatchControl",
       "name": "Hatch Control System",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "MonitoringRoom",
       "name": "Monitoring Room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Slime",
       "name": "Room Covered With Slime",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 0,
       "x": 0,
       "y": 0,
-      "actionCost": 2,
-      "actionName": "Shower",
       "name": "Shower Room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     }
   ],
   "boardLayout": [
@@ -270,224 +348,323 @@
       "id": 1,
       "x": 2,
       "y": 22,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Cockpit",
       "description": null,
-      "isDiscovered": true
+      "isDiscovered": true,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 2,
       "x": 16,
       "y": 9,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 3,
       "x": 13,
       "y": 25,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 4,
       "x": 16,
       "y": 38,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 5,
       "x": 30,
       "y": 4,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 6,
       "x": 31,
       "y": 12,
-      "actionCost": 2,
-      "actionName": null,
       "name": "additional room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 7,
       "x": 26,
       "y": 25,
-      "actionCost": 2,
-      "actionName": null,
       "name": "additional room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 8,
       "x": 31,
       "y": 34,
-      "actionCost": 2,
-      "actionName": null,
       "name": "additional room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 9,
       "x": 30,
       "y": 45,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 10,
       "x": 43,
       "y": 6,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 11,
       "x": 40,
       "y": 22,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Hibernatorium",
       "description": null,
-      "isDiscovered": true
+      "isDiscovered": true,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 12,
       "x": 44,
       "y": 36,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 13,
       "x": 57,
       "y": 7,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 14,
       "x": 51,
       "y": 17,
-      "actionCost": 2,
-      "actionName": null,
       "name": "additional room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 15,
       "x": 51,
       "y": 29,
-      "actionCost": 2,
-      "actionName": null,
       "name": "additional room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 16,
       "x": 57,
       "y": 37,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 17,
       "x": 63,
       "y": 16,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 18,
       "x": 63,
       "y": 28,
-      "actionCost": 2,
-      "actionName": null,
       "name": "basic room",
       "description": null,
-      "isDiscovered": false
+      "isDiscovered": false,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 19,
       "x": 71,
       "y": 7,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Engine Three",
       "description": null,
-      "isDiscovered": true
+      "isDiscovered": true,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 20,
       "x": 71,
       "y": 25,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Engine Two",
       "description": null,
-      "isDiscovered": true
+      "isDiscovered": true,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 21,
       "x": 71,
       "y": 37,
-      "actionCost": 2,
-      "actionName": null,
       "name": "Engine One",
       "description": null,
-      "isDiscovered": true
+      "isDiscovered": true,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     },
     {
       "id": 999,
       "x": 5,
       "y": 5,
-      "actionCost": 2,
-      "actionName": null,
       "name": "TechnicalCorridors",
       "description": null,
-      "isDiscovered": true
+      "isDiscovered": true,
+      "isOnFire": false,
+      "isMalfunctioning": false,
+      "hasComputer": false,
+      "itemsLeftToFind": 0,
+      "heavyItemsOnGround": []
     }
   ],
   "corridors": [
+    {
+      "noise": false,
+      "doorClosed": false,
+      "doorBroken": false,
+      "isMonsterTunnel": false,
+      "width": 1,
+      "roomIDs": [
+        1,
+        2
+      ]
+    },
+    {
+      "noise": false,
+      "doorClosed": false,
+      "doorBroken": false,
+      "isMonsterTunnel": false,
+      "width": 1,
+      "roomIDs": [
+        1,
+        3
+      ]
+    },
+    {
+      "noise": false,
+      "doorClosed": false,
+      "doorBroken": false,
+      "isMonsterTunnel": false,
+      "width": 1,
+      "roomIDs": [
+        1,
+        4
+      ]
+    },
     {
       "noise": false,
       "doorClosed": false,

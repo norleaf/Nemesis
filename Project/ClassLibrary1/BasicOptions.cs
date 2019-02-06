@@ -21,6 +21,7 @@ namespace NemesisLibrary
             if (room.isOnFire) description = description.Replace(".", "") + " and the room is on fire. ";
             description += player.DescribeOccupants(board, room);
             description += player.DescribeOptions(board, room);
+            description += string.Format("\r\nactionCards: {0}, actionsInTurn: {1}",player.deck.HandCards.Count,player.actionsTakenInTurn);
             return description;
         }
 
