@@ -150,6 +150,11 @@ namespace BoardGraph
                 EventPhase();
             }
         }
+
+        public RoomEvent PickEventToken()
+        {
+            return roomEvents.Dequeue();
+        }
     }
 
     public class BoardSetup

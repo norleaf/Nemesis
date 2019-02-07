@@ -79,6 +79,11 @@ namespace TestModule
                     .Where(c => c.roomIDs.Any(i => i == room.id));
                 room.corridors.AddRange(corridors);
             }
+            for (int i = 0; i < 21; i++)
+            {
+                board.roomEvents.Enqueue(new RoomEvent());
+            }
+            
 
             return board;
         }

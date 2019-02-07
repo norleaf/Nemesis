@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static BoardGraph.RoomEvent;
 
 namespace BoardGraph
 {
@@ -146,10 +147,13 @@ namespace BoardGraph
         {
 
             option.player.roomId = option.targetRoom.id;
-            if(!option.targetRoom.isDiscovered)
+            if (!option.targetRoom.isDiscovered)
             {
-                //todo: pick a random event
+                var token = option.board.PickEventToken();
+                token.Perform(option.targetRoom, option.player);
                 option.targetRoom.isDiscovered = true;
+                if (token is Claw || token is Calm)
+                    return; // Skip the roll for noise
             }
             option.targetRoom.RollForNoise(option.board);
         }

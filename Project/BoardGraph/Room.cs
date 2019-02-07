@@ -69,7 +69,7 @@ namespace BoardGraph
                  divide 80 by total corridor width to find interval size
 
                  */
-
+                int roll = board.random.Next(100);
                 int noiseLimit = corridors.Sum(c => c.width);
                 int currentNoise = corridors.Where(c=>c.noise).Sum(c => c.width);
                 int result = board.random.Next(noiseLimit) + 1;
@@ -85,6 +85,31 @@ namespace BoardGraph
 
     public class RoomEvent
     {
+        public RoomEvent()
+        {
 
+        }
+
+        public virtual void  Perform(Room room, PlayerCharacter player)
+        {
+            Console.WriteLine("room event performed");
+        }
+
+        public class Claw : RoomEvent
+        {
+            public override void Perform(Room room, PlayerCharacter player)
+            {
+                Console.WriteLine("CLAW!");
+            }
+        }
+
+        public class Calm : RoomEvent
+        {
+            public override void Perform(Room room, PlayerCharacter player)
+            {
+                Console.WriteLine("Calm!");
+            }
+        }
     }
+
 }
