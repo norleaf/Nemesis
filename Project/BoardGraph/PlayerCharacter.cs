@@ -25,7 +25,7 @@ namespace BoardGraph
 
      
 
-    public PlayerCharacter()
+        public PlayerCharacter()
         {
             isHostile = false;
         }
@@ -118,6 +118,11 @@ namespace BoardGraph
             deck.Discard(card);
         }
 
+        public int UsableHandCards()
+        {
+            return deck.HandCards.Where(r => !r.contamination).Count();
+        }
+
         public void PayActionCost(int amount)
         {
             for (int i = 0; i < amount; i++)
@@ -146,26 +151,28 @@ namespace BoardGraph
         public static void Move(Option option)
         {
 
-            option.player.roomId = option.targetRoom.id;
+            
             if (!option.targetRoom.isDiscovered)
             {
-                var token = option.board.PickEventToken();
-                token.Perform(option.targetRoom, option.player);
+                var token = option.board.roomEvents.Pick();
+                token.Perform(option.board, option.targetRoom, option.player);
                 option.targetRoom.isDiscovered = true;
                 if (token is Claw || token is Calm)
                     return; // Skip the roll for noise
             }
-            option.targetRoom.RollForNoise(option.board);
+            option.targetRoom.RollForNoise(option.board, option.player);
+            option.player.roomId = option.targetRoom.id;
         }
     }
 
     public class Objective
     {
+        //Todo: objective
     }
 
     public class SevereWound
     {
-
+        //Todo: severe wounds
     }
 
     public class Target
@@ -221,21 +228,26 @@ namespace BoardGraph
             
         }
 
-        internal bool isInCombat(Board board)
+        public bool isInCombat(Board board)
         {
             return GetRoom(board)
                 .GetRoomOccupants(board)
                 .Any(t => t is PlayerCharacter);
         }
 
-        internal void Attack(Board board)
+        public void Attack(Board board, PlayerCharacter player)
         {
-            var player = PickTarget(board);
             AttackCard card = board.attackCards.DrawCard();
             card.EnemyAttacksPlayer(this, player, board);
         }
 
-        private PlayerCharacter PickTarget(Board board)
+        //public void Attack(Board board)
+        //{
+        //    var player = PickTarget(board);
+            
+        //}
+
+        public PlayerCharacter PickTarget(Board board)
         {
             var players = GetRoom(board).GetRoomOccupants(board)
                 .Where(o => o is PlayerCharacter)
@@ -246,9 +258,21 @@ namespace BoardGraph
             return players[0];
         }
 
-        internal void Move(Board board)
+        public void Move(Board board)
         {
+            //todo: move aliens
+
             throw new NotImplementedException();
+        }
+
+        public void Attack(Board board)
+        {
+            if (isInCombat(board))
+            {
+                var player = PickTarget(board);
+                Attack(board, player);
+            }
+            
         }
     }
 

@@ -17,6 +17,10 @@ namespace BoardGraph
             Tokens = new List<T>();
         }
 
+        /// <summary>
+        /// Removes a random item from the bag and returns it
+        /// </summary>
+        /// <returns></returns>
         public T Pick()
         {
             int i = random.Next(Tokens.Count());

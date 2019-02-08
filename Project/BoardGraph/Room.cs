@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static BoardGraph.RoomEvent;
 
 namespace BoardGraph
 {
@@ -58,58 +59,25 @@ namespace BoardGraph
 
         }
 
-        public void RollForNoise(Board board)
+        public virtual void RollForNoise(Board board, PlayerCharacter player)
         {
             if (GetRoomOccupants(board).Count() == 1)
             {
-                //TODO check for claw and X
-                /* pseudo-code
-                 roll a percent die. <10=claw, <20=nothing if not slimed otherwise claw
-                 organise the corridors to spread over the remaining 80 percent dependent on width
-                 divide 80 by total corridor width to find interval size
+                int roll = board.random.Next(10);
+                RoomEvent evt;
+                if (roll < 1) evt = new Claw();
+                else if (roll < 2) evt = new Calm();
+                else evt = new NoiseToken();
 
-                 */
-                int roll = board.random.Next(100);
-                int noiseLimit = corridors.Sum(c => c.width);
-                int currentNoise = corridors.Where(c=>c.noise).Sum(c => c.width);
-                int result = board.random.Next(noiseLimit) + 1;
-
-            }
-
-        }
-    }
-
-
-
-
-
-    public class RoomEvent
-    {
-        public RoomEvent()
-        {
-
-        }
-
-        public virtual void  Perform(Room room, PlayerCharacter player)
-        {
-            Console.WriteLine("room event performed");
-        }
-
-        public class Claw : RoomEvent
-        {
-            public override void Perform(Room room, PlayerCharacter player)
-            {
-                Console.WriteLine("CLAW!");
-            }
-        }
-
-        public class Calm : RoomEvent
-        {
-            public override void Perform(Room room, PlayerCharacter player)
-            {
-                Console.WriteLine("Calm!");
+                evt.Perform(board, this, player);
             }
         }
     }
+
+
+
+
+
+    
 
 }

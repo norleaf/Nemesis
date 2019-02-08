@@ -11,10 +11,11 @@ namespace BoardGraph
         public Random random;
         public Dictionary<int,Room> rooms;
         public List<Corridor> corridors;
-        public Queue<RoomEvent> roomEvents;
+        public Bag<RoomEvent> roomEvents;
         public List<Target> targets;
         public Bag<Enemy> enemies;
         public Deck<AttackCard> attackCards;
+        public Deck<EventCard> eventCards;
         public int turn;
         public List<string> log;
         public PlayerCharacter activePlayer;
@@ -26,10 +27,11 @@ namespace BoardGraph
             random = new Random();
             rooms = new Dictionary<int, Room>();
             corridors = new List<Corridor>();
-            roomEvents = new Queue<RoomEvent>();
+            roomEvents = new Bag<RoomEvent>();
             targets = new List<Target>();
             enemies = new Bag<Enemy>();
             attackCards = new Deck<AttackCard>();
+            eventCards = new Deck<EventCard>();
         }
 
         public List<Room> Rooms()
@@ -42,9 +44,17 @@ namespace BoardGraph
             AdvanceTurn();
             EnemyAttacks();
             FireDamage();
+            ResolveEventCard();
             EvolveTokenBag();
             PassFirstPlayerToken();
             PlayerPhase();
+        }
+
+        private void ResolveEventCard()
+        {
+            var card = eventCards.DrawCard();
+            card.MoveEnemies(this);
+            card.ResolveEvent(this);
         }
 
         private void PlayerPhase()
@@ -96,9 +106,7 @@ namespace BoardGraph
             foreach (var target in targets.Where(t=>t is Enemy) )
             {
                 Enemy enemy = (Enemy)target;
-                if (enemy.isInCombat(this))
-                    enemy.Attack(this);
-                else enemy.Move(this);
+                enemy.Attack(this);
             }
         }
 
@@ -151,10 +159,7 @@ namespace BoardGraph
             }
         }
 
-        public RoomEvent PickEventToken()
-        {
-            return roomEvents.Dequeue();
-        }
+        
     }
 
     public class BoardSetup
