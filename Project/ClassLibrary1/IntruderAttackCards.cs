@@ -49,7 +49,7 @@ namespace NemesisLibrary
 
         public string Scratch(AttackCard ac, Board board)
         {
-            ac.player.GainLightWound(1);
+            ac.player.GainLightWound(1, board);
             throw new NotImplementedException();
             return "";
         }

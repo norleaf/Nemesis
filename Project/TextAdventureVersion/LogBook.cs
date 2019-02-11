@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestModule;
 
 namespace TextAdventureVersion
 {
@@ -17,9 +16,11 @@ namespace TextAdventureVersion
 
         public LogBook()
         {
-            var test = new PlayerTest();
-            board = test.TestTwo();
-            player = test.player;
+            var setup = new Setup();
+            board = setup.board;
+            setup.AddRoomEventTokens(board);
+            setup.AddIntrudersTokens(board);
+            player = new PlayerCharacter();
             player.name = "CAPTAIN";
             player.firstPlayer = true;
             player.deck.DrawPile = new Captain().CaptainCards();
@@ -67,7 +68,7 @@ namespace TextAdventureVersion
 
         private void PerformUserCommand(int option)
         {
-            player.options[option].ChooseOption();
+            player.options[option].ChooseOption(board);
             player = board.activePlayer;
             player.CalculateOptions(board);
             Console.WriteLine( player.DescribeSituation(board));

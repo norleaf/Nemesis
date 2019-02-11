@@ -7,19 +7,5 @@ using System.Threading.Tasks;
 
 namespace TestModule
 {
-    public class TestCards
-    {
-        public TestCards()
-        {
-            var card = new Card
-            (
-                "Basic Repairs",
-                new Option
-                {
-                    
-                }
-
-            );
-        }
-    }
+    
 }

@@ -47,7 +47,7 @@ namespace NemesisLibrary
 
             foreach (var option in player.options)
             {
-                if(option is MoveOption)
+                if(option is Move)
                 {
                     option.description = option.targetRoom.RemoteDescription(board);
                 }

@@ -17,13 +17,13 @@ namespace BoardGraph
         public int actionLimit = 2;
         public int handLimit = 5;
         //TODO list of selected cards for moving handcards to discards when paying cost
-        public Deck<Card> deck = new Deck<Card>(); 
+        public Deck<Card> deck = new Deck<Card>();
         public List<Item> items = new List<Item>();
         public List<Option> options = new List<Option>();
         public List<Objective> objectives = new List<Objective>();
-        
 
-     
+
+
 
         public PlayerCharacter()
         {
@@ -32,7 +32,7 @@ namespace BoardGraph
 
         public void CalculateOptions(Board board)
         {
-            
+
             options.Clear();
             if (actionsTakenInTurn >= actionLimit)
                 EndTurn(board);
@@ -59,33 +59,38 @@ namespace BoardGraph
             }
         }
 
-        
+
 
         public void HealLightWound(int wounds)
         {
-            //cannot go below zero
-            throw new NotImplementedException();
+            lightWounds -= wounds;
+            if (lightWounds < 0) lightWounds = 0;
         }
 
-        public void GainLightWound(int wounds)
+        public void GainLightWound(int wounds, Board board)
         {
-            // if goes above 2 set to zero and add serious wound
-            throw new NotImplementedException();
+
+            lightWounds += wounds;
+            if (lightWounds > 2)
+            {
+                lightWounds = 0;
+                GainSeriousWound(board);
+            }
         }
 
-        public void GainSeriousWound()
+        public void GainSeriousWound(Board board)
         {
+            //todo: serious wound gain
             //if 4th die
             //else draw from pile and add to wounds
             throw new NotImplementedException();
         }
 
-        public List<MoveOption> GetMoveOptions(Room currentRoom, Board board)
-            =>  currentRoom.GetAdjoiningRooms(board)
-                .Select(destination => new MoveOption
+        public List<Move> GetMoveOptions(Room currentRoom, Board board)
+            => currentRoom.GetAdjoiningRooms(board)
+                .Select(destination => new Move
                 {
                     name = "MOVE",
-                    action = BasicActions.Move,
                     actionCost = 1,
                     description = "",
                     targetRoom = destination,
@@ -110,7 +115,7 @@ namespace BoardGraph
 
         public void DrawCard()
         {
-            deck.DrawCard(); 
+            deck.DrawCard();
         }
 
         public void Discard(Card card)
@@ -138,7 +143,7 @@ namespace BoardGraph
             return deck.HandCards
                 .Any(r => !r.contamination);
         }
-   
+
         private void EndTurn(Board board)
         {
             actionsTakenInTurn = 0;
@@ -146,28 +151,32 @@ namespace BoardGraph
         }
     }
 
-    public class BasicActions
-    {
-        public static void Move(Option option)
-        {
-
-            
-            if (!option.targetRoom.isDiscovered)
-            {
-                var token = option.board.roomEvents.Pick();
-                token.Perform(option.board, option.targetRoom, option.player);
-                option.targetRoom.isDiscovered = true;
-                if (token is Claw || token is Calm)
-                    return; // Skip the roll for noise
-            }
-            option.targetRoom.RollForNoise(option.board, option.player);
-            option.player.roomId = option.targetRoom.id;
-        }
-    }
+    //public class BasicActions
+    //{
+    //    public static void Move(Option option)
+    //    {
+    //        if (!option.targetRoom.isDiscovered)
+    //        {
+    //            var token = option.board.roomEvents.Pick();
+    //            token.Perform(option.board, option.targetRoom, option.player);
+    //            option.targetRoom.isDiscovered = true;
+    //            if (token is Claw || token is Calm)
+    //            {
+    //                option.player.roomId = option.targetRoom.id;
+    //                return;
+    //            }
+    //        }
+    //        option.targetRoom.RollForNoise(option.board, option.player);
+    //        option.player.roomId = option.targetRoom.id;
+    //    }
+    //}
 
     public class Objective
     {
         //Todo: objective
+        public string name;
+        public Func<PlayerCharacter, Board, bool> SolutionA;
+        public Func<PlayerCharacter, Board, bool> SolutionB;
     }
 
     public class SevereWound
@@ -189,7 +198,7 @@ namespace BoardGraph
         }
     }
 
-    
+
 
     public class Enemy : Target
     {
@@ -208,7 +217,7 @@ namespace BoardGraph
             board.GetRoom(this.roomId).heavyItemsOnGround.Add(new Carcass());
             board.targets.Remove(this);
             return name + " dies!";
-            
+
         }
 
         public virtual string PainfulGrunt()
@@ -225,7 +234,7 @@ namespace BoardGraph
 
         public virtual void DrawAttackCard(Board board)
         {
-            
+
         }
 
         public bool isInCombat(Board board)
@@ -244,16 +253,16 @@ namespace BoardGraph
         //public void Attack(Board board)
         //{
         //    var player = PickTarget(board);
-            
+
         //}
 
         public PlayerCharacter PickTarget(Board board)
         {
             var players = GetRoom(board).GetRoomOccupants(board)
                 .Where(o => o is PlayerCharacter)
-                .Select(o=> (PlayerCharacter)o)
-                .OrderBy(o=>o.deck.HandCards.Count())
-                .ThenBy(o=>o.number)
+                .Select(o => (PlayerCharacter)o)
+                .OrderBy(o => o.deck.HandCards.Count())
+                .ThenBy(o => o.number)
                 .ToList();
             return players[0];
         }
@@ -272,7 +281,7 @@ namespace BoardGraph
                 var player = PickTarget(board);
                 Attack(board, player);
             }
-            
+
         }
     }
 

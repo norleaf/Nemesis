@@ -47,11 +47,8 @@ C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\BoardGraph.dll
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.dll
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.exe
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\BoardGraph.pdb
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\NemesisLibrary.pdb
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.pdb
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\TestModule.exe.config
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csprojResolveAssemblyReference.cache

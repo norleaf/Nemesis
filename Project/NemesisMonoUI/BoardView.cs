@@ -13,6 +13,7 @@ namespace NemesisMonoUI
     public class BoardView
     {
         public Board board;
+        //todo: use this instead of the invidual vertexes. simply add all the corridor vertices one by one, then map their indices to the indexbuffer
         VertexBuffer vertexBuffer;
         IndexBuffer indexBuffer;
         BasicEffect basicEffect;

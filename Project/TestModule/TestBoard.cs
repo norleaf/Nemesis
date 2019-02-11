@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TestModule
 {
-    public class TestBoard
+    public static class TestBoard
     {
         public static string setupFileName = "board setup.json";
 
@@ -49,7 +49,7 @@ namespace TestModule
 
         public static void CreateRoomLayoutNumbersAndPosition()
         {
-            var bs = Load<BoardSetup>(setupFileName);
+            var bs = new BoardSetup().Load(setupFileName);
             bs.boardLayout = bs.boardLayout.OrderBy(o => o.id).ToList();
             var positions = new int[,] { { 2, 22 }, { 16, 9 }, { 13, 25 }, { 16, 38 }, { 30, 4 }, { 31, 12 }, { 26, 25 }, { 31, 34 }, { 30, 45 }, { 43, 6 }, { 40, 22 }, { 44, 36 }, { 57, 7 }, { 51, 17 }, { 51, 29 }, { 57, 37 }, { 63, 16 }, { 63, 28 }, { 71, 7 }, { 71, 25 }, { 71, 37 } };
             for (int i = 0; i < bs.boardLayout.Where(l => l.name != "TechnicalCorridors").Count(); i++)
@@ -64,7 +64,7 @@ namespace TestModule
 
         public static void ConnectRooms()
         {
-            var bs = Load<BoardSetup>(setupFileName);
+            var bs = new BoardSetup().Load(setupFileName);
             bs.corridors.Clear();
 
             bs.corridors.Add(
@@ -119,7 +119,7 @@ namespace TestModule
 
         public static void NameRooms()
         {
-            var boardSetup = Load<BoardSetup>(setupFileName);
+            var boardSetup = new BoardSetup().Load(setupFileName);
             Dictionary<string, string> basics = new Dictionary<string, string>
             {
                 {"Armory","Armory"  },
@@ -164,7 +164,7 @@ namespace TestModule
 
         public static void DiscoverEnginesAndCockpit()
         {
-            var boardSetup = Load<BoardSetup>(setupFileName);
+            var boardSetup = new BoardSetup().Load(setupFileName);
             foreach (var room in boardSetup.boardLayout.Where(r => r.id == 1 || r.id == 11 || r.id == 19 || r.id == 20 || r.id == 21))
             {
                 room.isDiscovered = true;
@@ -174,16 +174,16 @@ namespace TestModule
 
 
 
-        public static T Load<T>(string fileName)
+        public static T Load<T>(this T element, string fileName)
         {
             string path = Environment.CurrentDirectory;
             var json = File.ReadAllText(Path.Combine(path, fileName));
-            T element = JsonConvert.DeserializeObject<T>(json);
+            element = JsonConvert.DeserializeObject<T>(json);
             return element;
             //path.Log();
         }
 
-        public static void Save<T>(T element, string fileName)
+        public static void Save<T>(this T element, string fileName)
         {
             var json = JsonConvert.SerializeObject(element, Formatting.Indented);
             string path = Environment.CurrentDirectory;

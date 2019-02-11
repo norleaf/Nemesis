@@ -9,6 +9,11 @@ namespace NemesisLibrary
 {
     public class CraftOption : Option
     {
+        public override void Perform()
+        {
+            
+        }
 
+        
     }
 }

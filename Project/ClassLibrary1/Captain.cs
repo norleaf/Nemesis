@@ -19,11 +19,11 @@ namespace NemesisLibrary
                 cards.Enqueue(
                     new Card(
                         "default", 
-                        new Option
+                        new BasicRepairs
                         {
                             name = "do nothing",
                             description = "do nothing at all...",
-                            action = (option)=> { }
+                            
                         }
                     )
                 );

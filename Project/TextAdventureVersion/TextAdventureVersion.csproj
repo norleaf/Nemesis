@@ -62,10 +62,6 @@
       <Project>{c0f74667-62da-4687-9cd6-27f3dbb80f79}</Project>
       <Name>NemesisLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TestModule\TestModule.csproj">
-      <Project>{6E2823DE-DDFE-4A5D-A34B-8EF9B9F389E5}</Project>
-      <Name>TestModule</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

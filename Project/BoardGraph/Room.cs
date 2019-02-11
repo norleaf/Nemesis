@@ -61,7 +61,7 @@ namespace BoardGraph
 
         public virtual void RollForNoise(Board board, PlayerCharacter player)
         {
-            if (GetRoomOccupants(board).Count() == 1)
+            if (!GetRoomOccupants(board).Any())
             {
                 int roll = board.random.Next(10);
                 RoomEvent evt;
