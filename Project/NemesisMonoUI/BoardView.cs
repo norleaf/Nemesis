@@ -47,6 +47,17 @@ namespace NemesisMonoUI
 
             verticeArray = vertices.ToArray();
 
+            vertexBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), verticeArray.Length, BufferUsage.WriteOnly);
+            vertexBuffer.SetData<VertexPositionColor>(verticeArray);
+
+         
+            short[] indices = vertices.Select((r, i) => (short) i ).ToArray();
+
+            indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Length, BufferUsage.WriteOnly);
+            indexBuffer.SetData(indices);
+
+            
+
             /*
             basicEffect = new BasicEffect(graphicsDevice);
             // vertex position and color information for icosahedron
@@ -109,9 +120,27 @@ namespace NemesisMonoUI
 
         private void DrawTestVertices(GraphicsDevice graphicsDevice)
         {
-            basicEffect.CurrentTechnique.Passes[0].Apply();
-            graphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, verticeArray,vertexOffset: 0, primitiveCount: verticeArray.Length/2);
+            graphicsDevice.SetVertexBuffer(vertexBuffer);
+            graphicsDevice.Indices = indexBuffer;
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            graphicsDevice.RasterizerState = rasterizerState;
 
+            if (false)
+            {
+                basicEffect.CurrentTechnique.Passes[0].Apply();
+                graphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, verticeArray,vertexOffset: 0, primitiveCount: verticeArray.Length/2);
+            }
+
+            if (true)
+            {
+                //basicEffect.CurrentTechnique.Passes[0].Apply();
+                foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+                    graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: verticeArray.Length/2);
+                }
+            }
 
             //basicEffect.World = world;
             //basicEffect.View = view;
@@ -128,12 +157,12 @@ namespace NemesisMonoUI
             //foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
             //{
             //    pass.Apply();
-                
+
             //    //graphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList,baseVertex:0,startIndex:0,primitiveCount:20);
             //    graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip,baseVertex:0,startIndex:0,primitiveCount:20);
             //}
 
-            
+
         }
     }
 
