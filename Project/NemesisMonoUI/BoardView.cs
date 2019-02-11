@@ -10,53 +10,53 @@ using System.Threading.Tasks;
 
 namespace NemesisMonoUI
 {
-    public class BoardView
+    public static class ViewExtensions
+    {
+        public static void DrawText(this BoardView view, GraphicsBatch graphicsBatch)
+        {
+            foreach (var room in view.board.rooms.Values)
+                room.DrawText(graphicsBatch);
+        }
+    }
+
+    public class BoardView : ViewBase
     {
         public Board board;
-        //todo: use this instead of the invidual vertexes. simply add all the corridor vertices one by one, then map their indices to the indexbuffer
-        VertexBuffer vertexBuffer;
-        IndexBuffer indexBuffer;
-        BasicEffect basicEffect;
-        List<VertexPositionColor> vertices;
-        VertexPositionColor[] verticeArray;
+        public RoomView[] roomView;
+        public CorridorView corridorView;
 
-
-        //  Matrix world = Matrix.CreateTranslation(0, 0, 0);
-        //  Matrix view = Matrix.CreateLookAt(new Vector3(0, 0, 3), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
-        //  Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), 800f / 480f, 0.01f, 100f);
-
-        public BoardView(Board board, GraphicsDevice graphicsDevice)
+        public BoardView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             this.board = board;
+            roomView = board.Rooms().Select(r => new RoomView(r, board.random, graphicsDevice)).ToArray();
+            corridorView = new CorridorView(board, graphicsDevice);
+        }
 
-            
+        public override void Draw(GraphicsDevice graphicsDevice)
+        {
+            //foreach (var room in board.rooms.Values)
+            //{
+            //    room.Draw(graphicsBatch);
+            //}
+            corridorView.Draw(graphicsDevice);
+            foreach (var room in roomView)
+            { room.Draw(graphicsDevice); }
+        }
 
-            basicEffect = new BasicEffect(graphicsDevice);
-            basicEffect.VertexColorEnabled = true;
-            basicEffect.Projection = Matrix.CreateOrthographicOffCenter
-            (
-                0, graphicsDevice.Viewport.Width,     // left, right
-                graphicsDevice.Viewport.Height, 0,    // bottom, top
-                0, 1
-            );
+        
 
-            vertices = new List<VertexPositionColor>();
+        private void DrawTestVertices(GraphicsDevice graphicsDevice)
+        {
+         //  basicEffect.CurrentTechnique.Passes[0].Apply();
+         //  graphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, verticeArray, vertexOffset: 0, primitiveCount: verticeArray.Length / 2);
+        }
 
-            var verts = board.corridors.SelectMany(r => r.GetVerts(board));
-            vertices.AddRange(verts);
+        public void DemoFromInternet_DrawingIn3D()
+        {
 
-            verticeArray = vertices.ToArray();
-
-            vertexBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), verticeArray.Length, BufferUsage.WriteOnly);
-            vertexBuffer.SetData<VertexPositionColor>(verticeArray);
-
-         
-            short[] indices = vertices.Select((r, i) => (short) i ).ToArray();
-
-            indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Length, BufferUsage.WriteOnly);
-            indexBuffer.SetData(indices);
-
-            
+            //  Matrix world = Matrix.CreateTranslation(0, 0, 0);
+            //  Matrix view = Matrix.CreateLookAt(new Vector3(0, 0, 3), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
+            //  Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), 800f / 480f, 0.01f, 100f);
 
             /*
             basicEffect = new BasicEffect(graphicsDevice);
@@ -101,51 +101,14 @@ namespace NemesisMonoUI
 
             indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Length, BufferUsage.WriteOnly);
             indexBuffer.SetData(indices);
-
-    */
-        }
-
-        public void Draw(GraphicsBatch graphicsBatch)
-        {
-            foreach (var room in board.rooms.Values)
-            {
-                room.Draw(graphicsBatch);
-            }
-
-        //    foreach (var corridor in board.corridors)
-        //        corridor.Draw(board, graphicsBatch);
-
-            DrawTestVertices(graphicsBatch.GraphicsDevice);
-        }
-
-        private void DrawTestVertices(GraphicsDevice graphicsDevice)
-        {
-            graphicsDevice.SetVertexBuffer(vertexBuffer);
-            graphicsDevice.Indices = indexBuffer;
-            RasterizerState rasterizerState = new RasterizerState();
-            rasterizerState.CullMode = CullMode.None;
-            graphicsDevice.RasterizerState = rasterizerState;
-
-            if (false)
-            {
-                basicEffect.CurrentTechnique.Passes[0].Apply();
-                graphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, verticeArray,vertexOffset: 0, primitiveCount: verticeArray.Length/2);
-            }
-
-            if (true)
-            {
-                //basicEffect.CurrentTechnique.Passes[0].Apply();
-                foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
-                {
-                    pass.Apply();
-                    graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: verticeArray.Length/2);
-                }
-            }
+              */
 
             //basicEffect.World = world;
             //basicEffect.View = view;
             //basicEffect.Projection = projection;
             //basicEffect.VertexColorEnabled = true;
+
+            //FROM BELOW THIS POINT PUT CODE IN A DRAW METHOD
 
             //graphicsDevice.SetVertexBuffer(vertexBuffer);
             //graphicsDevice.Indices = indexBuffer;
@@ -162,16 +125,10 @@ namespace NemesisMonoUI
             //    graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip,baseVertex:0,startIndex:0,primitiveCount:20);
             //}
 
-
         }
+
+        
     }
 
-    public static class ViewExtensions
-    {
-        public static void DrawText(this BoardView view, GraphicsBatch graphicsBatch)
-        {
-            foreach (var room in view.board.rooms.Values)
-                room.DrawText(graphicsBatch);
-        }
-    }
+
 }

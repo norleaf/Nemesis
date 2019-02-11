@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Hans Nørløv/Documents/GitHub/Nemesis/Project/Game1/Content/papegøje.jpg</SourceFile>
-  <SourceTime>2019-01-28T22:12:28.5810192+01:00</SourceTime>
-  <DestFile>C:/Users/Hans Nørløv/Documents/GitHub/Nemesis/Project/Game1/Content/bin/Windows/papegøje.xnb</DestFile>
-  <DestTime>2019-02-01T05:26:25.8870355+01:00</DestTime>
+  <SourceFile>C:/Users/Hans/Documents/GitHub/Nemesis/Project/Game1/Content/papegøje.jpg</SourceFile>
+  <SourceTime>2018-11-08T16:05:35.210806+01:00</SourceTime>
+  <DestFile>C:/Users/Hans/Documents/GitHub/Nemesis/Project/Game1/Content/bin/Windows/papegøje.xnb</DestFile>
+  <DestTime>2019-02-11T15:09:27.0384907+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

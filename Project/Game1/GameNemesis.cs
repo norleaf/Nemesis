@@ -109,11 +109,11 @@ namespace NemesisGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.Black);
             //   graphicsBatch.Begin(SpriteSortMode.BackToFront);
                graphicsBatch.Begin();
 
-            boardView.Draw(graphicsBatch);
+            boardView.Draw(graphicsBatch.GraphicsDevice);
             boardView.DrawText(graphicsBatch);
             
 

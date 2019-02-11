@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BoardView.cs" />
     <Compile Include="CorridorView.cs" />
+    <Compile Include="Lights.cs" />
     <Compile Include="RoomView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

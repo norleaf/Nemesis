@@ -55,7 +55,6 @@
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />
-    <Compile Include="RoomActions.cs" />
     <Compile Include="RoomEvent.cs" />
   </ItemGroup>
   <ItemGroup>
