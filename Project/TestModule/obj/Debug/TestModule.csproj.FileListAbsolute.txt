@@ -44,3 +44,5 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\TestModule\bin\Debug\Newtonsoft.J
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.exe
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.csproj.CoreCompileInputs.cache
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TestModule\obj\Debug\TestModule.csproj.CopyComplete

@@ -33,7 +33,7 @@ namespace BoardGraph
             this.requiresComputer = requiresComputer;
         }
 
-        public virtual bool CanTakeAction(Board board)
+        public virtual bool CanTakeAction(Board board, PlayerCharacter player)
         {
             if (this.board == null) this.board = board;
             var missingTarget = requiresTarget && target == null;
@@ -53,14 +53,34 @@ namespace BoardGraph
                 !missingComputer;
         }
 
-        public void ChooseOption(Board board)
+        public void ChooseOption(Board board, PlayerCharacter player)
         {
-            if (CanTakeAction(board))
+            if (CanTakeAction(board, player))
             {
+                this.player = player;
                 player.actionsTakenInTurn++;
                 player.PayActionCost(actionCost);
                 Perform();
             }
+        }
+    }
+
+    public abstract class RoomOption : Option
+    {
+        public RoomOption(Room room, bool requiresTarget = false, bool requiresTargetRoom = false, bool requiresCombat = false, bool requiresNoCombat = false, bool requiresComputer = false)
+            : base(requiresTarget, requiresTargetRoom, requiresCombat, requiresNoCombat, requiresComputer)
+        {
+            this.room = room;
+        }
+
+        public RoomOption(Room room) : base()
+        {
+            this.room = room;
+        }
+
+        public override bool CanTakeAction(Board board, PlayerCharacter player)
+        {
+            return base.CanTakeAction(board, player) && !room.isMalfunctioning;
         }
     }
 

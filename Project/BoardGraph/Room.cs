@@ -17,17 +17,39 @@ namespace BoardGraph
         //public int actionCost = 2;
         //public string actionName;
         [JsonIgnore]
-        public List<Option> options = new List<Option>();
+        public List<Option> options;
         public string name;
         public string description;
         [JsonIgnore]
-        public List<Corridor> corridors = new List<Corridor>();
+        public List<Corridor> corridors;
         public bool isDiscovered = false;
         public bool isOnFire = false;
         public bool isMalfunctioning = false;
         public bool hasComputer;
         public int itemsLeftToFind;
-        public List<Item> heavyItemsOnGround = new List<Item>();
+        public List<Item> heavyItemsOnGround;
+
+        public Room()
+        {
+
+        }
+
+        public Room(int id, int x, int y, string name, string description="", bool isDiscovered=false,  bool hasComputer = false)
+        {
+            this.id = id;
+            this.x = x;
+            this.y = y;
+            this.options = new List<Option>();
+            this.name = name;
+            this.description = description;
+            this.corridors = new List<Corridor>();
+            this.isDiscovered = isDiscovered;
+            this.isOnFire = false;
+            this.isMalfunctioning = false;
+            this.hasComputer = hasComputer;
+            this.itemsLeftToFind = 0;
+            this.heavyItemsOnGround = new List<Item>();
+        }
 
         public int NoiseLevel()
         {

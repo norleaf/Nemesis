@@ -30,3 +30,5 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\ClassLibrary1\bin\Debug\Newtonsof
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\NemesisLibrary.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\NemesisLibrary.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\NemesisLibrary.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\NemesisLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\ClassLibrary1\obj\Debug\NemesisLibrary.csproj.CopyComplete

@@ -57,7 +57,6 @@ C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisMonoUI\obj\Debug\
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\bin\Debug\NemesisMonoUI.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\bin\Debug\NemesisMonoUI.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\bin\Debug\BoardGraph.dll
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\bin\Debug\MonoGame.Framework.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\bin\Debug\MonoGameLib.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\bin\Debug\SharpDX.XAudio2.dll
@@ -82,3 +81,5 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\bin\Debug\SharpDX.M
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\obj\Debug\NemesisMonoUI.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\obj\Debug\NemesisMonoUI.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\obj\Debug\NemesisMonoUI.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\obj\Debug\NemesisMonoUI.csproj.CoreCompileInputs.cache
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisMonoUI\obj\Debug\NemesisMonoUI.csproj.CopyComplete

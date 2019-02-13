@@ -51,3 +51,5 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\bin\Debug\Ne
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.exe
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csproj.CoreCompileInputs.cache
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\TextAdventureVersion\obj\Debug\TextAdventureVersion.csproj.CopyComplete
