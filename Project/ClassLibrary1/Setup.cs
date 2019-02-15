@@ -15,9 +15,13 @@ namespace NemesisLibrary
         public Setup()
         {
             board = new Board();
+            var player = new Captain();
+            board.activePlayer = player;
+            board.targets.Add(player);
             var bs = new BoardSetup().Load(setupFileName);
             board.rooms = bs.boardLayout.ToDictionary(r => r.id, r => r);
             board.corridors = bs.corridors;
+            AddRoomEventTokens(board);
         }
 
         public void AddIntrudersTokens(Board board)

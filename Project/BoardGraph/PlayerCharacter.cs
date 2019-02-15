@@ -12,15 +12,15 @@ namespace BoardGraph
         public bool signalSent = false;
         public bool passed = false;
         public bool firstPlayer = false;
-        public List<SevereWound> severeWounds = new List<SevereWound>();
+        public List<SevereWound> severeWounds;
         public int actionsTakenInTurn = 0;
         public int actionLimit = 2;
         public int handLimit = 5;
         //TODO list of selected cards for moving handcards to discards when paying cost
-        public Deck<Card> deck = new Deck<Card>();
-        public List<Item> items = new List<Item>();
-        public List<Option> options = new List<Option>();
-        public List<Objective> objectives = new List<Objective>();
+        public Deck<Card> deck;
+        public List<Item> items;
+        public List<Option> options;
+        public List<Objective> objectives;
 
 
 
@@ -28,6 +28,11 @@ namespace BoardGraph
         public PlayerCharacter()
         {
             isHostile = false;
+            severeWounds = new List<SevereWound>();
+            deck = new Deck<Card>();
+            items = new List<Item>();
+            options = new List<Option>();
+            objectives = new List<Objective>();
         }
 
         public void CalculateOptions(Board board)

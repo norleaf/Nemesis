@@ -44,29 +44,6 @@ C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csproj.CopyComplete
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.dll
 C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.pdb
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGameLib.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGameLib.pdb
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGame.Framework.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.MediaFoundation.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XAudio2.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.DXGI.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D11.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct2D1.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XInput.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D9.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGame.Framework.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.MediaFoundation.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XAudio2.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.DXGI.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D11.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct2D1.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XInput.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D9.xml
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csprojResolveAssemblyReference.cache
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.dll
-C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGameLib.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGameLib.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGame.Framework.dll
@@ -90,3 +67,33 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csproj.CoreCompileInputs.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csproj.CopyComplete
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGameLib.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGameLib.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGame.Framework.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XAudio2.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.DXGI.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct2D1.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XInput.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGame.Framework.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XAudio2.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.DXGI.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D11.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct2D1.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XInput.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D9.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csprojAssemblyReference.cache
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csproj.CoreCompileInputs.cache
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csproj.CopyComplete
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\BoardGraph.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\BoardGraph.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Newtonsoft.Json.xml

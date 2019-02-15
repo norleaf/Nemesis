@@ -8,6 +8,7 @@ using BoardGraph;
 using NemesisMonoUI;
 using MonoGameLib;
 using TestModule;
+using NemesisLibrary;
 
 namespace NemesisGame
 {
@@ -35,9 +36,9 @@ namespace NemesisGame
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             graphics.ToggleFullScreen();
             Content.RootDirectory = "Content";
-            var test = new PlayerTest();
-            
-            board = test.TestTwo();
+
+
+            board = new Setup().board;
             boardView = new BoardView(board,GraphicsDevice);
 
         }
@@ -53,7 +54,8 @@ namespace NemesisGame
             
             this.IsMouseVisible = true;
             sprites = new List<SpriteGroup>();
-            inputController = new InputController(sprites);
+            inputController = new InputController(board);
+            inputController.cc.collidables.Add(boardView.roomView);
             base.Initialize();
         }
 

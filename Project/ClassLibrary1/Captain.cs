@@ -7,16 +7,20 @@ using System.Threading.Tasks;
 
 namespace NemesisLibrary
 {
-    public class Captain
+    public class Captain : PlayerCharacter
     {
-
-
-        public Queue<Card> CaptainCards()
+        public Captain() : base()
         {
-            Queue<Card> cards = new Queue<Card>();
+            name = "Captain Brenegan";
+            
+        }
+
+        public void CaptainCards()
+        {
+            
             for (int i = 0; i < 10; i++)
             {
-                cards.Enqueue(
+                deck.DrawPile.Enqueue(
                     new Card(
                         "default", 
                         new BasicRepairs
@@ -28,7 +32,7 @@ namespace NemesisLibrary
                     )
                 );
             }
-            return cards;
+           
         }
 
     }

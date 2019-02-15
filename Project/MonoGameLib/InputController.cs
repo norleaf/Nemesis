@@ -5,24 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Sprites;
 using Microsoft.Xna.Framework.Input;
+using BoardGraph;
 
-namespace NemesisGame
+namespace MonoGameLib
 {
     public class InputController
     {
-        CollisionController cc;
-        private List<SpriteGroup> sprites;
+        Board board;
+        public CollisionController cc;
         private bool mousePressed = false;
 
-        public InputController()
+        public InputController(Board board)
         {
-            
-        }
-
-        public InputController(List<SpriteGroup> sprites)
-        {
-            this.sprites = sprites;
-            cc = new CollisionController(sprites);
+            this.board = board;
+            cc = new CollisionController();
         }
 
         public void Update()
@@ -42,12 +38,14 @@ namespace NemesisGame
         {
             
             bool hit = false;
-            SpriteGroup spriteGrp = null;
-            cc.CheckMouseClick(out hit, out spriteGrp);
+            Collidable collider = null;
+            cc.CheckMouseClick(out hit, out collider);
             if(hit)
             {
-                spriteGrp.Next();
+                collider.Activate(board);
             }
         }
     }
+
+    
 }

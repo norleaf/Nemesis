@@ -8,12 +8,14 @@ namespace BoardGraph
 {
     public abstract class RoomEvent
     {
-        public abstract void Perform(Board board, Room room, PlayerCharacter player);
+        public abstract void Perform(Board board, Room room);
+
+        
     }
 
     public class NoiseToken : RoomEvent
     {
-        public override void Perform(Board board, Room room, PlayerCharacter player)
+        public override void Perform(Board board, Room room)
         {
             int totalWidth = room.corridors.Sum(c => c.width);
             int roll = board.random.Next(totalWidth) + 1;
@@ -25,7 +27,7 @@ namespace BoardGraph
             }
             Corridor corridor = room.corridors[index];
             if (corridor.noise)
-                new Encounter().Perform(board, room, player);
+                new Encounter().Perform(board, room);
             else
                 corridor.noise = true;
 
@@ -34,7 +36,7 @@ namespace BoardGraph
 
     public class Claw : RoomEvent
     {
-        public override void Perform(Board board, Room room, PlayerCharacter player)
+        public override void Perform(Board board, Room room)
         {
             Console.WriteLine("CLAW!");
         }
@@ -42,25 +44,25 @@ namespace BoardGraph
 
     public class Calm : RoomEvent
     {
-        public override void Perform(Board board, Room room, PlayerCharacter player)
+        public override void Perform(Board board, Room room)
         {
-            if (player.slimed) new Claw().Perform(board, room, player);
+            if (board.activePlayer.slimed) new Claw().Perform(board, room);
             else Console.WriteLine("Calm!");
         }
     }
 
     public class Slime : RoomEvent
     {
-        public override void Perform(Board board, Room room, PlayerCharacter player)
+        public override void Perform(Board board, Room room)
         {
-            player.slimed = true;
+            board.activePlayer.slimed = true;
             Console.WriteLine("You slip and fall onto some sticky foul smelling slime!");
         }
     }
 
     public class Fire : RoomEvent
     {
-        public override void Perform(Board board, Room room, PlayerCharacter player)
+        public override void Perform(Board board, Room room)
         {
             Console.WriteLine("The room is ablaze with fire. Staying here is hazardous!");
         }
@@ -68,7 +70,7 @@ namespace BoardGraph
 
     public class Malfunction : RoomEvent
     {
-        public override void Perform(Board board, Room room, PlayerCharacter player)
+        public override void Perform(Board board, Room room)
         {
             Console.WriteLine("Mechanical damage has caused a local power outage.");
         }
@@ -76,7 +78,7 @@ namespace BoardGraph
 
     public class DoorLock : RoomEvent
     {
-        public override void Perform(Board board, Room room, PlayerCharacter player)
+        public override void Perform(Board board, Room room)
         {
             Console.WriteLine("The door slams shut behind you and refuses to open.");
         }
@@ -84,11 +86,11 @@ namespace BoardGraph
 
     public class Encounter : RoomEvent
     {
-        public override void Perform(Board board, Room room, PlayerCharacter player)
+        public override void Perform(Board board, Room room)
         {
             foreach (var corridor in room.corridors)
                 corridor.noise = false;
-
+            var player = board.activePlayer;
             var enemy = board.enemies.Pick();
             board.targets.Add(enemy);
             if(enemy.surpriseAttackChance > player.UsableHandCards())

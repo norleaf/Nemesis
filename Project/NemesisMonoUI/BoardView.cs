@@ -28,7 +28,7 @@ namespace NemesisMonoUI
         public BoardView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             this.board = board;
-            roomView = board.Rooms().Select(r => new RoomView(r, board.random, graphicsDevice)).ToArray();
+            roomView = board.Rooms().Select(r => new RoomView(r, board, graphicsDevice)).ToArray();
             corridorView = new CorridorView(board, graphicsDevice);
         }
 

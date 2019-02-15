@@ -108,6 +108,10 @@
       <Project>{B9127170-CCD6-4954-84F3-51BE02F15503}</Project>
       <Name>BoardGraph</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary1\NemesisLibrary.csproj">
+      <Project>{C0F74667-62DA-4687-9CD6-27F3DBB80F79}</Project>
+      <Name>NemesisLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MonoGameLib\MonoGameLib.csproj">
       <Project>{a56d3f06-46a9-4b5c-80ea-d5c8527bfa2d}</Project>
       <Name>MonoGameLib</Name>

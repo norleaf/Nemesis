@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MonoGameLib
 {
    public static class RectangleExtensions
-    {
+   {
 
-    }
+   }
 }

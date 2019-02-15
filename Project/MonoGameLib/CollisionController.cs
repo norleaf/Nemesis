@@ -1,33 +1,45 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using BoardGraph;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Sprites;
 using System.Collections.Generic;
 
-namespace NemesisGame
+namespace MonoGameLib
 {
     public class CollisionController
     {
-        private List<SpriteGroup> sprites;
+        public List<Collidable> collidables;
 
-        public CollisionController(List<SpriteGroup> sprites)
+        public CollisionController()
         {
-            this.sprites = sprites;
+            collidables = new List<Collidable>();
         }
 
-        public void CheckMouseClick(out bool collision, out SpriteGroup group)
+        public void CheckMouseClick(out bool collision, out Collidable collider)
         {
             collision = false;
-            group = null;
+            collider = null;
             var mousePos = Mouse.GetState().Position;
-            foreach (var spriteGrp in sprites)
+            foreach (var item in collidables)
             {
-                if(spriteGrp.Current.HasPointWithinBounds(mousePos))
+                if(item.PointWithinBounds(mousePos))
                 {
                     collision = true;
-                    group = spriteGrp;
+                    collider = item;
                 }
             }
         }
 
         
+    }
+
+    public interface Collidable
+    {
+        bool PointOnEdge(Point p);
+        bool PointWithinBounds(Point p);
+        bool RectangleTouch(Rectangle r);
+        bool RectangleOverlap(Rectangle r);
+        bool RectangleWithinBounds(Rectangle r);
+        void Activate(Board board);
     }
 }

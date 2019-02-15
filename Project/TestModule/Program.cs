@@ -75,6 +75,7 @@ namespace TestModule
             }
             foreach (var room in board.rooms.Values)
             {
+                room.Init();
                 var corridors = board.corridors
                     .Where(c => c.roomIDs.Any(i => i == room.id));
                 room.corridors.AddRange(corridors);

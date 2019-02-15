@@ -10,14 +10,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace NemesisMonoUI
 {
-    public class RoomView : ViewBase
+    public class RoomView : ViewBase, Collidable
     {
         Room room;
-
-        public RoomView(Room room, Random random, GraphicsDevice graphicsDevice) : base(graphicsDevice)
+        public Rectangle rectangle;
+        
+        public RoomView(Room room, Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             this.room = room;
-            vertices = room.GetVerts(random).ToList();
+            rectangle = new Rectangle(room.RoomPoint(), room.RoomPoint() + new Point((int)RoomViewExtensions.roomSquareWidth));
+            vertices = room.GetVerts(board.random).ToList();
             Init(graphicsDevice);
         }
 
@@ -58,11 +60,46 @@ namespace NemesisMonoUI
                 room.RoomPoint());
             }
         }
+
+        bool Collidable.PointOnEdge(Point p)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool Collidable.PointWithinBounds(Point p)
+        {
+            return
+                rectangle.X <= p.X &&
+                p.X <= rectangle.Right &&
+                rectangle.X <= p.Y &&
+                p.Y <= rectangle.Bottom;
+        }
+
+        bool Collidable.RectangleTouch(Rectangle r)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool Collidable.RectangleOverlap(Rectangle r)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool Collidable.RectangleWithinBounds(Rectangle r)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Collidable.Activate(Board board)
+        {
+            room.isDiscovered = true;
+            board.roomEvents.Pick().Perform(board, room);
+        }
     }
 
     public static class RoomViewExtensions
     {
-        static float roomSquareWidth = 160;
+        public static float roomSquareWidth = 160;
 
         public static IEnumerable<VertexPositionColor> GetVerts(this Room room, Random random)
         {

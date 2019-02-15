@@ -96,7 +96,7 @@ namespace BoardGraph
             if (!targetRoom.isDiscovered)
             {
                 var token = board.roomEvents.Pick();
-                token.Perform(board, targetRoom, player);
+                token.Perform(board, targetRoom);
                 targetRoom.isDiscovered = true;
                 if (token is Claw || token is Calm)
                 {
@@ -104,7 +104,7 @@ namespace BoardGraph
                     return;
                 }
             }
-            targetRoom.RollForNoise(board, player);
+            targetRoom.RollForNoise(board);
             player.roomId = targetRoom.id;
         }
     }

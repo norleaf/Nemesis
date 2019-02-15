@@ -29,10 +29,7 @@ namespace BoardGraph
         public int itemsLeftToFind;
         public List<Item> heavyItemsOnGround;
 
-        public Room()
-        {
-
-        }
+        
 
         public Room(int id, int x, int y, string name, string description="", bool isDiscovered=false,  bool hasComputer = false)
         {
@@ -49,6 +46,14 @@ namespace BoardGraph
             this.hasComputer = hasComputer;
             this.itemsLeftToFind = 0;
             this.heavyItemsOnGround = new List<Item>();
+        }
+
+        public void Init()
+        {
+            this.options = new List<Option>();
+            this.corridors = new List<Corridor>();
+            this.heavyItemsOnGround = new List<Item>();
+
         }
 
         public int NoiseLevel()
@@ -81,7 +86,7 @@ namespace BoardGraph
 
         }
 
-        public virtual void RollForNoise(Board board, PlayerCharacter player)
+        public virtual void RollForNoise(Board board)
         {
             if (!GetRoomOccupants(board).Any())
             {
@@ -91,7 +96,7 @@ namespace BoardGraph
                 else if (roll < 2) evt = new Calm();
                 else evt = new NoiseToken();
 
-                evt.Perform(board, this, player);
+                evt.Perform(board, this);
             }
         }
     }

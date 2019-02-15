@@ -13,39 +13,39 @@ namespace TestModule
     {
         public static string setupFileName = "board setup.json";
 
-        public static void StartUp()
-        {
-            var boardSetup = new BoardSetup();
-            boardSetup.fixedRooms.Add(new Room { x = 0, y = 0, name = "Cockpit", id = 1 });
-            boardSetup.fixedRooms.Add(new Room { x = 5, y = 0, name = "Hibernatorium", id = 11 });
-            boardSetup.fixedRooms.Add(new Room { x = 9, y = 3, name = "Engine Three", id = 19 });
-            boardSetup.fixedRooms.Add(new Room { x = 9, y = 0, name = "Engine Two", id = 20 });
-            boardSetup.fixedRooms.Add(new Room { x = 9, y = -3, name = "Engine One", id = 21 });
-            int[] basicNumbers = new int[] { 2, 3, 4, 5, 9, 10, 12, 13, 16, 17, 18 };
-            int[] additionalNumbers = new int[] { 6, 7, 8, 14, 15 };
-            for (int i = 0; i < 11; i++)
-            {
-                boardSetup.basicRooms.Add(new Room { name = "basic room", id = basicNumbers[i] });
-            }
-            for (int i = 0; i < 5; i++)
-            {
-                boardSetup.additionalRooms.Add(new Room { name = "additional room", id = additionalNumbers[i] });
-            }
-            boardSetup.boardLayout.AddRange(boardSetup.fixedRooms);
-            boardSetup.boardLayout.AddRange(boardSetup.basicRooms);
-            boardSetup.boardLayout.AddRange(boardSetup.additionalRooms);
+        //public static void StartUp()
+        //{
+        //    var boardSetup = new BoardSetup();
+        //    boardSetup.fixedRooms.Add(new Room { x = 0, y = 0, name = "Cockpit", id = 1 });
+        //    boardSetup.fixedRooms.Add(new Room { x = 5, y = 0, name = "Hibernatorium", id = 11 });
+        //    boardSetup.fixedRooms.Add(new Room { x = 9, y = 3, name = "Engine Three", id = 19 });
+        //    boardSetup.fixedRooms.Add(new Room { x = 9, y = 0, name = "Engine Two", id = 20 });
+        //    boardSetup.fixedRooms.Add(new Room { x = 9, y = -3, name = "Engine One", id = 21 });
+        //    int[] basicNumbers = new int[] { 2, 3, 4, 5, 9, 10, 12, 13, 16, 17, 18 };
+        //    int[] additionalNumbers = new int[] { 6, 7, 8, 14, 15 };
+        //    for (int i = 0; i < 11; i++)
+        //    {
+        //        boardSetup.basicRooms.Add(new Room { name = "basic room", id = basicNumbers[i] });
+        //    }
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        boardSetup.additionalRooms.Add(new Room { name = "additional room", id = additionalNumbers[i] });
+        //    }
+        //    boardSetup.boardLayout.AddRange(boardSetup.fixedRooms);
+        //    boardSetup.boardLayout.AddRange(boardSetup.basicRooms);
+        //    boardSetup.boardLayout.AddRange(boardSetup.additionalRooms);
 
-            //boardSetup
-            var techCorridors = new Room { x = 5, y = 5, isDiscovered = true, name = "TechnicalCorridors", id = 999 };
-            boardSetup.fixedRooms.Add(techCorridors);
-            boardSetup.boardLayout.Add(techCorridors);
+        //    //boardSetup
+        //    var techCorridors = new Room { x = 5, y = 5, isDiscovered = true, name = "TechnicalCorridors", id = 999 };
+        //    boardSetup.fixedRooms.Add(techCorridors);
+        //    boardSetup.boardLayout.Add(techCorridors);
 
-            Save(boardSetup, setupFileName);
+        //    Save(boardSetup, setupFileName);
 
-            var board = new Board();
+        //    var board = new Board();
 
-            Save(board, "board.json");
-        }
+        //    Save(board, "board.json");
+        //}
 
         public static void CreateRoomLayoutNumbersAndPosition()
         {
@@ -117,50 +117,50 @@ namespace TestModule
             Save(bs, setupFileName);
         }
 
-        public static void NameRooms()
-        {
-            var boardSetup = new BoardSetup().Load(setupFileName);
-            Dictionary<string, string> basics = new Dictionary<string, string>
-            {
-                {"Armory","Armory"  },
-                {"Comms Room","CommsRoom"   },
-                {"Emergency Room","EmergencyRoom"   },
-                {"Evacuation Section A", "EvacuationA"   },
-                {"Evacuation Section B", "EvacuationB"   },
-                {"Fire Control System",  "FireControl"   },
-                {"Generator","Generator"   },
-                {"Laboratory","Laboratory"   },
-                {"Nest","TakeEgg"   },
-                {"Storage","Storage"   },
-                { "Surgery","Surgery"   }
-            };
-            boardSetup.basicRooms.Clear();
-            foreach (var room in basics)
-            {
-                boardSetup.basicRooms.Add(new Room { name = room.Key,  id = 0 });
-            }
+        //public static void NameRooms()
+        //{
+        //    var boardSetup = new BoardSetup().Load(setupFileName);
+        //    Dictionary<string, string> basics = new Dictionary<string, string>
+        //    {
+        //        {"Armory","Armory"  },
+        //        {"Comms Room","CommsRoom"   },
+        //        {"Emergency Room","EmergencyRoom"   },
+        //        {"Evacuation Section A", "EvacuationA"   },
+        //        {"Evacuation Section B", "EvacuationB"   },
+        //        {"Fire Control System",  "FireControl"   },
+        //        {"Generator","Generator"   },
+        //        {"Laboratory","Laboratory"   },
+        //        {"Nest","TakeEgg"   },
+        //        {"Storage","Storage"   },
+        //        { "Surgery","Surgery"   }
+        //    };
+        //    boardSetup.basicRooms.Clear();
+        //    foreach (var room in basics)
+        //    {
+        //        boardSetup.basicRooms.Add(new Room { name = room.Key,  id = 0 });
+        //    }
 
-            Dictionary<string, string> additional = new Dictionary<string, string>
-            {
-                {"Airlock Control",  "AirlockControl" },
-                {"Cabins",  "Cabins" },
-                {"Canteen","Canteen" },
-                {"Command Center", "CommandCenter" },
-                {"Engine Control Room","EngineControl" },
-                {"Hatch Control System","HatchControl" },
-                {"Monitoring Room", "MonitoringRoom" },
-                {"Room Covered With Slime","Slime" },
-                { "Shower Room","Shower" },
-            };
-            boardSetup.additionalRooms.Clear();
-            foreach (var room in additional)
-            {
-                boardSetup.additionalRooms.Add(new Room { name = room.Key,  id = 0 });
-            }
+        //    Dictionary<string, string> additional = new Dictionary<string, string>
+        //    {
+        //        {"Airlock Control",  "AirlockControl" },
+        //        {"Cabins",  "Cabins" },
+        //        {"Canteen","Canteen" },
+        //        {"Command Center", "CommandCenter" },
+        //        {"Engine Control Room","EngineControl" },
+        //        {"Hatch Control System","HatchControl" },
+        //        {"Monitoring Room", "MonitoringRoom" },
+        //        {"Room Covered With Slime","Slime" },
+        //        { "Shower Room","Shower" },
+        //    };
+        //    boardSetup.additionalRooms.Clear();
+        //    foreach (var room in additional)
+        //    {
+        //        boardSetup.additionalRooms.Add(new Room { name = room.Key,  id = 0 });
+        //    }
 
 
-            Save(boardSetup, setupFileName);
-        }
+        //    Save(boardSetup, setupFileName);
+        //}
 
         public static void DiscoverEnginesAndCockpit()
         {
