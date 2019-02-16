@@ -55,6 +55,7 @@ namespace NemesisGame
             this.IsMouseVisible = true;
             sprites = new List<SpriteGroup>();
             inputController = new InputController(board);
+            inputController.listener = boardView;
             inputController.cc.collidables.Add(boardView.roomView);
             base.Initialize();
         }
@@ -115,7 +116,7 @@ namespace NemesisGame
             //   graphicsBatch.Begin(SpriteSortMode.BackToFront);
                graphicsBatch.Begin();
 
-            boardView.Draw(graphicsBatch.GraphicsDevice);
+            boardView.DrawGraphics(graphicsBatch);
             boardView.DrawText(graphicsBatch);
             
 

@@ -24,8 +24,6 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.J
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csprojResolveAssemblyReference.cache
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csproj.CoreCompileInputs.cache
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csproj.CopyComplete
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.dll
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.pdb
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.dll

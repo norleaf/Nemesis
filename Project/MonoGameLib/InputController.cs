@@ -14,6 +14,7 @@ namespace MonoGameLib
         Board board;
         public CollisionController cc;
         private bool mousePressed = false;
+        public Listener listener;
 
         public InputController(Board board)
         {
@@ -23,8 +24,9 @@ namespace MonoGameLib
 
         public void Update()
         {
-            if(Mouse.GetState().LeftButton== ButtonState.Pressed && mousePressed==false)
+            if(Mouse.GetState().LeftButton == ButtonState.Pressed && mousePressed==false)
             {
+                
                 mousePressed = true;
                 UpdateMousePress();
             }
@@ -42,6 +44,7 @@ namespace MonoGameLib
             cc.CheckMouseClick(out hit, out collider);
             if(hit)
             {
+                listener.Notify(collider);
                 collider.Activate(board);
             }
         }

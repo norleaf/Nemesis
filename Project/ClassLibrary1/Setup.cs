@@ -16,6 +16,7 @@ namespace NemesisLibrary
         {
             board = new Board();
             var player = new Captain();
+            player.firstPlayer = true;
             board.activePlayer = player;
             board.targets.Add(player);
             var bs = new BoardSetup().Load(setupFileName);

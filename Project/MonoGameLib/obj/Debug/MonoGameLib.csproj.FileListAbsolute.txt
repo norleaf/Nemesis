@@ -65,8 +65,6 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.XIn
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csprojResolveAssemblyReference.cache
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csproj.CoreCompileInputs.cache
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\obj\Debug\MonoGameLib.csproj.CopyComplete
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGameLib.dll
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGameLib.pdb
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\MonoGame.Framework.dll
@@ -97,3 +95,10 @@ C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Ne
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\BoardGraph.pdb
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\BoardGraph.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\BoardGraph.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\MonoGameLib\bin\Debug\SharpDX.Direct3D9.xml

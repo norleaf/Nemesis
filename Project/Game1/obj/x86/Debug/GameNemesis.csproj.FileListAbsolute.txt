@@ -174,8 +174,6 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Sharp
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\Game1.exe
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\Game1.pdb
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csproj.CoreCompileInputs.cache
-C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\GameNemesis.csproj.CopyComplete
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\1.png
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\betonblander.jpg
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\D.jpg
@@ -305,3 +303,46 @@ C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\Game
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\Game1\obj\x86\Debug\Game1.pdb
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\NemesisLibrary.dll
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\NemesisLibrary.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\1.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\B.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\B2.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\banan.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\betonblander.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\bus.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\D.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\defaultFont.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\dinosaur.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\E.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\G.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\giraf.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\gravko.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\gyngehest.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\K.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\kaj.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\kasse.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\ko.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\kop.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\M.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\moon.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\mor.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\P.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\papegøje.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\pixel.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\pizza.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\plask.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\poelsebroed.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\pompom.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\S.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\sander.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\skammel.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\sko.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\skrældebil.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\støvle.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\T.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\tiger.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\tog.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Content\Content\traktor.xnb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\NemesisLibrary.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\NemesisLibrary.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml

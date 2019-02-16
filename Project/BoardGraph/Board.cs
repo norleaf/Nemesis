@@ -12,7 +12,8 @@ namespace BoardGraph
         public Dictionary<int,Room> rooms;
         public List<Corridor> corridors;
         public Bag<RoomEvent> roomEvents;
-        public List<Target> targets;
+        public Targets targets;
+       
         public Bag<Enemy> enemies;
         public Deck<AttackCard> attackCards;
         public Deck<EventCard> eventCards;
@@ -28,7 +29,7 @@ namespace BoardGraph
             rooms = new Dictionary<int, Room>();
             corridors = new List<Corridor>();
             roomEvents = new Bag<RoomEvent>();
-            targets = new List<Target>();
+            targets = new Targets();
             enemies = new Bag<Enemy>();
             attackCards = new Deck<AttackCard>();
             eventCards = new Deck<EventCard>();
@@ -59,7 +60,7 @@ namespace BoardGraph
 
         private void PlayerPhase()
         {
-            var players = Players();
+            var players = targets.Players;
             foreach (var player in players)
             {
                 player.FillHand();
@@ -69,7 +70,7 @@ namespace BoardGraph
 
         private void PassFirstPlayerToken()
         {
-            var players = Players()
+            var players =targets.Players
                 .OrderBy(c => c.number)
                 .ToList();
 
@@ -103,7 +104,7 @@ namespace BoardGraph
 
         private void EnemyAttacks()
         {
-            foreach (var target in targets.Where(t=>t is Enemy) )
+            foreach (var target in targets.Enemies )
             {
                 Enemy enemy = (Enemy)target;
                 enemy.Attack(this);
@@ -127,17 +128,11 @@ namespace BoardGraph
             log.Add(string.Format(message, parameters) );
         }
 
-        public List<PlayerCharacter> Players()
-        {
-            return targets
-                .Where(t => t is PlayerCharacter)
-                .Select(t => (PlayerCharacter)t)
-                .ToList();
-        }
+       
 
         public void NextPlayer(PlayerCharacter player)
         {
-            var activePlayers = Players()
+            var activePlayers = targets.Players
                 .Where(p=>p.HasUsableHandCards() && !p.passed)
                 .OrderBy(r => r.number)
                 .ToList();
@@ -161,6 +156,8 @@ namespace BoardGraph
 
         
     }
+
+    
 
     public class BoardSetup
     {
@@ -208,6 +205,11 @@ namespace BoardGraph
             list.AddRange(elements);
         }
 
-        
+        public static List<T> New<T>(this List<T> list)
+        {
+            return new List<T>();
+           
+        }
+
     }
 }

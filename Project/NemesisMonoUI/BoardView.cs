@@ -15,35 +15,60 @@ namespace NemesisMonoUI
         public static void DrawText(this BoardView view, GraphicsBatch graphicsBatch)
         {
             foreach (var room in view.board.rooms.Values)
+            {
                 room.DrawText(graphicsBatch);
+            }
+            view.nemesisConsole.DrawText(graphicsBatch);
         }
     }
 
-    public class BoardView : ViewBase
+    public class BoardView : ViewBase, Listener
     {
         public Board board;
         public RoomView[] roomView;
+        public TargetsView targetsView;
         public CorridorView corridorView;
-
+        public NemesisConsole nemesisConsole;
+       
         public BoardView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             this.board = board;
-            roomView = board.Rooms().Select(r => new RoomView(r, board, graphicsDevice)).ToArray();
+            roomView = board.Rooms().Select(r => new RoomView(r, this, graphicsDevice)).ToArray();
+            targetsView = new TargetsView(board,graphicsDevice);
+            targetsView.AddAll(board, graphicsDevice);
             corridorView = new CorridorView(board, graphicsDevice);
+            nemesisConsole = new NemesisConsole(new Rectangle(1600,0,320,1080));
+            nemesisConsole.Add("New game.");
+        }
+
+        public void DrawGraphics(GraphicsBatch graphicsBatch)
+        {
+            foreach (var room in roomView)
+            {
+                room.Draw(graphicsBatch);
+            }
+            Draw(graphicsBatch.GraphicsDevice);
         }
 
         public override void Draw(GraphicsDevice graphicsDevice)
         {
-            //foreach (var room in board.rooms.Values)
-            //{
-            //    room.Draw(graphicsBatch);
-            //}
+
+            
             corridorView.Draw(graphicsDevice);
             foreach (var room in roomView)
-            { room.Draw(graphicsDevice); }
+            {
+                room.Draw(graphicsDevice);
+            }
+            targetsView.Draw(graphicsDevice);
+            
         }
 
-        
+        public void Notify(object[] messages)
+        {
+            nemesisConsole.Add(messages);
+        }
+
+
 
         private void DrawTestVertices(GraphicsDevice graphicsDevice)
         {
@@ -127,7 +152,10 @@ namespace NemesisMonoUI
 
         }
 
-        
+        public void NotifyMove(Room room)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

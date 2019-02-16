@@ -14,12 +14,16 @@ namespace NemesisMonoUI
     {
         Room room;
         public Rectangle rectangle;
+        public Listener listener;
+    //    public List<TargetView> targetView;
         
-        public RoomView(Room room, Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
+        public RoomView(Room room, BoardView boardView, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             this.room = room;
-            rectangle = new Rectangle(room.RoomPoint(), room.RoomPoint() + new Point((int)RoomViewExtensions.roomSquareWidth));
-            vertices = room.GetVerts(board.random).ToList();
+            rectangle = new Rectangle(room.RoomPoint(), new Point(RoomViewExtensions.roomSquareWidth));
+            listener = boardView;
+        //    targetView = new List<TargetView>();
+            vertices = room.GetVerts(boardView.board.random).ToList();
             Init(graphicsDevice);
         }
 
@@ -52,6 +56,16 @@ namespace NemesisMonoUI
             }
         }
 
+        public void Draw(GraphicsBatch graphicsBatch)
+        {
+            //graphicsBatch.Draw
+            //(
+            //    texture: graphicsBatch.Pixel,
+            //    destinationRectangle: rectangle,
+            //    color: Color.DarkBlue
+            //);
+        }
+
         private void Debug()
         {
             if(room.name == "Cockpit")
@@ -68,11 +82,13 @@ namespace NemesisMonoUI
 
         bool Collidable.PointWithinBounds(Point p)
         {
-            return
-                rectangle.X <= p.X &&
-                p.X <= rectangle.Right &&
-                rectangle.X <= p.Y &&
-                p.Y <= rectangle.Bottom;
+            bool minX = p.X > rectangle.Left;
+            bool maxX = p.X < rectangle.Right;
+            bool minY = p.Y > rectangle.Top;
+            bool maxY = p.Y < rectangle.Bottom;
+            bool hit = minX && maxX && minY && maxY;
+
+            return hit;
         }
 
         bool Collidable.RectangleTouch(Rectangle r)
@@ -95,11 +111,16 @@ namespace NemesisMonoUI
             room.isDiscovered = true;
             board.roomEvents.Pick().Perform(board, room);
         }
+
+        public override string ToString()
+        {
+            return room.name + " " + room.description;
+        }
     }
 
     public static class RoomViewExtensions
     {
-        public static float roomSquareWidth = 160;
+        public static int roomSquareWidth = 160;
 
         public static IEnumerable<VertexPositionColor> GetVerts(this Room room, Random random)
         {
@@ -147,43 +168,31 @@ namespace NemesisMonoUI
             if (size > 256) size = 256;
             return new Vector3(random.Next(size), random.Next(size), random.Next(size));
         }
-
-        public static int Scale(this Room room)
-        {
-            return 20;
-        }
+     
+        public static int RoomScale { get => 20; }
 
 
 
         public static void DrawText(this Room room, GraphicsBatch graphicsBatch)
         {
             string name = room.isDiscovered ? room.name : "unknown";
-            graphicsBatch.DrawString(graphicsBatch.DefaultFont, name, new Vector2(room.x, room.y) * room.Scale(), Color.GhostWhite);
+            graphicsBatch.DrawString(graphicsBatch.DefaultFont, name, new Vector2(room.x, room.y) * RoomScale, Color.GhostWhite);
+            graphicsBatch.DrawString(graphicsBatch.DefaultFont, room.RoomPoint().ToString(), new Vector2(room.x, room.y+1) * RoomScale, Color.GhostWhite);
         }
-
-        public static void Draw(this Room room, GraphicsBatch graphicsBatch)
-        {
-            graphicsBatch.Draw
-            (
-                texture: graphicsBatch.Pixel,
-                destinationRectangle: new Rectangle(room.RoomPoint(), new Point(50, 30)),
-                color: Color.Gray               
-            );
-        }
-
+      
         public static Point RoomPoint(this Room room)
         {
-            return new Point(room.x * room.Scale(), room.y * room.Scale());
+            return new Point(room.x * RoomScale, room.y * RoomScale);
         }
 
         public static Vector2 RoomVector(this Room room)
         {
-            return new Vector2(room.x * room.Scale(), room.y * room.Scale());
+            return new Vector2(room.x * RoomScale, room.y * RoomScale);
         }
 
         public static Vector2 RoomCenterVector(this Room room)
         {
-            return new Vector2(room.x * room.Scale() + roomSquareWidth/2f, room.y * room.Scale() + roomSquareWidth/2f);
+            return new Vector2(room.x * RoomScale + roomSquareWidth/2f, room.y * RoomScale + roomSquareWidth/2f);
         }
     }
 }

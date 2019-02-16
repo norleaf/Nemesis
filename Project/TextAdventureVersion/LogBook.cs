@@ -20,12 +20,10 @@ namespace TextAdventureVersion
             board = setup.board;
             setup.AddRoomEventTokens(board);
             setup.AddIntrudersTokens(board);
-            player = new PlayerCharacter();
-            player.name = "CAPTAIN";
+            player = new Captain();
             player.firstPlayer = true;
-            player.deck.DrawPile = new Captain().CaptainCards();
             player.FillHand();
-            player.roomId = 11;
+            
             board.activePlayer = player;
             board.targets.Add(player);
             Console.WriteLine("game started");

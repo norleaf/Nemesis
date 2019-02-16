@@ -22,6 +22,7 @@ namespace MonoGameLib
             var mousePos = Mouse.GetState().Position;
             foreach (var item in collidables)
             {
+                
                 if(item.PointWithinBounds(mousePos))
                 {
                     collision = true;

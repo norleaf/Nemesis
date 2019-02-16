@@ -105,6 +105,7 @@ namespace BoardGraph
                 }
             }
             targetRoom.RollForNoise(board);
+            player.listeners.NotifyMove(targetRoom);
             player.roomId = targetRoom.id;
         }
     }

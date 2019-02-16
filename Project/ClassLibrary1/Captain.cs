@@ -12,7 +12,8 @@ namespace NemesisLibrary
         public Captain() : base()
         {
             name = "Captain Brenegan";
-            
+            CaptainCards();
+            roomId = 11;
         }
 
         public void CaptainCards()

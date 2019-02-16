@@ -63,7 +63,7 @@ namespace BoardGraph
 
         public List<Target> GetRoomOccupants(Board board)
         {
-            return board.targets.Where(t => t.roomId == id).ToList();
+            return board.targets.InRoom(id);
         }
 
         
@@ -81,9 +81,6 @@ namespace BoardGraph
                 .Where(room => room.Key != this.id && room.Key != 999)
                 .Select(o=>o.Value)
                 .ToList();
-
-
-
         }
 
         public virtual void RollForNoise(Board board)

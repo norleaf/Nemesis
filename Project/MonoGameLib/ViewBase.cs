@@ -53,4 +53,29 @@ namespace MonoGameLib
         public abstract void Draw(GraphicsDevice graphicsDevice);
 
     }
+
+    public static class ViewExtensions
+    {
+        public static void Draw<T>(this List<T> list, GraphicsDevice graphicsDevice) where T : ViewBase
+        {
+            foreach (var item in list)
+            {
+                item.PrepareDraw(graphicsDevice);
+                item.Draw(graphicsDevice);
+            }
+        }
+
+        public static List<VertexPositionColor> VerticeLines(this string values, Dictionary<int,Color> colors)
+        {
+            var points = values.Split(';').Select(r => r.Split(',').Select(p => int.Parse(p)).ToArray()).Select(r => new Point(r[0], r[1]));
+            var vpcs = points
+                .Select((r, i) => new VertexPositionColor
+                {
+                    Position = new Vector3(r.ToVector2(), 0),
+                    Color = colors.ContainsKey(i) ? colors[i] : colors[colors.Keys.Max(k => k)]
+                });
+
+            return vpcs.ToList();
+        }
+    }
 }
