@@ -194,5 +194,10 @@ namespace NemesisMonoUI
         {
             return new Vector2(room.x * RoomScale + roomSquareWidth/2f, room.y * RoomScale + roomSquareWidth/2f);
         }
+
+        public static Vector3 RoomCenterVector3(this Room room)
+        {
+            return new Vector3(room.x * RoomScale + roomSquareWidth / 2f, room.y * RoomScale + roomSquareWidth / 2f, 0);
+        }
     }
 }

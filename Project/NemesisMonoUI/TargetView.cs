@@ -25,17 +25,10 @@ namespace NemesisMonoUI
 
         private void SetVertices()
         {
-            var points = new Point[]
-            {
-                new Point(-5,0),
-                new Point(-6,-10),
-                new Point(0,-12),
-                new Point(6,-10),
-                new Point(5,0),
-                new Point(0,15)
-            };
             //Todo: Make a dictionary of the chosen colors...
-            var vpcs = "-5,0;-6,-10;0,-12;6,-10;5,0;0,15".VerticeLines(new Dictionary<int, Color> { {0,Color.White }, { 1, Color.CadetBlue }, { 2, Color.Blue }, { 3, Color.DarkRed } });
+            var vecs = "-5,0;-6,-10;0,-12;6,-10;5,0;0,15".ToVector3s();
+            vecs = vecs.Select(c => c + room.RoomCenterVector3()).ToList();
+            var vpcs = vecs.ToVertexPositionColors(new Dictionary<int, Color> { {0,Color.White }, { 1, Color.CadetBlue }, { 2, Color.Blue }, { 3, Color.DarkRed } });
 
             vertices.AddRange(vpcs);
         }
@@ -45,7 +38,7 @@ namespace NemesisMonoUI
             foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: verticeArray.Length / 2);
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip, baseVertex: 0, startIndex: 0, primitiveCount: verticeArray.Length / 2);
             }
         }
 

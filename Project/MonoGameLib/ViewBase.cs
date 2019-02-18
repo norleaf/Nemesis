@@ -65,17 +65,25 @@ namespace MonoGameLib
             }
         }
 
-        public static List<VertexPositionColor> VerticeLines(this string values, Dictionary<int,Color> colors)
+        public static List<VertexPositionColor> ToVertexPositionColors(this List<Vector3> vector3s, Dictionary<int, Color> colors)
         {
-            var points = values.Split(';').Select(r => r.Split(',').Select(p => int.Parse(p)).ToArray()).Select(r => new Point(r[0], r[1]));
-            var vpcs = points
-                .Select((r, i) => new VertexPositionColor
+            var vecPosCols = vector3s
+                .Select((vector, i) => new VertexPositionColor
                 {
-                    Position = new Vector3(r.ToVector2(), 0),
+                    Position = vector,
                     Color = colors.ContainsKey(i) ? colors[i] : colors[colors.Keys.Max(k => k)]
                 });
 
-            return vpcs.ToList();
+            return vecPosCols.ToList();
+        }
+
+        public static List<Vector3> ToVector3s (this string input)
+        {
+            var vectors = input.Split(';')
+                .Select(r => r.Split(',')
+                .Select(p => int.Parse(p)).ToArray())
+                .Select(r => new Vector3(r[0], r[1], 0));
+            return vectors.ToList();
         }
     }
 }

@@ -346,3 +346,5 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\Nemes
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\NemesisLibrary.pdb
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\NemesisLibrary.dll
+C:\Users\Louise Rasmussen\Documents\GitHub\Nemesis\Project\Game1\bin\Windows\x86\Debug\NemesisLibrary.pdb
