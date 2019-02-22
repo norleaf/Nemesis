@@ -17,7 +17,7 @@ namespace NemesisLibrary
 
     public class Hibernatorium : Room
     {
-        public Hibernatorium() : base(11, 40, 22, "Cockpit", "Here you can check the plottet course or enter a new destination coordinate.", isDiscovered: true)
+        public Hibernatorium() : base(11, 40, 22, "Hibernatorium", "When the preparation for the hyperdrive jump enters its final stage you must enter into cryosleep.", isDiscovered: true)
         {
             options.Add(new EnterHibernation(this));
         }
@@ -52,8 +52,6 @@ namespace NemesisLibrary
         {
 
         }
-
-
     }
 
     public class TechnicalCorridors : Room
@@ -86,15 +84,172 @@ namespace NemesisLibrary
         }
     }
 
+    public class Sho : AdditionalRoom
+    {
+          public Sho() : base()
+          {
+              options.Add(new (this));
+          }
+    }
+
+    public class Sho : AdditionalRoom
+    {
+        public Sho() : base()
+        {
+            options.Add(new (this));
+        }
+    }
+    public class Sho : AdditionalRoom
+    {
+        public Sho() : base()
+        {
+            options.Add(new (this));
+        }
+    }
+    public class Armory : BasicRoom
+    {
+        public Armory() : base()
+        {
+            description = "Recharge your energy weapons.";
+            options.Add(new Recharge(this));
+        }
+    }
+
+    public class CommsRoom : BasicRoom
+    {
+        public CommsRoom() : base()
+        {
+            description = "Send a signal back to Earth.";
+            options.Add(new Signal(this));
+        }
+    }
+
+    public class EmergencyRoom : BasicRoom
+    {
+        public EmergencyRoom() : base()
+        {
+            description = "Treat your wounds.";
+            options.Add(new Treat(this));
+        }
+    }
+
+    public class EvacuationSection: BasicRoom
+    {
+        EscapePod[] escapePods;
+        public EvacuationSection() : base()
+        {
+            escapePods = new EscapePod[2];
+            description = "Enter into an escape pod.";
+            options.Add(new Escape(this));
+        }
+
+        public class Escape : RoomOption
+        {
+            private EvacuationSection evacSec;
+            public Escape(EvacuationSection room) : base(room)
+            {
+                this.evacSec = room;
+            }
+
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public class EscapePod
+        {
+        }
+    }
+
+    public class FireControlSystem: BasicRoom
+    {
+        public FireControlSystem() : base()
+        {
+            description = "Initiate fire control procedure.";
+            options.Add(new FightFire(this));
+        }
+
+        public class FightFire : RoomOption
+        {
+            public FightFire(Room room) : base(room, requiresTargetRoom:true)
+            {
+            }
+
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+    public class Generator: BasicRoom
+    {
+        int turnsToSelfDestruct = 6;
+        bool isSelfDestructing = false;
+        public Generator() : base()
+        {
+            description = "Start/Stop self-destruct sequence.";
+            options.Add(new SelfDestruct(this));
+        }
+
+        public class SelfDestruct: RoomOption
+        {
+            Generator generator;
+            public SelfDestruct(Generator room) : base(room)
+            {
+                this.generator = room;
+            }
+
+            public override void Perform()
+            {
+                generator.isSelfDestructing = !generator.isSelfDestructing;
+                generator.turnsToSelfDestruct = 6;
+                throw new Exception("Ship self destructed!");
+            }
+        }
+    }
+
+    public class Laboratory: BasicRoom
+    {
+        public Laboratory() : base()
+        {
+            description = "Analyse item.";
+            options.Add(new Analyse(this));
+        }
+
+        public class Analyse : RoomOption
+        {
+            public Analyse(Room room) : base(room)
+            {
+            }
+
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+
     public class LayOut
     {
+        public List<Room> FixedRooms { get; set; }
         public List<BasicRoom> BasicRooms { get; set; }
         public List<AdditionalRoom> AdditionalRooms { get; set; }
 
         public LayOut()
         {
+            FixedRooms = new List<Room>();
             BasicRooms = new List<BasicRoom>();
             AdditionalRooms = new List<AdditionalRoom>();
+
+            FixedRooms.Add
+            (
+                new Cockpit(),
+                new Hibernatorium(),
+                new EngineOne(),
+                new EngineTwo(),
+                new EngineThree()
+            );
 
             BasicRooms.Add
             (

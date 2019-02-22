@@ -82,4 +82,38 @@ namespace NemesisLibrary
         }
     }
 
+    public class Recharge : RoomOption
+    {
+        public Recharge(Room room) : base(room)
+        {
+        }
+
+        public override void Perform()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Signal: RoomOption
+    {
+        public Signal(Room room) : base(room)
+        {
+        }
+
+        public override void Perform()
+        {
+            throw new NotImplementedException();
+        }
+    }
+    public class Treat: RoomOption
+    {
+        public Treat(Room room) : base(room)
+        {
+        }
+
+        public override void Perform()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

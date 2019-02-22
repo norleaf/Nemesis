@@ -44,3 +44,9 @@ Project/.vs/NemesisSolution/v15/.suo
 *.dll
 *.exe
 *.xml
+*.ide
+Project/.vs/NemesisSolution/v15/.suo
+*.pdb
+Project/BoardGraph/bin/Debug/BoardGraph.pdb
+Project/BoardGraph/obj/Debug/BoardGraph.pdb
+Project/ClassLibrary1/bin/Debug/BoardGraph.pdb

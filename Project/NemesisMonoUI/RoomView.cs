@@ -29,10 +29,9 @@ namespace NemesisMonoUI
 
         public override void Init(GraphicsDevice graphicsDevice)
         {
-            verticeArray = vertices.ToArray();
-            vertexBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), verticeArray.Length, BufferUsage.WriteOnly);
-            vertexBuffer.SetData<VertexPositionColor>(verticeArray);
-            indices = new short[]
+            vertexBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), VerticeArray.Length, BufferUsage.WriteOnly);
+            vertexBuffer.SetData<VertexPositionColor>(VerticeArray);
+            indices = new List<short>
             {
                 0,1,2,
                 0,2,3,
@@ -41,7 +40,7 @@ namespace NemesisMonoUI
                 0,5,6,
                 0,1,6
             };
-            indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Length, BufferUsage.WriteOnly);
+            indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Count, BufferUsage.WriteOnly);
         //    indexBuffer.SetData(indices);
         }
 
@@ -109,6 +108,8 @@ namespace NemesisMonoUI
         void Collidable.Activate(Board board)
         {
             room.isDiscovered = true;
+            board.activePlayer.roomId = room.id;
+            board.activePlayer.listeners.NotifyMove(room);
             board.roomEvents.Pick().Perform(board, room);
         }
 

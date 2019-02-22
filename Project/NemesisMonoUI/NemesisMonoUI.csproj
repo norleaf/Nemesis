@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardView.cs" />
+    <Compile Include="Body.cs" />
+    <Compile Include="BodyPart.cs" />
     <Compile Include="CorridorView.cs" />
     <Compile Include="Lights.cs" />
     <Compile Include="NemesisConsole.cs" />

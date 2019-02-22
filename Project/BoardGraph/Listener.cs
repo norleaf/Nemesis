@@ -28,6 +28,11 @@ namespace BoardGraph
             throw new NotImplementedException();
         }
 
+        public void Add(Listener listener)
+        {
+            listeners.Add(listener);
+        }
+
         public void NotifyMove(Room room)
         {
             foreach (var item in listeners)

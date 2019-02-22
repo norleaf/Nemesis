@@ -21,7 +21,7 @@ namespace NemesisMonoUI
 
         public override void Draw(GraphicsDevice graphicsDevice)
         {
-            indexBuffer.SetData(indices);
+            indexBuffer.SetData(indices.ToArray());
             graphicsDevice.SetVertexBuffer(vertexBuffer);
             graphicsDevice.Indices = indexBuffer;
             RasterizerState rasterizerState = new RasterizerState();
@@ -32,7 +32,7 @@ namespace NemesisMonoUI
             foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: verticeArray.Length / 2);
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length / 2);
             }
         }
     }

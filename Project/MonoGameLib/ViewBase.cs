@@ -10,12 +10,16 @@ namespace MonoGameLib
 {
     public abstract class ViewBase
     {
+        public Vector3 offset;
         public VertexBuffer vertexBuffer;
         public IndexBuffer indexBuffer;
         public BasicEffect basicEffect;
         public List<VertexPositionColor> vertices;
-        public VertexPositionColor[] verticeArray;
-        public short[] indices;
+        public VertexPositionColor[] VerticeArray
+        {
+            get => vertices.Select(q => new VertexPositionColor(q.Position + offset, q.Color)).ToArray();
+        }
+        public List<short> indices;
 
         public ViewBase(GraphicsDevice graphicsDevice)
         {
@@ -28,26 +32,32 @@ namespace MonoGameLib
                 0, 1
             );
             vertices = new List<VertexPositionColor>();
+            indices = new List<short>();
         }
 
         public virtual void Init(GraphicsDevice graphicsDevice)
         {
-            verticeArray = vertices.ToArray();
-            vertexBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), verticeArray.Length, BufferUsage.WriteOnly);
-            vertexBuffer.SetData<VertexPositionColor>(verticeArray);
-            indices = vertices.Select((r, i) => (short)i).ToArray();
-            indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Length, BufferUsage.WriteOnly);
-            //indexBuffer.SetData(indices);
+            if (vertices.Any())
+            {
+                
+                vertexBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), VerticeArray.Length, BufferUsage.WriteOnly);
+                vertexBuffer.SetData(VerticeArray);
+                indices = vertices.Select((r, i) => (short)i).ToList();
+                indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Count(), BufferUsage.WriteOnly);
+            }
         }
 
         public virtual void PrepareDraw(GraphicsDevice graphicsDevice)
         {
-            indexBuffer.SetData(indices);
-            graphicsDevice.SetVertexBuffer(vertexBuffer);
-            graphicsDevice.Indices = indexBuffer;
-            RasterizerState rasterizerState = new RasterizerState();
-            rasterizerState.CullMode = CullMode.None;
-            graphicsDevice.RasterizerState = rasterizerState;
+            if (indices.Any())
+            {
+                indexBuffer.SetData(indices.ToArray());
+                graphicsDevice.SetVertexBuffer(vertexBuffer);
+                graphicsDevice.Indices = indexBuffer;
+                RasterizerState rasterizerState = new RasterizerState();
+                rasterizerState.CullMode = CullMode.None;
+                graphicsDevice.RasterizerState = rasterizerState;
+            }
         }
 
         public abstract void Draw(GraphicsDevice graphicsDevice);
@@ -65,23 +75,35 @@ namespace MonoGameLib
             }
         }
 
+        public static VertexPositionColor[] Offset(this List<VertexPositionColor> list, Vector3 offset)
+        {
+            return list.Select(q => new VertexPositionColor(q.Position + offset, q.Color)).ToArray();
+        }
+
+        public static void Add(this List<VertexPositionColor> list, int x, int y, Color color)
+        {
+            list.Add(new VertexPositionColor(new Vector3(x, y, 0), color));
+        }
+
         public static List<VertexPositionColor> ToVertexPositionColors(this List<Vector3> vector3s, Dictionary<int, Color> colors)
         {
             var vecPosCols = vector3s
                 .Select((vector, i) => new VertexPositionColor
                 {
                     Position = vector,
-                    Color = colors.ContainsKey(i) ? colors[i] : colors[colors.Keys.Max(k => k)]
+                    Color = colors.ContainsKey(i) ? colors[i] : Color.Violet//colors[colors.Keys.Max(k => k)]
                 });
 
             return vecPosCols.ToList();
         }
 
-        public static List<Vector3> ToVector3s (this string input)
+        public static List<Vector3> ToVector3s(this string input)
         {
-            var vectors = input.Split(';')
+            var vectors = input.Split(';', 'x', ' ')
+                .Where(c => !string.IsNullOrEmpty(c)
+                )
                 .Select(r => r.Split(',')
-                .Select(p => int.Parse(p)).ToArray())
+                    .Select(p => int.Parse(p.Trim())).ToArray())
                 .Select(r => new Vector3(r[0], r[1], 0));
             return vectors.ToList();
         }

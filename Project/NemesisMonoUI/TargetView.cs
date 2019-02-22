@@ -12,34 +12,47 @@ namespace NemesisMonoUI
 {
     public class TargetView : ViewBase, Listener
     {
+        public Body body;
         public Target target;
         public Room room;
 
         public TargetView(Target target, Room room, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
+            this.offset = room.RoomCenterVector3();
             this.target = target;
+            target.listeners.Add(this);
             this.room = room;
-            SetVertices();
+            MakeBody(graphicsDevice);
             Init(graphicsDevice);
         }
 
-        private void SetVertices()
+        private void MakeBody(GraphicsDevice graphicsDevice)
         {
-            //Todo: Make a dictionary of the chosen colors...
-            var vecs = "-5,0;-6,-10;0,-12;6,-10;5,0;0,15".ToVector3s();
-            vecs = vecs.Select(c => c + room.RoomCenterVector3()).ToList();
-            var vpcs = vecs.ToVertexPositionColors(new Dictionary<int, Color> { {0,Color.White }, { 1, Color.CadetBlue }, { 2, Color.Blue }, { 3, Color.DarkRed } });
-
-            vertices.AddRange(vpcs);
+            body = new Body();
+            body.head.Start(0, 0, Color.Black);
+            body.head.Start(10, 10, Color.White);
+            body.head.Start(0, 0, Color.Red);
+            body.head.Start(0,-15,Color.AliceBlue);
+            vertices.AddRange(body.head.vertexList);
         }
 
         public override void Draw(GraphicsDevice graphicsDevice)
         {
+            PrepareDraw(graphicsDevice);
+            indexBuffer.SetData(indices.ToArray());
+            graphicsDevice.SetVertexBuffer(vertexBuffer);
+            graphicsDevice.Indices = indexBuffer;
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            graphicsDevice.RasterizerState = rasterizerState;
+
+            //basicEffect.CurrentTechnique.Passes[0].Apply();  Is there ever going to be more than one Pass? Else just use this instead
             foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip, baseVertex: 0, startIndex: 0, primitiveCount: verticeArray.Length / 2);
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length / 2);
             }
+
         }
 
         public void Notify(params object[] messages)
@@ -51,6 +64,8 @@ namespace NemesisMonoUI
         {
             
             this.room = room;
+            this.offset = room.RoomCenterVector3();
+            vertexBuffer.SetData(VerticeArray);
         }
     }
 
