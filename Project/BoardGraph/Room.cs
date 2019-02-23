@@ -96,6 +96,11 @@ namespace BoardGraph
                 evt.Perform(board, this);
             }
         }
+
+        public void RevealTemporarily()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

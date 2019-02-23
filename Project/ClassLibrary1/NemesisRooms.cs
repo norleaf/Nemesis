@@ -62,6 +62,33 @@ namespace NemesisLibrary
         }
     }
 
+    public class EscapePod : Room
+    {
+        public string section;
+        public bool locked;
+        public PlayerCharacter[] playerCharacters;
+        public EscapePod(string name, string section) : base(0, 0, 0, name, isDiscovered: true)
+        {
+            this.section = section;
+            locked = true;
+            playerCharacters = new PlayerCharacter[2];
+            options.Add(new Launch(this));
+        }
+
+        private class Launch : RoomOption
+        {
+            public Launch(Room room) : base(room)
+            {
+            }
+
+            public override void Perform()
+            {
+                //todo: remove escape pod room and players from gameboard.
+                throw new NotImplementedException();
+            }
+        }
+    }
+
     public class BasicRoom : Room
     {
         public BasicRoom(int id = 0, int x = 0, int y = 0) : base(id, x, y, "basic room")
@@ -71,8 +98,172 @@ namespace NemesisLibrary
 
     public class AdditionalRoom : Room
     {
-        public AdditionalRoom(int id =0, int x=0, int y=0) : base(id, x, y, "additional room")
+        public AdditionalRoom(int id = 0, int x = 0, int y = 0) : base(id, x, y, "additional room")
         {
+        }
+    }
+
+
+
+    public class AirlockControl : AdditionalRoom
+    {
+        public AirlockControl() : base()
+        {
+            options.Add(new OpenAirlock(this));
+        }
+
+        private class OpenAirlock : RoomOption
+        {
+            public OpenAirlock(Room room) : base(room, requiresTargetRoom: true)
+            {
+            }
+
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+
+    public class Cabins : AdditionalRoom
+    {
+        public Cabins() : base()
+        {
+            options.Add(new CatchBreath(this));
+        }
+
+        private class CatchBreath : RoomOption
+        {
+            public CatchBreath(Room room) : base(room)
+            {
+            }
+
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+    public class Canteen : AdditionalRoom
+    {
+        public Canteen() : base()
+        {
+            options.Add(new Snack(this));
+        }
+
+        private class Snack : RoomOption
+        {
+            public Snack(Room room) : base(room)
+            {
+            }
+
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+
+    public class CommandCenter : AdditionalRoom
+    {
+        public CommandCenter() : base()
+        {
+            options.Add(new OpenCloseDoors(this));
+        }
+
+        private class OpenCloseDoors : RoomOption
+        {
+            public OpenCloseDoors(Room room) : base(room, requiresTargetRoom: true)
+            {
+            }
+
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+
+    public class EngineControl : AdditionalRoom
+    {
+        public EngineControl() : base()
+        {
+            options.Add(new EnginesStatus(this));
+        }
+
+        private class EnginesStatus : RoomOption
+        {
+            public EnginesStatus(Room room) : base(room)
+            {
+            }
+
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+
+    public class HatchControl : AdditionalRoom
+    {
+        public HatchControl() : base()
+        {
+            options.Add(new OpenCloseEscapePod(this));
+        }
+
+        private class OpenCloseEscapePod : RoomOption
+        {
+            public OpenCloseEscapePod(Room room) : base(room, requiresTargetRoom: true)
+            {
+            }
+
+            public override void PickTargetRoom(Room target)
+            {
+                if (target is EscapePod)
+                {
+                    targetRoom = target;
+                }
+            }
+
+            public override void Perform()
+            {
+                EscapePod escapePod = (EscapePod)targetRoom;
+                escapePod.locked = !escapePod.locked;
+            }
+        }
+    }
+
+    public class MonitoringRoom : AdditionalRoom
+    {
+        public MonitoringRoom() : base()
+        {
+            options.Add(new CheckRoom(this));
+        }
+
+        private class CheckRoom : RoomOption
+        {
+            public CheckRoom(Room room) : base(room, requiresTargetRoom: true)
+            {
+            }
+
+            public override void PickTargetRoom(Room target)
+            {
+                if (!target.isDiscovered) targetRoom = target;
+            }
+
+            public override void Perform()
+            {
+                if (!targetRoom.isDiscovered)
+                    targetRoom.RevealTemporarily();
+            }
+        }
+    }
+
+    public class SlimedCoveredRoom : AdditionalRoom
+    {
+        public SlimedCoveredRoom() : base()
+        {
+
         }
     }
 
@@ -84,28 +275,6 @@ namespace NemesisLibrary
         }
     }
 
-    public class Sho : AdditionalRoom
-    {
-          public Sho() : base()
-          {
-              options.Add(new (this));
-          }
-    }
-
-    public class Sho : AdditionalRoom
-    {
-        public Sho() : base()
-        {
-            options.Add(new (this));
-        }
-    }
-    public class Sho : AdditionalRoom
-    {
-        public Sho() : base()
-        {
-            options.Add(new (this));
-        }
-    }
     public class Armory : BasicRoom
     {
         public Armory() : base()
@@ -133,7 +302,7 @@ namespace NemesisLibrary
         }
     }
 
-    public class EvacuationSection: BasicRoom
+    public class EvacuationSection : BasicRoom
     {
         EscapePod[] escapePods;
         public EvacuationSection() : base()
@@ -162,7 +331,7 @@ namespace NemesisLibrary
         }
     }
 
-    public class FireControlSystem: BasicRoom
+    public class FireControlSystem : BasicRoom
     {
         public FireControlSystem() : base()
         {
@@ -172,7 +341,7 @@ namespace NemesisLibrary
 
         public class FightFire : RoomOption
         {
-            public FightFire(Room room) : base(room, requiresTargetRoom:true)
+            public FightFire(Room room) : base(room, requiresTargetRoom: true)
             {
             }
 
@@ -182,7 +351,7 @@ namespace NemesisLibrary
             }
         }
     }
-    public class Generator: BasicRoom
+    public class Generator : BasicRoom
     {
         int turnsToSelfDestruct = 6;
         bool isSelfDestructing = false;
@@ -192,7 +361,7 @@ namespace NemesisLibrary
             options.Add(new SelfDestruct(this));
         }
 
-        public class SelfDestruct: RoomOption
+        public class SelfDestruct : RoomOption
         {
             Generator generator;
             public SelfDestruct(Generator room) : base(room)
@@ -209,7 +378,7 @@ namespace NemesisLibrary
         }
     }
 
-    public class Laboratory: BasicRoom
+    public class Laboratory : BasicRoom
     {
         public Laboratory() : base()
         {
@@ -258,9 +427,9 @@ namespace NemesisLibrary
                 new BasicRoom(4, 16, 38),
                 new BasicRoom(5, 30, 4),
                 new BasicRoom(9, 30, 45),
-                new BasicRoom(10, 43,6 ),
-                new BasicRoom(12, 44,36 ),
-                new BasicRoom(13, 57,7 ),
+                new BasicRoom(10, 43, 6),
+                new BasicRoom(12, 44, 36),
+                new BasicRoom(13, 57, 7),
                 new BasicRoom(16, 57, 37),
                 new BasicRoom(17, 63, 16),
                 new BasicRoom(18, 63, 28)

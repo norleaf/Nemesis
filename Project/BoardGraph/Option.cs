@@ -78,6 +78,11 @@ namespace BoardGraph
             this.room = room;
         }
 
+        public virtual void PickTargetRoom(Room target)
+        {
+            targetRoom = target;
+        }
+
         public override bool CanTakeAction(Board board, PlayerCharacter player)
         {
             return base.CanTakeAction(board, player) && !room.isMalfunctioning;
