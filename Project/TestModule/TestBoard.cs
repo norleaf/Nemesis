@@ -49,72 +49,72 @@ namespace TestModule
 
         public static void CreateRoomLayoutNumbersAndPosition()
         {
-            var bs = new BoardSetup().Load(setupFileName);
-            bs.boardLayout = bs.boardLayout.OrderBy(o => o.id).ToList();
-            var positions = new int[,] { { 2, 22 }, { 16, 9 }, { 13, 25 }, { 16, 38 }, { 30, 4 }, { 31, 12 }, { 26, 25 }, { 31, 34 }, { 30, 45 }, { 43, 6 }, { 40, 22 }, { 44, 36 }, { 57, 7 }, { 51, 17 }, { 51, 29 }, { 57, 37 }, { 63, 16 }, { 63, 28 }, { 71, 7 }, { 71, 25 }, { 71, 37 } };
-            for (int i = 0; i < bs.boardLayout.Where(l => l.name != "TechnicalCorridors").Count(); i++)
-            {
-                var room = bs.boardLayout[i];
-                room.x = positions[i, 0];
-                room.y = positions[i, 1];
-                Console.WriteLine(room.id + ", " + room.name);
-            }
-            Save(bs, setupFileName);
+            //var bs = new BoardSetup().Load(setupFileName);
+            //bs.boardLayout = bs.boardLayout.OrderBy(o => o.id).ToList();
+            //var positions = new int[,] { { 2, 22 }, { 16, 9 }, { 13, 25 }, { 16, 38 }, { 30, 4 }, { 31, 12 }, { 26, 25 }, { 31, 34 }, { 30, 45 }, { 43, 6 }, { 40, 22 }, { 44, 36 }, { 57, 7 }, { 51, 17 }, { 51, 29 }, { 57, 37 }, { 63, 16 }, { 63, 28 }, { 71, 7 }, { 71, 25 }, { 71, 37 } };
+            //for (int i = 0; i < bs.boardLayout.Where(l => l.name != "TechnicalCorridors").Count(); i++)
+            //{
+            //    var room = bs.boardLayout[i];
+            //    room.x = positions[i, 0];
+            //    room.y = positions[i, 1];
+            //    Console.WriteLine(room.id + ", " + room.name);
+            //}
+            //Save(bs, setupFileName);
         }
 
         public static void ConnectRooms()
         {
-            var bs = new BoardSetup().Load(setupFileName);
-            bs.corridors.Clear();
+            //var bs = new BoardSetup().Load(setupFileName);
+            //bs.corridors.Clear();
 
-            bs.corridors.Add(
-            new Corridor(bs.GetLayout(1), bs.GetLayout(2)),
-            new Corridor(bs.GetLayout(1), bs.GetLayout(3)),
-            new Corridor(bs.GetLayout(1), bs.GetLayout(4)),
-            new Corridor(bs.GetLayout(2), bs.GetLayout(6)),
-            new Corridor(bs.GetLayout(2), bs.GetLayout(999), 2, true),
-            new Corridor(bs.GetLayout(3), bs.GetLayout(7), 2),
-            new Corridor(bs.GetLayout(4), bs.GetLayout(8)),
-            new Corridor(bs.GetLayout(4), bs.GetLayout(999), 2, true),
-            new Corridor(bs.GetLayout(5), bs.GetLayout(999), 2, true),
-            new Corridor(bs.GetLayout(5), bs.GetLayout(6)),
-            new Corridor(bs.GetLayout(5), bs.GetLayout(10), 2),
-            new Corridor(bs.GetLayout(6), bs.GetLayout(7)),
-            new Corridor(bs.GetLayout(6), bs.GetLayout(11)),
-            new Corridor(bs.GetLayout(7), bs.GetLayout(8)),
-            new Corridor(bs.GetLayout(8), bs.GetLayout(9)),
-            new Corridor(bs.GetLayout(8), bs.GetLayout(11)),
-            new Corridor(bs.GetLayout(9), bs.GetLayout(12), 2),
-            new Corridor(bs.GetLayout(9), bs.GetLayout(999), 1, true),
-            new Corridor(bs.GetLayout(10), bs.GetLayout(13), 2),
-            new Corridor(bs.GetLayout(11), bs.GetLayout(14)),
-            new Corridor(bs.GetLayout(11), bs.GetLayout(15)),
-            new Corridor(bs.GetLayout(12), bs.GetLayout(16), 2),
+            //bs.corridors.Add(
+            //new Corridor(bs.GetLayout(1), bs.GetLayout(2)),
+            //new Corridor(bs.GetLayout(1), bs.GetLayout(3)),
+            //new Corridor(bs.GetLayout(1), bs.GetLayout(4)),
+            //new Corridor(bs.GetLayout(2), bs.GetLayout(6)),
+            //new Corridor(bs.GetLayout(2), bs.GetLayout(999), 2, true),
+            //new Corridor(bs.GetLayout(3), bs.GetLayout(7), 2),
+            //new Corridor(bs.GetLayout(4), bs.GetLayout(8)),
+            //new Corridor(bs.GetLayout(4), bs.GetLayout(999), 2, true),
+            //new Corridor(bs.GetLayout(5), bs.GetLayout(999), 2, true),
+            //new Corridor(bs.GetLayout(5), bs.GetLayout(6)),
+            //new Corridor(bs.GetLayout(5), bs.GetLayout(10), 2),
+            //new Corridor(bs.GetLayout(6), bs.GetLayout(7)),
+            //new Corridor(bs.GetLayout(6), bs.GetLayout(11)),
+            //new Corridor(bs.GetLayout(7), bs.GetLayout(8)),
+            //new Corridor(bs.GetLayout(8), bs.GetLayout(9)),
+            //new Corridor(bs.GetLayout(8), bs.GetLayout(11)),
+            //new Corridor(bs.GetLayout(9), bs.GetLayout(12), 2),
+            //new Corridor(bs.GetLayout(9), bs.GetLayout(999), 1, true),
+            //new Corridor(bs.GetLayout(10), bs.GetLayout(13), 2),
+            //new Corridor(bs.GetLayout(11), bs.GetLayout(14)),
+            //new Corridor(bs.GetLayout(11), bs.GetLayout(15)),
+            //new Corridor(bs.GetLayout(12), bs.GetLayout(16), 2),
 
-            new Corridor(bs.GetLayout(13), bs.GetLayout(14)),
-            new Corridor(bs.GetLayout(13), bs.GetLayout(19)),
+            //new Corridor(bs.GetLayout(13), bs.GetLayout(14)),
+            //new Corridor(bs.GetLayout(13), bs.GetLayout(19)),
 
-            new Corridor(bs.GetLayout(14), bs.GetLayout(17)),
-            new Corridor(bs.GetLayout(14), bs.GetLayout(999), 1, true),
-            new Corridor(bs.GetLayout(15), bs.GetLayout(18)),
-            new Corridor(bs.GetLayout(15), bs.GetLayout(16)),
-            new Corridor(bs.GetLayout(15), bs.GetLayout(999), 1, true),
-
-
-            new Corridor(bs.GetLayout(16), bs.GetLayout(21)),
-            new Corridor(bs.GetLayout(17), bs.GetLayout(19)),
-            new Corridor(bs.GetLayout(17), bs.GetLayout(20), 2),
-            new Corridor(bs.GetLayout(18), bs.GetLayout(20), 2),
-            new Corridor(bs.GetLayout(18), bs.GetLayout(21)),
-
-            new Corridor(bs.GetLayout(19), bs.GetLayout(999), 2, true),
-            new Corridor(bs.GetLayout(21), bs.GetLayout(999), 2, true)
+            //new Corridor(bs.GetLayout(14), bs.GetLayout(17)),
+            //new Corridor(bs.GetLayout(14), bs.GetLayout(999), 1, true),
+            //new Corridor(bs.GetLayout(15), bs.GetLayout(18)),
+            //new Corridor(bs.GetLayout(15), bs.GetLayout(16)),
+            //new Corridor(bs.GetLayout(15), bs.GetLayout(999), 1, true),
 
 
+            //new Corridor(bs.GetLayout(16), bs.GetLayout(21)),
+            //new Corridor(bs.GetLayout(17), bs.GetLayout(19)),
+            //new Corridor(bs.GetLayout(17), bs.GetLayout(20), 2),
+            //new Corridor(bs.GetLayout(18), bs.GetLayout(20), 2),
+            //new Corridor(bs.GetLayout(18), bs.GetLayout(21)),
 
-            );
+            //new Corridor(bs.GetLayout(19), bs.GetLayout(999), 2, true),
+            //new Corridor(bs.GetLayout(21), bs.GetLayout(999), 2, true)
 
-            Save(bs, setupFileName);
+
+
+            //);
+
+            //Save(bs, setupFileName);
         }
 
         //public static void NameRooms()
@@ -164,12 +164,12 @@ namespace TestModule
 
         public static void DiscoverEnginesAndCockpit()
         {
-            var boardSetup = new BoardSetup().Load(setupFileName);
-            foreach (var room in boardSetup.boardLayout.Where(r => r.id == 1 || r.id == 11 || r.id == 19 || r.id == 20 || r.id == 21))
-            {
-                room.isDiscovered = true;
-            }
-            Save(boardSetup, setupFileName);
+            //var boardSetup = new BoardSetup().Load(setupFileName);
+            //foreach (var room in boardSetup.boardLayout.Where(r => r.id == 1 || r.id == 11 || r.id == 19 || r.id == 20 || r.id == 21))
+            //{
+            //    room.isDiscovered = true;
+            //}
+            //Save(boardSetup, setupFileName);
         }
 
 

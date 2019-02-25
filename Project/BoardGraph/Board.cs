@@ -157,7 +157,12 @@ namespace BoardGraph
         
     }
 
-    
+    public interface ILayout
+    {
+        List<Room> AdditionalRooms { get; set; }
+        List<Room> BasicRooms { get; set; }
+        List<Room> FixedRooms { get; set; }
+    }
 
     public class BoardSetup
     {
@@ -166,14 +171,15 @@ namespace BoardGraph
         public List<Room> additionalRooms;
         public List<Room> boardLayout;
         public List<Corridor> corridors;
+        
 
-        public BoardSetup()
+        public BoardSetup(ILayout layout)
         {
             corridors = new List<Corridor>();
-            fixedRooms = new List<Room>();
+            fixedRooms = new List<Room>(layout.FixedRooms);
             basicRooms = new List<Room>();
             additionalRooms = new List<Room>();
-            boardLayout = new List<Room>();
+            boardLayout = new List<Room>(layout.BasicRooms.Union(layout.AdditionalRooms).Union(layout.FixedRooms));
         }
 
         public Room GetLayout(int id)
