@@ -162,6 +162,7 @@ namespace BoardGraph
         List<Room> AdditionalRooms { get; set; }
         List<Room> BasicRooms { get; set; }
         List<Room> FixedRooms { get; set; }
+        List<Corridor> Corridors { get; set; }
     }
 
     public class BoardSetup
@@ -175,7 +176,7 @@ namespace BoardGraph
 
         public BoardSetup(ILayout layout)
         {
-            corridors = new List<Corridor>();
+            corridors = new List<Corridor>(layout.Corridors);
             fixedRooms = new List<Room>(layout.FixedRooms);
             basicRooms = new List<Room>();
             additionalRooms = new List<Room>();

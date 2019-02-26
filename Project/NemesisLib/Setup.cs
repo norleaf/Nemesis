@@ -22,7 +22,7 @@ namespace NemesisLibrary
             var layout = new Layout();
             var bs = new BoardSetup(layout);
             board.rooms = bs.boardLayout.ToDictionary(r => r.id, r => r);
-            board.corridors = bs.corridors;
+            
             AddRoomEventTokens(board);
         }
 

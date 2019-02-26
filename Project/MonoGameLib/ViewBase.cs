@@ -31,6 +31,7 @@ namespace MonoGameLib
                 graphicsDevice.Viewport.Height, 0,    // bottom, top
                 0, 1
             );
+            offset = Vector3.Zero;
             vertices = new List<VertexPositionColor>();
             indices = new List<short>();
         }

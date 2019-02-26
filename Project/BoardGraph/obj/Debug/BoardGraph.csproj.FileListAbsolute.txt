@@ -26,12 +26,11 @@ C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\Boa
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csproj.CopyComplete
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.dll
 C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.pdb
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.dll
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.pdb
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.dll
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.pdb
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.xml
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csproj.CoreCompileInputs.cache
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csproj.CopyComplete
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.dll
-C:\Users\hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\BoardGraph.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.csprojResolveAssemblyReference.cache
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.dll
+C:\Users\Hans\Documents\GitHub\Nemesis\Project\BoardGraph\obj\Debug\BoardGraph.pdb

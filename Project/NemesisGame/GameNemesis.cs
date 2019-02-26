@@ -68,7 +68,7 @@ namespace NemesisGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             graphicsBatch = new GraphicsBatch(GraphicsDevice);
-            graphicsBatch.DefaultFont = Content.Load<SpriteFont>("default");
+            graphicsBatch.DefaultFont = Content.Load<SpriteFont>("def");
             graphicsBatch.Pixel = Content.Load<Texture2D>("pixel");
             ImageLoader.LoadImages(Content, sprites);
             

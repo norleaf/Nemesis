@@ -89,18 +89,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\pixel.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="app.manifest" />
-    <None Include="Content\default.spritefont">
+    <None Include="Content\def.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Content\MGContent.mgcb" />
+    <MonoGameContentReference Include="Content\MGContent.mgcb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </MonoGameContentReference>
+    <None Include="Content\pixel.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="GameNemesis_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
