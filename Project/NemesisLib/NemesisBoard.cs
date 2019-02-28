@@ -3,39 +3,6 @@ using System;
 
 namespace NemesisLibrary
 {
-    public class NemesisBoard : BoardSetup
-    {
-        public NemesisBoard(ILayout layout) : base(layout)
-        {
-            AddFixedRooms();
-            AddBasicRooms();
-            AddAdditionalRooms();
-            AddCorridors();
-        }
- 
-        private void AddFixedRooms()
-        {
-            fixedRooms.Add
-            (
-                new Cockpit()
-            );
-        }
-
-        private void AddBasicRooms()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void AddAdditionalRooms()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void AddCorridors()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
+    public class NemesisBoard { }
     
 }

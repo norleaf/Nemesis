@@ -31,14 +31,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BoardGraph.dll" size="25088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BoardGraph.dll" size="24576">
       <assemblyIdentity name="BoardGraph" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cfkrgTNJQbs8UpbiWI7HtP77tEZDBfGXftysKdU2QnM=</dsig:DigestValue>
+        <dsig:DigestValue>REQYFS5Rsa8SiGsmKiaIuuN8Rc38NdMYgNWp5mV4BOA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LIM92bx3Lh78o8hM1ma4t/AVT84Noo3A/LwOX7dNUvU=</dsig:DigestValue>
+        <dsig:DigestValue>MrdH7bQJqR2jKAXvk5ORBQognhQW015eyNuBYtzAmFg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,19 +74,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EcAeT+SsgqDnKZhZqH7ZD6reAHdHExMU4iq/mW6ePD8=</dsig:DigestValue>
+        <dsig:DigestValue>vW8gZhqwY7rEW+VBDDiLZKbn1s6iFGVq/zjAnY5JNbI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NemesisLibrary.dll" size="22528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NemesisLibrary.dll" size="23040">
       <assemblyIdentity name="NemesisLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SU9T17B5scCq7SdMv8Gvt/VAMS5H6IN6qSpXPgc7tbk=</dsig:DigestValue>
+        <dsig:DigestValue>1Rmlxu8b6Vx4JennQM9EuRsasfVKO0hdlyI/XWsbZo4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4hmV1ifsaAcggPzMpd8j9uvd1N+7oyH1N2F3eaOXqMg=</dsig:DigestValue>
+        <dsig:DigestValue>lKcOtsKhSYomy9I4Pnvb00M+Z/1rzAlbsjYtlXnkN1U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -218,7 +218,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>v8UPlG0WsFvkwKWGLEJRc/xz3FbRSKFLxHawyUvrgrQ=</dsig:DigestValue>
+        <dsig:DigestValue>ga/BQ4TBYXo4nqec34AgN+6VUn6QzYlVTvgnKi32dOk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

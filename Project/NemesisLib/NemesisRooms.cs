@@ -124,7 +124,6 @@ namespace NemesisLibrary
             }
         }
     }
-
     public class Cabins : AdditionalRoom
     {
         public Cabins() : base()
@@ -163,7 +162,6 @@ namespace NemesisLibrary
             }
         }
     }
-
     public class CommandCenter : AdditionalRoom
     {
         public CommandCenter() : base()
@@ -399,12 +397,45 @@ namespace NemesisLibrary
         }
     }
 
+    public class NemesisBasicRooms : Bag<BasicRoom>
+    {
+        public NemesisBasicRooms() : base()
+        {
+            Put(new Armory());
+            Put(new CommsRoom());
+            Put(new EmergencyRoom());
+            Put(new EvacuationSection());
+            Put(new FireControlSystem());
+            Put(new Generator());
+            Put(new Laboratory());
+        }
+
+    }
+
+    public class NemesisAdditionalRooms : Bag<AdditionalRoom>
+    {
+        public NemesisAdditionalRooms() : base()
+        {
+            Put(new AirlockControl());
+            Put(new Cabins());
+            Put(new Canteen());
+            Put(new CommandCenter());
+            Put(new EngineControl());
+            Put(new HatchControl());
+            Put(new MonitoringRoom());
+            Put(new SlimedCoveredRoom());
+            Put(new ShowerRoom());
+        }
+    }
+
+
     public class Layout : ILayout
     {
         public List<Room> FixedRooms { get; set; }
         public List<Room> BasicRooms { get; set; }
         public List<Room> AdditionalRooms { get; set; }
         public List<Corridor> Corridors { get; set; }
+        public Dictionary<int, Room> AllRooms => FixedRooms.Union(BasicRooms).Union(AdditionalRooms).ToDictionary(r => r.id, r => r);
 
         public Layout()
         {
@@ -425,26 +456,26 @@ namespace NemesisLibrary
 
             BasicRooms.Add
             (
-                new Room(2, 16, 9, "basic"),
-                new Room(3, 13, 25, "basic"),
-                new Room(4, 16, 38, "basic"),
-                new Room(5, 30, 4, "basic"),
-                new Room(9, 30, 45, "basic"),
-                new Room(10, 43, 6, "basic"),
-                new Room(12, 44, 36, "basic"),
-                new Room(13, 57, 7, "basic"),
-                new Room(16, 57, 37, "basic"),
-                new Room(17, 63, 16, "basic"),
-                new Room(18, 63, 28, "basic")
+                new BasicRoom(2, 16, 9),
+                new BasicRoom(3, 13, 25),
+                new BasicRoom(4, 16, 38),
+                new BasicRoom(5, 30, 4),
+                new BasicRoom(9, 30, 45),
+                new BasicRoom(10, 43, 6),
+                new BasicRoom(12, 44, 36),
+                new BasicRoom(13, 57, 7),
+                new BasicRoom(16, 57, 37),
+                new BasicRoom(17, 63, 16),
+                new BasicRoom(18, 63, 28)
             );
 
             AdditionalRooms.Add
             (
-                new Room(6, 31, 12, "additional"),
-                new Room(7, 26, 25, "additional"),
-                new Room(8, 31, 34, "additional"),
-                new Room(14, 51, 17, "additional"),
-                new Room(15, 51, 29, "additional")
+                new AdditionalRoom(6, 31, 12),
+                new AdditionalRoom(7, 26, 25),
+                new AdditionalRoom(8, 31, 34),
+                new AdditionalRoom(14, 51, 17),
+                new AdditionalRoom(15, 51, 29)
             );
 
             ConnectRooms();
@@ -452,48 +483,48 @@ namespace NemesisLibrary
 
         public void ConnectRooms()
         {
-            var union = FixedRooms.Union(BasicRooms).Union(AdditionalRooms).ToDictionary(r => r.id, r => r);
-            Corridors.Add(1, 2, union);
-            Corridors.Add((1), (3), union);
-            Corridors.Add((1), (4), union);
-            Corridors.Add((2), (6), union);
-            Corridors.Add((2), (999), union, 2, true);
-            Corridors.Add((3), (7), union, 2);
-            Corridors.Add((4), (8), union);
-            Corridors.Add((4), (999), union, 2, true);
-            Corridors.Add((5), (999), union, 2, true);
-            Corridors.Add((5), (6), union);
-            Corridors.Add((5), (10), union, 2);
-            Corridors.Add((6), (7), union);
-            Corridors.Add((6), (11), union);
-            Corridors.Add((7), (8), union);
-            Corridors.Add((8), (9), union);
-            Corridors.Add((8), (11), union);
-            Corridors.Add((9), (12), union, 2);
-            Corridors.Add((9), (999), union, 1, true);
-            Corridors.Add((10), (13), union, 2);
-            Corridors.Add((11), (14), union);
-            Corridors.Add((11), (15), union);
-            Corridors.Add((12), (16), union, 2);
+            var rooms = AllRooms;
+            Corridors.Add(1, 2, rooms);
+            Corridors.Add((1), (3), rooms);
+            Corridors.Add((1), (4), rooms);
+            Corridors.Add((2), (6), rooms);
+            Corridors.Add((2), (999), rooms, 2, true);
+            Corridors.Add((3), (7), rooms, 2);
+            Corridors.Add((4), (8), rooms);
+            Corridors.Add((4), (999), rooms, 2, true);
+            Corridors.Add((5), (999), rooms, 2, true);
+            Corridors.Add((5), (6), rooms);
+            Corridors.Add((5), (10), rooms, 2);
+            Corridors.Add((6), (7), rooms);
+            Corridors.Add((6), (11), rooms);
+            Corridors.Add((7), (8), rooms);
+            Corridors.Add((8), (9), rooms);
+            Corridors.Add((8), (11), rooms);
+            Corridors.Add((9), (12), rooms, 2);
+            Corridors.Add((9), (999), rooms, 1, true);
+            Corridors.Add((10), (13), rooms, 2);
+            Corridors.Add((11), (14), rooms);
+            Corridors.Add((11), (15), rooms);
+            Corridors.Add((12), (16), rooms, 2);
             ;
-            Corridors.Add((13), (14), union);
-            Corridors.Add((13), (19), union);
+            Corridors.Add((13), (14), rooms);
+            Corridors.Add((13), (19), rooms);
             ;
-            Corridors.Add((14), (17), union);
-            Corridors.Add((14), (999), union, 1, true);
-            Corridors.Add((15), (18), union);
-            Corridors.Add((15), (16), union);
-            Corridors.Add((15), (999), union, 1, true);
+            Corridors.Add((14), (17), rooms);
+            Corridors.Add((14), (999), rooms, 1, true);
+            Corridors.Add((15), (18), rooms);
+            Corridors.Add((15), (16), rooms);
+            Corridors.Add((15), (999), rooms, 1, true);
             ;
             ;
-            Corridors.Add((16), (21), union);
-            Corridors.Add((17), (19), union);
-            Corridors.Add((17), (20), union, 2);
-            Corridors.Add((18), (20), union, 2);
-            Corridors.Add((18), (21), union);
+            Corridors.Add((16), (21), rooms);
+            Corridors.Add((17), (19), rooms);
+            Corridors.Add((17), (20), rooms, 2);
+            Corridors.Add((18), (20), rooms, 2);
+            Corridors.Add((18), (21), rooms);
             ;
-            Corridors.Add((19), (999), union, 2, true);
-            Corridors.Add((21), (999), union, 2, true);
+            Corridors.Add((19), (999), rooms, 2, true);
+            Corridors.Add((21), (999), rooms, 2, true);
 
         }
     }

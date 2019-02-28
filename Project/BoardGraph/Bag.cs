@@ -17,6 +17,12 @@ namespace BoardGraph
             Tokens = new List<T>();
         }
 
+        //public Bag(List<T> list)
+        //{
+        //    random = new Random();
+        //    Tokens = list;
+        //}
+
         /// <summary>
         /// Removes a random item from the bag and returns it
         /// </summary>

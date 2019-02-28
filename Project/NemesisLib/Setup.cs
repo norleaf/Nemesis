@@ -20,10 +20,26 @@ namespace NemesisLibrary
             board.activePlayer = player;
             board.targets.Add(player);
             var layout = new Layout();
-            var bs = new BoardSetup(layout);
-            board.rooms = bs.boardLayout.ToDictionary(r => r.id, r => r);
-            
+            board.rooms = layout.AllRooms;
             AddRoomEventTokens(board);
+
+            var bagBasic = new NemesisBasicRooms();
+            var bagAdditional = new NemesisAdditionalRooms();
+
+            foreach (var room in board.rooms.Values)
+            {
+                if(room is BasicRoom)
+                {
+                    var hidden = bagBasic.Pick();
+                    hidden.AbsorbLayout(room);
+                }
+                if(room is AdditionalRoom)
+                {
+                    var hidden = bagAdditional.Pick();
+                    hidden.AbsorbLayout(room);
+                }
+            }
+
         }
 
         public void AddIntrudersTokens(Board board)
@@ -59,6 +75,18 @@ namespace NemesisLibrary
             {
                 board.roomEvents.Put(new DoorLock());
             }
+        }
+    }
+
+    public static class exts
+    {
+        public static void AbsorbLayout(this Room hiddenRoom, Room room)
+        {
+            hiddenRoom.id = room.id;
+            hiddenRoom.x = room.x;
+            hiddenRoom.y = room.y;
+            hiddenRoom.corridors = room.corridors;
+            room = hiddenRoom;
         }
     }
 }

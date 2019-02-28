@@ -13,7 +13,6 @@ namespace BoardGraph
         public List<Corridor> corridors;
         public Bag<RoomEvent> roomEvents;
         public Targets targets;
-       
         public Bag<Enemy> enemies;
         public Deck<AttackCard> attackCards;
         public Deck<EventCard> eventCards;
@@ -162,32 +161,33 @@ namespace BoardGraph
         List<Room> AdditionalRooms { get; set; }
         List<Room> BasicRooms { get; set; }
         List<Room> FixedRooms { get; set; }
+        Dictionary<int,Room> AllRooms { get; }
         List<Corridor> Corridors { get; set; }
     }
 
-    public class BoardSetup
-    {
-        public List<Room> fixedRooms;
-        public List<Room> basicRooms;
-        public List<Room> additionalRooms;
-        public List<Room> boardLayout;
-        public List<Corridor> corridors;
+    //public class BoardSetup
+    //{
+    //    public List<Room> fixedRooms;
+    //    public List<Room> basicRooms;
+    //    public List<Room> additionalRooms;
+    //    public List<Room> boardLayout;
+    //    public List<Corridor> corridors;
         
 
-        public BoardSetup(ILayout layout)
-        {
-            corridors = new List<Corridor>(layout.Corridors);
-            fixedRooms = new List<Room>(layout.FixedRooms);
-            basicRooms = new List<Room>();
-            additionalRooms = new List<Room>();
-            boardLayout = new List<Room>(layout.BasicRooms.Union(layout.AdditionalRooms).Union(layout.FixedRooms));
-        }
+     //   public BoardSetup(ILayout layout)
+     //   {
+     //       corridors = new List<Corridor>(layout.Corridors);
+     //       fixedRooms = new List<Room>(layout.FixedRooms);
+     //       basicRooms = new List<Room>();
+     //       additionalRooms = new List<Room>();
+     //       boardLayout = new List<Room>(layout.BasicRooms.Union(layout.AdditionalRooms).Union(layout.FixedRooms));
+     //   }
 
-        public Room GetLayout(int id)
-        {
-            return boardLayout.Single(r => r.id == id);
-        }
-     }
+     //   public Room GetLayout(int id)
+     //   {
+     //       return boardLayout.Single(r => r.id == id);
+     //   }
+     //}
 
     public static class Extensions
     {
