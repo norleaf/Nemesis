@@ -48,6 +48,8 @@ namespace BoardGraph
             this.heavyItemsOnGround = new List<Item>();
         }
 
+       
+
         public void Init()
         {
             this.options = new List<Option>();

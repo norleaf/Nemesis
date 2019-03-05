@@ -15,27 +15,29 @@ namespace MonoGameLib
             collidables = new List<Collidable>();
         }
 
-        public void CheckMouseClick(out bool collision, out Collidable collider)
+        public bool CheckMousePosition(Point point, out Collidable collider)
         {
-            collision = false;
+            bool collision = false;
             collider = null;
-            var mousePos = Mouse.GetState().Position;
+            //Todo: Make a list where all things collided go to and then prioritise list to see if one or more should active
             foreach (var item in collidables)
             {
-                
-                if(item.PointWithinBounds(mousePos))
+                item.Hover = false;
+                if(item.PointWithinBounds(point))
                 {
+                    item.Hover = true;
                     collision = true;
                     collider = item;
                 }
             }
+            return collision;
         }
-
-        
     }
 
     public interface Collidable
     {
+        bool Hover { get; set; }
+
         bool PointOnEdge(Point p);
         bool PointWithinBounds(Point p);
         bool RectangleTouch(Rectangle r);

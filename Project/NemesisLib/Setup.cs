@@ -21,6 +21,7 @@ namespace NemesisLibrary
             board.targets.Add(player);
             var layout = new Layout();
             board.rooms = layout.AllRooms;
+            board.corridors = layout.Corridors;
             AddRoomEventTokens(board);
 
             var bagBasic = new NemesisBasicRooms();
@@ -82,11 +83,10 @@ namespace NemesisLibrary
     {
         public static void AbsorbLayout(this Room hiddenRoom, Room room)
         {
-            hiddenRoom.id = room.id;
-            hiddenRoom.x = room.x;
-            hiddenRoom.y = room.y;
-            hiddenRoom.corridors = room.corridors;
-            room = hiddenRoom;
+            room.name = hiddenRoom.GetType().Name;
+            room.options = hiddenRoom.options;
+            room.description = hiddenRoom.description;
+            room.hasComputer = hiddenRoom.hasComputer;
         }
     }
 }

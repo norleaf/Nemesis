@@ -397,6 +397,27 @@ namespace NemesisLibrary
         }
     }
 
+    public class Surgery : BasicRoom
+    {
+        public Surgery(int id = 0, int x = 0, int y = 0) : base(id, x, y)
+        {
+        }
+    }
+
+    public class Storage : BasicRoom
+    {
+        public Storage(int id = 0, int x = 0, int y = 0) : base(id, x, y)
+        {
+        }
+    }
+
+    public class Nest : BasicRoom
+    {
+        public Nest(int id = 0, int x = 0, int y = 0) : base(id, x, y)
+        {
+        }
+    }
+
     public class NemesisBasicRooms : Bag<BasicRoom>
     {
         public NemesisBasicRooms() : base()
@@ -405,12 +426,19 @@ namespace NemesisLibrary
             Put(new CommsRoom());
             Put(new EmergencyRoom());
             Put(new EvacuationSection());
+            Put(new EvacuationSection());
             Put(new FireControlSystem());
             Put(new Generator());
             Put(new Laboratory());
+            Put(new Nest());
+            Put(new Storage());
+            Put(new Surgery());
+
         }
 
     }
+
+   
 
     public class NemesisAdditionalRooms : Bag<AdditionalRoom>
     {

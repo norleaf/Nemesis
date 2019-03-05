@@ -43,10 +43,10 @@ namespace NemesisMonoUI
 
         public void DrawGraphics(GraphicsBatch graphicsBatch)
         {
-            foreach (var room in roomView)
-            {
-                room.Draw(graphicsBatch);
-            }
+            //foreach (var room in roomView)
+            //{
+            //    room.Draw(graphicsBatch);
+            //}
             Draw(graphicsBatch.GraphicsDevice);
         }
 

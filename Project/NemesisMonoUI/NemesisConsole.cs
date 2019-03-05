@@ -35,7 +35,7 @@ namespace NemesisMonoUI
             for (var i = 0; i < strings.Count; i++)
             {
                 var pos = rectangle.Location.ToVector2() + lineHeight * i;
-                graphicsBatch.DrawString(graphicsBatch.DefaultFont, strings[i], pos , Color.GhostWhite);
+                graphicsBatch.DrawString(graphicsBatch.DefaultFont, strings[i], pos, Color.GhostWhite, 0, Vector2.Zero, 0.3f, SpriteEffects.None, 0);
             }
         }
     }

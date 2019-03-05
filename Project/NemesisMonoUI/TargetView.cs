@@ -29,11 +29,8 @@ namespace NemesisMonoUI
         private void MakeBody(GraphicsDevice graphicsDevice)
         {
             body = new Body();
-            body.head.Start(0, 0, Color.Black);
-            body.head.Start(10, 10, Color.White);
-            body.head.Start(0, 0, Color.Red);
-            body.head.Start(0,-15,Color.AliceBlue);
-            vertices.AddRange(body.head.vertexList);
+            var circle = new Circle(-30, -10, 25, 20);
+            vertices.AddRange(circle.ring.Select(r => new VertexPositionColor(r,Color.DarkOliveGreen)));
         }
 
         public override void Draw(GraphicsDevice graphicsDevice)

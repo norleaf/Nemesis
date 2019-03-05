@@ -15,15 +15,21 @@ namespace NemesisMonoUI
         Room room;
         public Rectangle rectangle;
         public Listener listener;
-    //    public List<TargetView> targetView;
-        
+        VertexBuffer borderBuffer;
+        VertexPositionColor[] borderVertices;
+
+        public bool Hover { get; set; }
+
+        //    public List<TargetView> targetView;
+
         public RoomView(Room room, BoardView boardView, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             this.room = room;
             rectangle = new Rectangle(room.RoomPoint(), new Point(RoomViewExtensions.roomSquareWidth));
             listener = boardView;
-        //    targetView = new List<TargetView>();
+            //    targetView = new List<TargetView>();
             vertices = room.GetVerts(boardView.board.random).ToList();
+            borderVertices = room.GetBorder();
             Init(graphicsDevice);
         }
 
@@ -31,6 +37,8 @@ namespace NemesisMonoUI
         {
             vertexBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), VerticeArray.Length, BufferUsage.WriteOnly);
             vertexBuffer.SetData<VertexPositionColor>(VerticeArray);
+            borderBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), borderVertices.Length, BufferUsage.WriteOnly);
+            borderBuffer.SetData(borderVertices);
             indices = new List<short>
             {
                 0,1,2,
@@ -41,7 +49,9 @@ namespace NemesisMonoUI
                 0,1,6
             };
             indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Count, BufferUsage.WriteOnly);
-        //    indexBuffer.SetData(indices);
+
+
+            //    indexBuffer.SetData(indices);
         }
 
         public override void Draw(GraphicsDevice graphicsDevice)
@@ -51,23 +61,28 @@ namespace NemesisMonoUI
             foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseVertex: 0, startIndex: 0, primitiveCount: indexBuffer.IndexCount );
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseVertex: 0, startIndex: 0, primitiveCount: indexBuffer.IndexCount);
+                if (Hover)
+                {
+                    graphicsDevice.SetVertexBuffer(borderBuffer);
+                    graphicsDevice.DrawPrimitives(PrimitiveType.LineStrip, 0, borderBuffer.VertexCount - 1);
+                }
             }
         }
 
-        public void Draw(GraphicsBatch graphicsBatch)
-        {
-            //graphicsBatch.Draw
-            //(
-            //    texture: graphicsBatch.Pixel,
-            //    destinationRectangle: rectangle,
-            //    color: Color.DarkBlue
-            //);
-        }
+        //public void Draw(GraphicsBatch graphicsBatch)
+        //{
+        //    //graphicsBatch.Draw
+        //    //(
+        //    //    texture: graphicsBatch.Pixel,
+        //    //    destinationRectangle: rectangle,
+        //    //    color: Color.DarkBlue
+        //    //);
+        //}
 
         private void Debug()
         {
-            if(room.name == "Cockpit")
+            if (room.name == "Cockpit")
             {
                 Console.WriteLine(
                 room.RoomPoint());
@@ -107,6 +122,10 @@ namespace NemesisMonoUI
 
         void Collidable.Activate(Board board)
         {
+            if(room.IsActionable(board))
+            {
+
+            }
             room.isDiscovered = true;
             board.activePlayer.roomId = room.id;
             board.activePlayer.listeners.NotifyMove(room);
@@ -122,45 +141,44 @@ namespace NemesisMonoUI
     public static class RoomViewExtensions
     {
         public static int roomSquareWidth = 160;
+        public static int hexScale = roomSquareWidth / 4;
+        public static Vector3[] HexShapeVectors = new Vector3[]
+        {
+            new Vector3(0,1,0) * hexScale,
+            new Vector3(2,0,0) * hexScale,
+            new Vector3(4,1,0)* hexScale,
+            new Vector3(4,3,0)* hexScale,
+            new Vector3(2,4,0)* hexScale,
+            new Vector3(0,3,0) * hexScale
+        };
+        public static Vector3 RoomCenter = new Vector3(2, 2, 0) * hexScale;
+
+        public static VertexPositionColor[] GetBorder(this Room room)
+        {
+            return HexShapeVectors.Select(r => new VertexPositionColor { Position = r + room.RoomVector(), Color = Color.White * 0.6f }).ToArray();
+        }
 
         public static IEnumerable<VertexPositionColor> GetVerts(this Room room, Random random)
         {
-            var hexScale = roomSquareWidth / 4;
-            var vectors = new Vector2[] 
-            {
-                new Vector2(2,2) * hexScale,
-                new Vector2(0,1) * hexScale,
-                new Vector2(2,0) * hexScale,
-                new Vector2(4,1)* hexScale,
-                new Vector2(4,3)* hexScale,
-                new Vector2(2,4)* hexScale,
-                new Vector2(0,3) * hexScale
-            };
+
+            var vectors = RoomCenter.StartList().InsertRange(HexShapeVectors);
+
+            var darkgrae = new Vector3(30, 30, 30);
+            var darkreddish = new Vector3(25, 20, 20);
 
             var colors = new Vector3[]
             {
-                new Vector3(25,20,20),
-                new Vector3(30,30,30),
-                new Vector3(30,30,30),
-                new Vector3(30,30,30),
-                new Vector3(30,30,30),
-                new Vector3(30,30,30),
-                new Vector3(30,30,30)
-               
-
-               // Color.LightGray,
-               // Color.DarkSeaGreen,
-               // Color.DarkBlue,
-               // Color.DarkSlateGray,
-               // Color.Gray
+                darkreddish,
+                darkgrae, darkgrae, darkgrae,
+                darkgrae, darkgrae, darkgrae
             };
 
             var roomVector = room.RoomVector();
             return vectors
             .Select((r, i) => new VertexPositionColor
             {
-                Position = new Vector3(r + roomVector, 0),
-                Color = new Color(colors[i]/255f + RandomisedVector3(random, 5)/255f) 
+                Position = r + roomVector,
+                Color = new Color(colors[i] / 255f + RandomisedVector3(random, 5) / 255f)
             });
         }
 
@@ -169,7 +187,7 @@ namespace NemesisMonoUI
             if (size > 256) size = 256;
             return new Vector3(random.Next(size), random.Next(size), random.Next(size));
         }
-     
+
         public static int RoomScale { get => 20; }
 
 
@@ -177,23 +195,23 @@ namespace NemesisMonoUI
         public static void DrawText(this Room room, GraphicsBatch graphicsBatch)
         {
             string name = room.isDiscovered ? room.name : "unknown";
-            graphicsBatch.DrawString(graphicsBatch.DefaultFont, name, new Vector2(room.x, room.y) * RoomScale, Color.GhostWhite);
-            graphicsBatch.DrawString(graphicsBatch.DefaultFont, room.RoomPoint().ToString(), new Vector2(room.x, room.y+1) * RoomScale, Color.GhostWhite);
+            graphicsBatch.DrawString(graphicsBatch.DefaultFont, name, new Vector2(room.x, room.y) * RoomScale, Color.GhostWhite, 0, Vector2.Zero, 0.3f, SpriteEffects.None, 0);
+            graphicsBatch.DrawString(graphicsBatch.DefaultFont, room.RoomPoint().ToString(), new Vector2(room.x, room.y + 1) * RoomScale, Color.GhostWhite, 0, Vector2.Zero, 0.3f, SpriteEffects.None, 0);
         }
-      
+
         public static Point RoomPoint(this Room room)
         {
             return new Point(room.x * RoomScale, room.y * RoomScale);
         }
 
-        public static Vector2 RoomVector(this Room room)
+        public static Vector3 RoomVector(this Room room)
         {
-            return new Vector2(room.x * RoomScale, room.y * RoomScale);
+            return new Vector3(room.x * RoomScale, room.y * RoomScale, 0);
         }
 
         public static Vector2 RoomCenterVector(this Room room)
         {
-            return new Vector2(room.x * RoomScale + roomSquareWidth/2f, room.y * RoomScale + roomSquareWidth/2f);
+            return new Vector2(room.x * RoomScale + roomSquareWidth / 2f, room.y * RoomScale + roomSquareWidth / 2f);
         }
 
         public static Vector3 RoomCenterVector3(this Room room)

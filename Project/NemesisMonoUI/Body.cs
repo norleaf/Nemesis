@@ -19,7 +19,7 @@ namespace NemesisMonoUI
 
         public Body()
         {
-            head = new Helmet(0,-10);
+            //head = new Helmet(0,-10);
             //torso = new BodyPart();
             //rArm = new BodyPart();
             //lArm = new BodyPart();
