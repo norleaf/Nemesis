@@ -15,32 +15,53 @@ namespace NemesisLibrary
         public Setup()
         {
             board = new Board();
+
+            var layout = new Layout();
+            board.rooms = layout.AllRooms;
+            board.corridors = layout.Corridors;
+
+            AddRoomEventTokens(board);
+            MergeLayoutWithActualRooms();
+
+            board.eventCards = new Deck<EventCard>
+                (
+                    //new DamagingFireEvent(),
+                    //new DamagingFireEvent(),
+                    new DamagingFireEvent()
+                );
+
+            SetupCaptain();
+
+        }
+
+        private void SetupCaptain()
+        {
             var player = new Captain();
             player.firstPlayer = true;
             board.activePlayer = player;
             board.targets.Add(player);
-            var layout = new Layout();
-            board.rooms = layout.AllRooms;
-            board.corridors = layout.Corridors;
-            AddRoomEventTokens(board);
+            player.FillHand();
+            player.CalculateOptions(board);
+        }
 
+        private void MergeLayoutWithActualRooms()
+        {
             var bagBasic = new NemesisBasicRooms();
             var bagAdditional = new NemesisAdditionalRooms();
 
             foreach (var room in board.rooms.Values)
             {
-                if(room is BasicRoom)
+                if (room is BasicRoom)
                 {
                     var hidden = bagBasic.Pick();
                     hidden.AbsorbLayout(room);
                 }
-                if(room is AdditionalRoom)
+                if (room is AdditionalRoom)
                 {
                     var hidden = bagAdditional.Pick();
                     hidden.AbsorbLayout(room);
                 }
             }
-
         }
 
         public void AddIntrudersTokens(Board board)

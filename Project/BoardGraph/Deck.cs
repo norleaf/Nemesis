@@ -19,7 +19,16 @@ namespace BoardGraph
             HandCards = new List<T>();
         }
 
-        
+        public Deck(params T[] cards)
+        {
+            DrawPile = new Queue<T>();
+            Discards = new List<T>();
+            HandCards = new List<T>();
+
+            cards.ToList().ForEach(r => DrawPile.Enqueue(r));
+        }
+
+
 
         public T DrawCard()
         {

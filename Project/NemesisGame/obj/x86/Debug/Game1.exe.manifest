@@ -31,26 +31,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BoardGraph.dll" size="25088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BoardGraph.dll" size="25600">
       <assemblyIdentity name="BoardGraph" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uk5v3lISrNoiKTLTbVbYbNvBwYUizCN2KKU3d3tOpes=</dsig:DigestValue>
+        <dsig:DigestValue>BdMn6fNysSRe2gaCKED/ZYDiclkV0TSG/0RaYDOrRlg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Game1.exe" size="156152">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Game1.exe" size="156120">
       <assemblyIdentity name="Game1" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>y9EORbW1eaWF5QhCEuDCiKFOh1YsSX/I5AhLFFeCEbk=</dsig:DigestValue>
+        <dsig:DigestValue>tuzHjIyMB+yg9XZmPy4DibO4Pj60w4fzFrGiAf3TqFs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,26 +67,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MonoGameLib.dll" size="12800">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MonoGameLib.dll" size="13312">
       <assemblyIdentity name="MonoGameLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RuNioOkh/P+kmqadIZ2uqghsUFp7gAL79Fiqd+NTk0U=</dsig:DigestValue>
+        <dsig:DigestValue>wvBo7OVYgRwLyrx8f3WtT0nU7fpEgHKo1I1HjaTbm4k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NemesisLibrary.dll" size="23040">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NemesisLibrary.dll" size="24064">
       <assemblyIdentity name="NemesisLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mAfeB49hpBdmHi2tLBIa6JvkNQT1Dng7u7GxdAj14Wk=</dsig:DigestValue>
+        <dsig:DigestValue>s+AImfU19q3Qxx7yZEkLJRIXFTiRV0m2zfrBwVp2P4c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cIWE2KbTpE74s9/5C5QAH6xmUe0InHkOBO9T11P/IL8=</dsig:DigestValue>
+        <dsig:DigestValue>Y/jZWJcSJ5mOXppIJDvNa4Mu5QqSvxsduJ9dswwbOj4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -218,7 +218,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wnbHbZ37NNBF8J6POXDWYs6FIOPOxsRCoQDJIYf5X3k=</dsig:DigestValue>
+        <dsig:DigestValue>LszJQpPo2da2rBdGFdo5gMujkIXdfEHGzwnG30n3TXA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

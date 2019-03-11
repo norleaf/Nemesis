@@ -40,8 +40,8 @@ namespace MonoGameLib
             if(state.Position.X != lastMousePosition.X || state.Position.Y != lastMousePosition.Y )
             {
                 lastMousePosition = state.Position;
-                Collidable collider;
-                if(cc.CheckMousePosition(state.Position, out collider))
+                List<Collidable> colliders;
+                if(cc.CheckMousePosition(state.Position, out colliders))
                 {
                     //Todo: not sure if we really do anything here...
                 }
@@ -50,11 +50,14 @@ namespace MonoGameLib
 
         public void UpdateMousePress(MouseState state)
         {
-            Collidable collider;
-            if(cc.CheckMousePosition(state.Position, out collider))
+            List<Collidable> colliders;
+            if (cc.CheckMousePosition(state.Position, out colliders))
             {
-                listener.Notify(collider);
-                collider.Activate(board);
+                colliders.ForEach(r => 
+                {
+                  //  listener.Notify(r);
+                    r.Activate(board);
+                });
             }
         }
     }

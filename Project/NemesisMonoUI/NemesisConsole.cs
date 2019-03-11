@@ -12,7 +12,7 @@ namespace NemesisMonoUI
     public class NemesisConsole
     {
         public Rectangle rectangle;
-        public List<String> strings;
+        public List<string> strings;
         public Vector2 lineHeight;
 
         public NemesisConsole(Rectangle rectangle)

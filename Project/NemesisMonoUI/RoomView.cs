@@ -20,14 +20,11 @@ namespace NemesisMonoUI
 
         public bool Hover { get; set; }
 
-        //    public List<TargetView> targetView;
-
         public RoomView(Room room, BoardView boardView, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             this.room = room;
             rectangle = new Rectangle(room.RoomPoint(), new Point(RoomViewExtensions.roomSquareWidth));
             listener = boardView;
-            //    targetView = new List<TargetView>();
             vertices = room.GetVerts(boardView.board.random).ToList();
             borderVertices = room.GetBorder();
             Init(graphicsDevice);
@@ -49,9 +46,6 @@ namespace NemesisMonoUI
                 0,1,6
             };
             indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Count, BufferUsage.WriteOnly);
-
-
-            //    indexBuffer.SetData(indices);
         }
 
         public override void Draw(GraphicsDevice graphicsDevice)
@@ -122,14 +116,17 @@ namespace NemesisMonoUI
 
         void Collidable.Activate(Board board)
         {
-            if(room.IsActionable(board))
+            Option[] options;
+            if(room.IsActionable(board, out options))
             {
-
+                //todo: if more than one option show selection.
+                
+                options[0].ChooseOption(board, board.activePlayer);
             }
-            room.isDiscovered = true;
-            board.activePlayer.roomId = room.id;
-            board.activePlayer.listeners.NotifyMove(room);
-            board.roomEvents.Pick().Perform(board, room);
+            //room.isDiscovered = true;
+            //board.activePlayer.roomId = room.id;
+            //board.activePlayer.listeners.NotifyMove(room);
+            //board.roomEvents.Pick().Perform(board, room);
         }
 
         public override string ToString()

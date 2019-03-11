@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Sprites;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MonoGameLib
 {
@@ -15,22 +16,15 @@ namespace MonoGameLib
             collidables = new List<Collidable>();
         }
 
-        public bool CheckMousePosition(Point point, out Collidable collider)
+        public bool CheckMousePosition(Point point, out List<Collidable> colliders)
         {
-            bool collision = false;
-            collider = null;
+            collidables.ForEach(r => r.Hover = false);
+         
             //Todo: Make a list where all things collided go to and then prioritise list to see if one or more should active
-            foreach (var item in collidables)
-            {
-                item.Hover = false;
-                if(item.PointWithinBounds(point))
-                {
-                    item.Hover = true;
-                    collision = true;
-                    collider = item;
-                }
-            }
-            return collision;
+            colliders = collidables.Where(r => r.PointWithinBounds(point)).ToList();
+            colliders.ForEach(r => r.Hover = true);
+            
+            return colliders.Any();
         }
     }
 

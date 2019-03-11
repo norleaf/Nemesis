@@ -6,13 +6,15 @@
         public string description;
         public string[] types;
 
-
-
-        public void MoveEnemies(Board board)
+        protected EventCard(string name, string description, params string[] types)
         {
-
+            this.name = name;
+            this.description = description;
+            this.types = types;
         }
 
+        public abstract void MoveEnemies(Board board);
+        
         public abstract void ResolveEvent(Board board);
     }
 }

@@ -9,6 +9,7 @@ namespace BoardGraph
     public class Board
     {
         public Random random;
+        public Listener listener;
         public Dictionary<int,Room> rooms;
         public List<Corridor> corridors;
         public Bag<RoomEvent> roomEvents;
@@ -52,6 +53,7 @@ namespace BoardGraph
 
         private void ResolveEventCard()
         {
+            //todo: Put some event cards in here to avaoid crashes
             var card = eventCards.DrawCard();
             card.MoveEnemies(this);
             card.ResolveEvent(this);

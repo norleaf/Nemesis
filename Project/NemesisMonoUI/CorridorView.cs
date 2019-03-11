@@ -10,9 +10,36 @@ using System.Threading.Tasks;
 
 namespace NemesisMonoUI
 {
+    public class CorridorsView : ViewBase
+    {
+        public CorridorsView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
+        {
+            var verts = board.corridors.SelectMany(r => r.GetVerts(board));
+            vertices.AddRange(verts);
+            Init(graphicsDevice);
+        }
+
+        public override void Draw(GraphicsDevice graphicsDevice)
+        {
+            indexBuffer.SetData(indices.ToArray());
+            graphicsDevice.SetVertexBuffer(vertexBuffer);
+            graphicsDevice.Indices = indexBuffer;
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            graphicsDevice.RasterizerState = rasterizerState;
+
+            //basicEffect.CurrentTechnique.Passes[0].Apply();  Is there ever going to be more than one Pass? Else just use this instead
+            foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length / 2);
+            }
+        }
+    }
+
     public class CorridorView : ViewBase
     {
-        public CorridorView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
+        public CorridorView(Corridor corridor, Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             var verts = board.corridors.SelectMany(r => r.GetVerts(board));
             vertices.AddRange(verts);
@@ -49,7 +76,6 @@ namespace NemesisMonoUI
                     r.id.GetColor(rooms)
                 )
             );
-            
             return verts;
         }
 
@@ -59,7 +85,5 @@ namespace NemesisMonoUI
             color = rooms.Any(r=> r.id == 999) ? new Color(30,0,0) : color;
             return color;
         }
-
-        
     }
 }

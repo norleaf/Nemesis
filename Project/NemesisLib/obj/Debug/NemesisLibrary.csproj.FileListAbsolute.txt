@@ -44,3 +44,15 @@ C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisLib\bin\Debug\Newtonsoft.J
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisLib\obj\Debug\NemesisLibrary.csprojResolveAssemblyReference.cache
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisLib\obj\Debug\NemesisLibrary.dll
 C:\Users\Hans\Documents\GitHub\Nemesis\Project\NemesisLib\obj\Debug\NemesisLibrary.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\bin\Debug\NemesisLibrary.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\bin\Debug\NemesisLibrary.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\bin\Debug\BoardGraph.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\bin\Debug\BoardGraph.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\obj\Debug\NemesisLibrary.csprojAssemblyReference.cache
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\obj\Debug\NemesisLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\obj\Debug\NemesisLibrary.csproj.CopyComplete
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\obj\Debug\NemesisLibrary.dll
+C:\Users\Hans Nørløv\Documents\GitHub\Nemesis\Project\NemesisLib\obj\Debug\NemesisLibrary.pdb

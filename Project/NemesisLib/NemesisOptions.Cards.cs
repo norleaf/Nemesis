@@ -7,13 +7,35 @@ using System.Threading.Tasks;
 
 namespace NemesisLibrary
 {
-    public class BasicRepairs : Option
+
+
+    public class BasicRepairsCard : Card
     {
-        public override void Perform()
+        public BasicRepairsCard() : base("Basic Repairs", new BasicRepairs())
         {
-            throw new NotImplementedException();
+        }
+
+        public class BasicRepairs : Option
+        {
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 
-    
+    public class SearchCard : Card
+    {
+        public SearchCard() : base("Search", new Search())
+        {
+        }
+
+        public class Search : Option
+        {
+            public override void Perform()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
 }

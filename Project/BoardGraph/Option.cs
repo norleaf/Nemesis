@@ -98,6 +98,8 @@ namespace BoardGraph
 
         public override void Perform()
         {
+            player.listeners.NotifyMove(targetRoom);
+            player.roomId = targetRoom.id;
             if (!targetRoom.isDiscovered)
             {
                 var token = board.roomEvents.Pick();
@@ -105,13 +107,13 @@ namespace BoardGraph
                 targetRoom.isDiscovered = true;
                 if (token is Claw || token is Calm)
                 {
-                    player.roomId = targetRoom.id;
+                    player.CalculateOptions(board);
                     return;
                 }
             }
             targetRoom.RollForNoise(board);
-            player.listeners.NotifyMove(targetRoom);
-            player.roomId = targetRoom.id;
+            player.CalculateOptions(board);
+        
         }
     }
 

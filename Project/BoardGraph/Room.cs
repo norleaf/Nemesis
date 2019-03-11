@@ -103,6 +103,12 @@ namespace BoardGraph
         {
             throw new NotImplementedException();
         }
+
+        public bool IsActionable(Board board, out Option[] options)
+        {
+            options = board.activePlayer.options.Where(r => r.room == this || r.targetRoom == this).ToArray();
+            return options.Length > 0;
+        }
     }
 
 

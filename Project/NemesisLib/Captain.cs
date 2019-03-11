@@ -12,7 +12,18 @@ namespace NemesisLibrary
         public Captain() : base()
         {
             name = "Captain Brenegan";
-            CaptainCards();
+            deck = new Deck<Card>(
+                new BasicRepairsCard(),
+                new SearchCard(),
+                new SearchCard(),
+                new SearchCard(),
+                new SearchCard(),
+                new SearchCard(),
+                new SearchCard(),
+                new SearchCard(),
+                new SearchCard(),
+                new SearchCard()
+            );
             roomId = 11;
         }
 
@@ -22,15 +33,7 @@ namespace NemesisLibrary
             for (int i = 0; i < 10; i++)
             {
                 deck.DrawPile.Enqueue(
-                    new Card(
-                        "default", 
-                        new BasicRepairs
-                        {
-                            name = "do nothing",
-                            description = "do nothing at all...",
-                            
-                        }
-                    )
+                    new BasicRepairsCard()
                 );
             }
            

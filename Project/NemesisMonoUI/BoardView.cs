@@ -27,16 +27,17 @@ namespace NemesisMonoUI
         public Board board;
         public RoomView[] roomView;
         public TargetsView targetsView;
-        public CorridorView corridorView;
+        public CorridorView[] corridorView;
         public NemesisConsole nemesisConsole;
        
         public BoardView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             this.board = board;
+            board.listener = this;
             roomView = board.Rooms().Select(r => new RoomView(r, this, graphicsDevice)).ToArray();
             targetsView = new TargetsView(board,graphicsDevice);
             targetsView.AddAll(board, graphicsDevice);
-            corridorView = new CorridorView(board, graphicsDevice);
+            corridorView = board.corridors.Select(r => new CorridorView(r, board, graphicsDevice);
             nemesisConsole = new NemesisConsole(new Rectangle(1600,0,320,1080));
             nemesisConsole.Add("New game.");
         }
