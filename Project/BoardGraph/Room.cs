@@ -9,7 +9,7 @@ using static BoardGraph.RoomEvent;
 namespace BoardGraph
 {
 
-    public class Room
+    public class Room : Actionable
     {
         public int id;
         public int x;
@@ -110,11 +110,4 @@ namespace BoardGraph
             return options.Length > 0;
         }
     }
-
-
-
-
-
-    
-
 }
