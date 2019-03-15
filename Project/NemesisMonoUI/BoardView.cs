@@ -27,7 +27,7 @@ namespace NemesisMonoUI
         public Board board;
         public RoomView[] roomView;
         public TargetsView targetsView;
-        public CorridorView[] corridorView;
+        public CorridorsView corridorsView;
         public NemesisConsole nemesisConsole;
        
         public BoardView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
@@ -37,7 +37,7 @@ namespace NemesisMonoUI
             roomView = board.Rooms().Select(r => new RoomView(r, this, graphicsDevice)).ToArray();
             targetsView = new TargetsView(board,graphicsDevice);
             targetsView.AddAll(board, graphicsDevice);
-            corridorView = board.corridors.Select(r => new CorridorView(r, board, graphicsDevice);
+            corridorsView = new CorridorsView(board, graphicsDevice);
             nemesisConsole = new NemesisConsole(new Rectangle(1600,0,320,1080));
             nemesisConsole.Add("New game.");
         }
@@ -55,7 +55,7 @@ namespace NemesisMonoUI
         {
 
             
-            corridorView.Draw(graphicsDevice);
+            corridorsView.Draw(graphicsDevice);
             foreach (var room in roomView)
             {
                 room.Draw(graphicsDevice);

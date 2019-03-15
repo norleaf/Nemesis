@@ -47,7 +47,7 @@ namespace NemesisMonoUI
             foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length / 2);
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length / 2);
             }
 
         }

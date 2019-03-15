@@ -12,8 +12,14 @@ namespace NemesisMonoUI
 {
     public class CorridorsView : ViewBase
     {
+        CorridorView[] corridorViews;
+
+
         public CorridorsView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
+            corridorViews = board.corridors.Select(r => new CorridorView(r, board, graphicsDevice)).ToArray();
+
+            //todo: have a vertice collection here that are all the union of all verts from the array of corridors
             var verts = board.corridors.SelectMany(r => r.GetVerts(board));
             vertices.AddRange(verts);
             Init(graphicsDevice);
@@ -21,6 +27,8 @@ namespace NemesisMonoUI
 
         public override void Draw(GraphicsDevice graphicsDevice)
         {
+
+            //todo: figure out how much can be done here commonly instead of in each corridorview 
             indexBuffer.SetData(indices.ToArray());
             graphicsDevice.SetVertexBuffer(vertexBuffer);
             graphicsDevice.Indices = indexBuffer;
@@ -35,10 +43,19 @@ namespace NemesisMonoUI
                 graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length / 2);
             }
         }
+
+        public void Draw(GraphicsBatch graphicsBatch)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class CorridorView : ViewBase
     {
+        Corridor corridor;
+        Color color;
+        //todo: implement listener and have corridor broadcast whenever it StateChanges to view will know to change color...
+
         public CorridorView(Corridor corridor, Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             var verts = board.corridors.SelectMany(r => r.GetVerts(board));
