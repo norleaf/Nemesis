@@ -29,7 +29,10 @@ namespace BoardGraph
             if (corridor.noise)
                 new Encounter().Perform(board, room);
             else
+            {
                 corridor.noise = true;
+                corridor.NotifyListeners();
+            }
 
         }
     }
@@ -38,7 +41,21 @@ namespace BoardGraph
     {
         public override void Perform(Board board, Room room)
         {
-            Console.WriteLine("CLAW!");
+            var adjacentRooms = room.GetAdjoiningRooms(board);
+            var adjacentHostiles = adjacentRooms.SelectMany(r => r.GetRoomOccupants(board)).Where(r => r.isHostile);
+            if (adjacentHostiles.Any(r => !r.InCombat(board)))
+            {
+                foreach ( var hostile in adjacentHostiles.Where(r => !r.InCombat(board)))
+                {
+                    hostile.roomId = room.id;
+                    hostile.listeners.NotifyMove(room);
+                }
+            }
+            else
+            {
+                room.corridors.ForEach(r => r.noise = true);
+                Console.WriteLine("CLAW!");
+            }
         }
     }
 

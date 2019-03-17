@@ -23,7 +23,12 @@ namespace BoardGraph
             return board.rooms[roomId];
         }
 
-        
+        public bool InCombat(Board board)
+        {
+            var room = board.GetRoom(roomId);
+            var occupants = room.GetRoomOccupants(board);
+            return occupants.Any(r => r.isHostile != isHostile);
+        }
     }
 
     public class Targets

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BoardGraph
 {
-    public class Corridor
+    public class Corridor : Observer
     {
         public bool noise;
         public bool doorClosed;
@@ -15,7 +15,7 @@ namespace BoardGraph
         public bool isMonsterTunnel;
         public int width;
         public int[] roomIDs;
-        
+        public Listener listener;
 
 
         public Corridor()
@@ -32,6 +32,11 @@ namespace BoardGraph
             roomIDs[1] = roomB.id;
             roomA.corridors.Add(this);
             roomB.corridors.Add(this);
+        }
+
+        public void NotifyListeners()
+        {
+            listener.Notify("noise");
         }
     }
 }

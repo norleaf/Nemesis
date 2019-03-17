@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace BoardGraph
 {
+    public interface Observer
+    {
+        void NotifyListeners();
+        
+    }
+
     public interface Listener
     {
         void Notify(params object[] messages);
