@@ -26,12 +26,14 @@ namespace BoardGraph
                 index++;
             }
             Corridor corridor = room.corridors[index];
-            if (corridor.noise)
+            if (corridor.HasNoise())
+            {
                 new Encounter().Perform(board, room);
+                
+            }
             else
             {
-                corridor.noise = true;
-                corridor.NotifyListeners();
+                corridor.CreateNoise(board);
             }
 
         }
@@ -53,7 +55,7 @@ namespace BoardGraph
             }
             else
             {
-                room.corridors.ForEach(r => r.noise = true);
+                room.corridors.ForEach(r => r.CreateNoise(board));
                 Console.WriteLine("CLAW!");
             }
         }
@@ -105,8 +107,7 @@ namespace BoardGraph
     {
         public override void Perform(Board board, Room room)
         {
-            foreach (var corridor in room.corridors)
-                corridor.noise = false;
+            room.corridors.ForEach(r => r.RemoveNoise(board));
             var player = board.activePlayer;
             var enemy = board.enemies.Pick();
             board.targets.Add(enemy);

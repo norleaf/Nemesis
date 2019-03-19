@@ -8,7 +8,7 @@ namespace BoardGraph
 {
     public interface Observer
     {
-        void NotifyListeners();
+        void NotifyListeners(string message);
         
     }
 

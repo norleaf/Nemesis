@@ -60,7 +60,7 @@ namespace BoardGraph
 
         public int NoiseLevel()
         {
-            return corridors.Count() - corridors.Sum(c => c.noise ? 1 : 0);
+            return corridors.Count() - corridors.Sum(c => c.HasNoise() ? 1 : 0);
         }
 
         public List<Target> GetRoomOccupants(Board board)
@@ -90,6 +90,7 @@ namespace BoardGraph
             if (!GetRoomOccupants(board).Any(r => r!=board.activePlayer))
             {
                 int roll = board.random.Next(10);
+                Console.WriteLine(roll);
                 RoomEvent evt;
                 if (roll < 1) evt = new Claw();
                 else if (roll < 2) evt = new Calm();

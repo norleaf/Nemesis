@@ -48,7 +48,7 @@ namespace NemesisMonoUI
 
         public override void Draw(GraphicsDevice graphicsDevice)
         {
-            if(corridor.noise)
+            if(corridor.HasNoise())
             {
                 vertices = vertices.Select(r => new VertexPositionColor(r.Position,noiseColor)).ToList();
                 vertexBuffer.SetData(VerticeArray);
@@ -88,7 +88,7 @@ namespace NemesisMonoUI
                 switch (message)
                 {
                     case "noise":
-                        Console.WriteLine("here!");
+                       // Console.WriteLine("here!");
                         break;
                     default:
                         break;

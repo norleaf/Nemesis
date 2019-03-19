@@ -55,6 +55,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Listener.cs" />
+    <Compile Include="NamedState.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
