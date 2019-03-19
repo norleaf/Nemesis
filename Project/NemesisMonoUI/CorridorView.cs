@@ -18,30 +18,11 @@ namespace NemesisMonoUI
         public CorridorsView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             corridorViews = board.corridors.Select(r => new CorridorView(r, board, graphicsDevice)).ToList();
-
-            //todo: have a vertice collection here that are all the union of all verts from the array of corridors
-            //var verts = board.corridors.SelectMany(r => r.GetVerts(board));
-            //vertices.AddRange(verts);
-            //Init(graphicsDevice);
         }
 
         public override void Draw(GraphicsDevice graphicsDevice)
         {
             corridorViews.ForEach(r => r.Draw(graphicsDevice));
-            //todo: figure out how much can be done here commonly instead of in each corridorview 
-            //indexBuffer.SetData(indices.ToArray());
-            //graphicsDevice.SetVertexBuffer(vertexBuffer);
-            //graphicsDevice.Indices = indexBuffer;
-            //RasterizerState rasterizerState = new RasterizerState();
-            //rasterizerState.CullMode = CullMode.None;
-            //graphicsDevice.RasterizerState = rasterizerState;
-
-            ////basicEffect.CurrentTechnique.Passes[0].Apply();  Is there ever going to be more than one Pass? Else just use this instead
-            //foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
-            //{
-            //    pass.Apply();
-            //    graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineList, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length / 2);
-            //}
         }
 
         public void Draw(GraphicsBatch graphicsBatch)
@@ -67,7 +48,11 @@ namespace NemesisMonoUI
 
         public override void Draw(GraphicsDevice graphicsDevice)
         {
-          
+            if(corridor.noise)
+            {
+                vertices = vertices.Select(r => new VertexPositionColor(r.Position,noiseColor)).ToList();
+                vertexBuffer.SetData(VerticeArray);
+            }
             indexBuffer.SetData(indices.ToArray());
             graphicsDevice.SetVertexBuffer(vertexBuffer);
             graphicsDevice.Indices = indexBuffer;
