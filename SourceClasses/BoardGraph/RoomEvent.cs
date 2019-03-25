@@ -83,7 +83,7 @@ namespace BoardGraph
     {
         public override void Perform(Board board, Room room)
         {
-            Console.WriteLine("The room is ablaze with fire. Sirens are blaring deafeningly.");
+            Console.WriteLine("The room is ablaze with fire. Staying here is hazardous!");
         }
     }
 
@@ -99,7 +99,7 @@ namespace BoardGraph
     {
         public override void Perform(Board board, Room room)
         {
-            Console.WriteLine("The door shuts behind you and then shortcircuits.");
+            Console.WriteLine("The door slams shut behind you and refuses to open.");
         }
     }
 

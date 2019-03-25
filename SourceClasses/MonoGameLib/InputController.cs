@@ -5,49 +5,62 @@ using System.Text;
 using System.Threading.Tasks;
 using Sprites;
 using Microsoft.Xna.Framework.Input;
+using BoardGraph;
+using Microsoft.Xna.Framework;
 
-namespace Game1
+namespace MonoGameLib
 {
     public class InputController
     {
-        CollisionController cc;
-        private List<SpriteGroup> sprites;
+        Board board;
+        public CollisionController cc;
         private bool mousePressed = false;
+        private Point lastMousePosition;
+        public Listener listener;
 
-        public InputController()
+        public InputController(Board board)
         {
-            
-        }
-
-        public InputController(List<SpriteGroup> sprites)
-        {
-            this.sprites = sprites;
-            cc = new CollisionController(sprites);
+            this.board = board;
+            cc = new CollisionController();
         }
 
         public void Update()
         {
-            if(Mouse.GetState().LeftButton== ButtonState.Pressed && mousePressed==false)
+            var state = Mouse.GetState();
+            if(state.LeftButton == ButtonState.Pressed && mousePressed==false)
             {
+                
                 mousePressed = true;
-                UpdateMousePress();
+                UpdateMousePress(state);
             }
-            else if(Mouse.GetState().LeftButton == ButtonState.Released && mousePressed == true)
+            else if(state.LeftButton == ButtonState.Released && mousePressed == true)
             {
                 mousePressed = false;
             }
+            if(state.Position.X != lastMousePosition.X || state.Position.Y != lastMousePosition.Y )
+            {
+                lastMousePosition = state.Position;
+                List<Collidable> colliders;
+                if(cc.CheckMousePosition(state.Position, out colliders))
+                {
+                    //Todo: not sure if we really do anything here...
+                }
+            }
         }
 
-        public void UpdateMousePress()
+        public void UpdateMousePress(MouseState state)
         {
-            
-            bool hit = false;
-            SpriteGroup spriteGrp = null;
-            cc.CheckMouseClick(out hit, out spriteGrp);
-            if(hit)
+            List<Collidable> colliders;
+            if (cc.CheckMousePosition(state.Position, out colliders))
             {
-                spriteGrp.Next();
+                colliders.ForEach(r => 
+                {
+                  //  listener.Notify(r);
+                    r.Activate(board);
+                });
             }
         }
     }
+
+    
 }

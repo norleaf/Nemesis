@@ -53,10 +53,5 @@ namespace BoardGraph
             return list;
         }
 
-        public static bool Not<T>(this object obj)
-        {
-            return !(obj is T);
-        }
-
     }
 }

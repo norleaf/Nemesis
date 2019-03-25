@@ -1,33 +1,42 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using BoardGraph;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Sprites;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Game1
+namespace MonoGameLib
 {
     public class CollisionController
     {
-        private List<SpriteGroup> sprites;
+        public List<Collidable> collidables;
 
-        public CollisionController(List<SpriteGroup> sprites)
+        public CollisionController()
         {
-            this.sprites = sprites;
+            collidables = new List<Collidable>();
         }
 
-        public void CheckMouseClick(out bool collision, out SpriteGroup group)
+        public bool CheckMousePosition(Point point, out List<Collidable> colliders)
         {
-            collision = false;
-            group = null;
-            var mousePos = Mouse.GetState().Position;
-            foreach (var spriteGrp in sprites)
-            {
-                if(spriteGrp.Current.HasPointWithinBounds(mousePos))
-                {
-                    collision = true;
-                    group = spriteGrp;
-                }
-            }
+            collidables.ForEach(r => r.Hover = false);
+         
+            //Todo: Make a list where all things collided go to and then prioritise list to see if one or more should active
+            colliders = collidables.Where(r => r.PointWithinBounds(point)).ToList();
+            colliders.ForEach(r => r.Hover = true);
+            
+            return colliders.Any();
         }
+    }
 
-        
+    public interface Collidable
+    {
+        bool Hover { get; set; }
+
+        bool PointOnEdge(Point p);
+        bool PointWithinBounds(Point p);
+        bool RectangleTouch(Rectangle r);
+        bool RectangleOverlap(Rectangle r);
+        bool RectangleWithinBounds(Rectangle r);
+        void Activate(Board board);
     }
 }

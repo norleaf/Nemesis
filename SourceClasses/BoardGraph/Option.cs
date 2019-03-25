@@ -99,19 +99,19 @@ namespace BoardGraph
         public override void Perform()
         {
             player.listeners.NotifyMove(targetRoom);
-            RoomEvent token = null;
+            player.roomId = targetRoom.id;
             if (!targetRoom.isDiscovered)
             {
-                token = board.roomEvents.Pick();
+                var token = board.roomEvents.Pick();
                 token.Perform(board, targetRoom);
                 targetRoom.isDiscovered = true;
+                if (token is Claw || token is Calm)
+                {
+                    player.CalculateOptions(board);
+                    return;
+                }
             }
-            if (token is Claw || token is Calm) { /*Skip noise roll*/ }
-            else
-            {
-                targetRoom.RollForNoise(board);
-            }
-            player.roomId = targetRoom.id;
+            targetRoom.RollForNoise(board);
             player.CalculateOptions(board);
         
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static BoardGraph.RoomEvent;
 
 namespace BoardGraph
 {
@@ -9,146 +10,164 @@ namespace BoardGraph
         public int number;
         public bool slimed = false;
         public bool signalSent = false;
-        public List<SevereWound> severeWounds = new List<SevereWound>();
+        public bool passed = false;
+        public bool firstPlayer = false;
+        public List<SevereWound> severeWounds;
         public int actionsTakenInTurn = 0;
         public int actionLimit = 2;
         public int handLimit = 5;
-        public List<Card> handCards = new List<Card>();
-        public List<Card> discards = new List<Card>();
-        public List<Card> drawPile = new List<Card>();
-        public List<Item> items = new List<Item>();
-        public List<Option> options = new List<Option>();
-        public List<Objective> objectives = new List<Objective>();
-        Random random = new Random();
+        //TODO list of selected cards for moving handcards to discards when paying cost
+        public Deck<Card> deck;
+        public List<Item> items;
+        public List<Option> options;
+        public List<Objective> objectives;
+
+
+
+
+        public PlayerCharacter()
+        {
+            isHostile = false;
+            severeWounds = new List<SevereWound>();
+            deck = new Deck<Card>();
+            items = new List<Item>();
+            options = new List<Option>();
+            objectives = new List<Objective>();
+        }
 
         public void CalculateOptions(Board board)
         {
+
             options.Clear();
             if (actionsTakenInTurn >= actionLimit)
-                EndTurn();
-            else if (handCards.Count(a => !a.contamination) == 0)
+                EndTurn(board);
+            else if (!HasUsableHandCards())
+            {
                 Pass();
+                EndTurn(board);
+            }
             else
             {
-                int cardsLeft = handCards.Count(a => !a.contamination);
-                Room room = board.rooms.Single(r => r.id == roomId);
+                int cardsLeft = deck.HandCards.Count(a => !a.contamination);
+                Room room = GetRoom(board);
                 options.AddRange(room.GetOptions(this));
-                foreach (var corridor in room.corridors.Distinct().Where(r => !r.isMonsterTunnel && !r.doorClosed))
+                List<Target> targets = room.GetRoomOccupants(board);
+                bool inCombat = targets.Any(t => t.isHostile);
+                if (inCombat)
                 {
-                    Room destination = board.rooms.Single(r => r.id != room.id);
-                    options.Add(new Option
-                    {
-                        name = "MOVE",
-                        action = BasicActions.Move,
-                        actionCost = 1,
-                        description = destination.RemoteDescription(board),
-                        destination = destination,
-                        player = this,
-                        room = room,
-                        target = null
-                    });
+
+                }
+                else
+                {
+                    options.AddRange(GetMoveOptions(room, board));
                 }
             }
         }
 
 
 
+        public void HealLightWound(int wounds)
+        {
+            lightWounds -= wounds;
+            if (lightWounds < 0) lightWounds = 0;
+        }
+
+        public void GainLightWound(int wounds, Board board)
+        {
+
+            lightWounds += wounds;
+            if (lightWounds > 2)
+            {
+                lightWounds = 0;
+                GainSeriousWound(board);
+            }
+        }
+
+        public void GainSeriousWound(Board board)
+        {
+            //todo: serious wound gain
+            //if 4th die
+            //else draw from pile and add to wounds
+            throw new NotImplementedException();
+        }
+
+        public List<Move> GetMoveOptions(Room currentRoom, Board board)
+            => currentRoom.GetAdjoiningRooms(board)
+                .Select(destination => new Move
+                {
+                    name = "MOVE",
+                    actionCost = 1,
+                    description = "",
+                    targetRoom = destination,
+                    player = this,
+                    room = currentRoom,
+                    target = null,
+                    board = board
+
+                })
+                .ToList();
+
         public void Pass()
         {
-            while (handCards.Count() < handLimit) DrawCard();
+            passed = true;
+
+        }
+
+        public void FillHand()
+        {
+            while (deck.HandCards.Count() < handLimit) DrawCard();
         }
 
         public void DrawCard()
         {
-            if (drawPile.Count() == 0) ShuffleDiscards();
-            Card card = drawPile[0];
-            handCards.Add(card);
-            drawPile.Remove(card);
+            deck.DrawCard();
         }
 
         public void Discard(Card card)
         {
-            handCards.Remove(card);
-            discards.Add(card);
+            deck.Discard(card);
+        }
+
+        public int UsableHandCards()
+        {
+            return deck.HandCards.Where(r => !r.contamination).Count();
         }
 
         public void PayActionCost(int amount)
         {
             for (int i = 0; i < amount; i++)
             {
-                List<Card> eligibleCards = handCards.Where(c => !c.contamination).ToList();
+                List<Card> eligibleCards = deck.HandCards.Where(c => !c.contamination).ToList();
                 var card = eligibleCards[random.Next(eligibleCards.Count())];
                 Discard(card);
             }
         }
 
-        private void ShuffleDiscards()
+        public bool HasUsableHandCards()
         {
-            while (discards.Any())
-            {
-                var card = discards[random.Next(discards.Count())];
-                drawPile.Add(card);
-                discards.Remove(card);
-            }
+            return deck.HandCards
+                .Any(r => !r.contamination);
         }
 
-        private void EndTurn()
+        private void EndTurn(Board board)
         {
             actionsTakenInTurn = 0;
-        }
-    }
-
-    public class BasicActions
-    {
-        public static void Move(PlayerCharacter player, Target target, Room room, Room destination)
-        {
-
-            player.roomId = destination.id;
+            board.NextPlayer(this);
         }
     }
 
     public class Objective
     {
+        //Todo: objective
+        public string name;
+        public Func<PlayerCharacter, Board, bool> SolutionA;
+        public Func<PlayerCharacter, Board, bool> SolutionB;
     }
 
     public class SevereWound
     {
-
+        //Todo: severe wounds
     }
 
-    public class Target
-    {
-        public string name;
-        public int roomId;
-        public int lightWounds = 0;
-    }
 
-    public class Option
-    {
-        public string name;
-        public string description;
-        public int actionCost = 2;
-        public Action<PlayerCharacter, Target, Room, Room> action;
-        public PlayerCharacter player;
-        public Target target;
-        public Room room;
-        public Room destination;
-
-        public void ChooseOption()
-        {
-            player.actionsTakenInTurn++;
-            player.PayActionCost(actionCost);
-            action(player, target, room, destination);
-        }
-    }
-
-    public class Item : Option
-    {
-        public bool oneUse;
-    }
-
-    public class Card : Option
-    {
-        public bool contamination;
-    }
 }
