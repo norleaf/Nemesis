@@ -5,8 +5,6 @@ using MonoGameLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NemesisMonoUI
 {
@@ -104,19 +102,6 @@ namespace NemesisMonoUI
 
     public static class CorridorViewExtensions
     {
-        //public static IEnumerable<VertexPositionColor> GetVerts(this Corridor corridor, Board board)
-        //{
-        //    var rooms = corridor.roomIDs.Select(r =>  board.GetRoom(r));
-        //    var verts = rooms.Select(r=> 
-        //        new VertexPositionColor
-        //        (
-        //            new Vector3(r.RoomCenterVector(),0),
-        //            r.id.GetColor(rooms)
-        //        )
-        //    );
-        //    return verts;
-        //}
-
         public static Color technical = new Color(0,0,30);
         public static Color color1 = Color.Black;
         public static Color color2 = Color.BlanchedAlmond;

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -7,7 +6,6 @@ using Sprites;
 using BoardGraph;
 using NemesisMonoUI;
 using MonoGameLib;
-using TestModule;
 using NemesisLibrary;
 
 namespace NemesisGame
