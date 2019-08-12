@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,10 +12,12 @@ namespace NemesisLibrary
     public abstract class NemesisEventCard : EventCard
     { 
         public int moveDirection;
+        public ResourceManager resourceManager;
 
         protected NemesisEventCard(int moveDirection, string name, string description, params string[] types) : base(name,description,types)
         {
             this.moveDirection = moveDirection;
+            
         }
 
         public override void ResolveEvent(Board board)
@@ -29,9 +33,9 @@ namespace NemesisLibrary
        
     }
 
-    public class DamagingFireEvent : NemesisEventCard
+    public class DamagingFire : NemesisEventCard
     {
-        public DamagingFireEvent() : base(1,"Damaging Fire","...", Type.adult.ToString())
+        public DamagingFire() : base(1,"Damaging Fire","...", Type.adult.ToString())
         {
         }
 
@@ -43,14 +47,20 @@ namespace NemesisLibrary
         }
     }
 
-    public class TestCards
+    public class NestProtection : NemesisEventCard
     {
-        List<Card> cards;
-
-        public TestCards()
-        {
-            cards = new List<Card>();
-            
-        }
+        public NestProtection() : base(2, "Nest Protection", resourceManager.GetString(""), Type.creeper.ToString())
+        { }
     }
+
+    //public class TestCards
+    //{
+    //    List<Card> cards;
+
+    //    public TestCards()
+    //    {
+    //        cards = new List<Card>();
+
+    //    }
+    //}
 }

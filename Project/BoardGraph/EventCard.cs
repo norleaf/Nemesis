@@ -16,5 +16,7 @@
         public abstract void MoveEnemies(Board board);
         
         public abstract void ResolveEvent(Board board);
+
+    
     }
 }
