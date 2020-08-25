@@ -9,7 +9,7 @@ namespace NemesisLibrary
 {
     public class Cockpit : Room
     {
-        public Cockpit() : base(1, 2, 22, "Cockpit", "Here you can check the plottet course or enter a new destination coordinate.", isDiscovered: true)
+        public Cockpit() : base(1, 2, 22, "Cockpit", "Here you can check the plotted course or enter a new destination coordinate.", isDiscovered: true)
         {
             options.Add(new ViewCoordinates(this), new CheckCoordinates(this));
         }

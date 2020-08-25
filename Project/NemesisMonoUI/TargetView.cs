@@ -29,7 +29,7 @@ namespace NemesisMonoUI
         private void MakeBody(GraphicsDevice graphicsDevice)
         {
             body = new Body();
-            var circle = new Circle(-30, -10, 25, 20);
+            Circle circle = new Circle(-30, -10, 25, 20);
             vertices.AddRange(circle.ring.Select(r => new VertexPositionColor(r,Color.DarkOliveGreen)));
         }
 
@@ -47,7 +47,8 @@ namespace NemesisMonoUI
             foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
-                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length / 2);
+                //graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length /* divide by two for half circle I think/ 2*/);
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length );
             }
 
         }

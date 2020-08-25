@@ -27,7 +27,7 @@ namespace NemesisLibrary
                 (
                     //new DamagingFireEvent(),
                     //new DamagingFireEvent(),
-                    new DamagingFireEvent()
+                   // new DamagingFireEvent()
                 );
 
             SetupCaptain();

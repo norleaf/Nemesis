@@ -26,6 +26,7 @@ namespace NemesisMonoUI
         public TargetsView targetsView;
         public CorridorsView corridorsView;
         public NemesisConsole nemesisConsole;
+        public PlayerActionCards playerActionCards;
        
         public BoardView(Board board, GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
@@ -37,6 +38,8 @@ namespace NemesisMonoUI
             corridorsView = new CorridorsView(board, graphicsDevice);
             nemesisConsole = new NemesisConsole(new Rectangle(1600,0,320,1080));
             nemesisConsole.Add("New game.");
+            nemesisConsole.Add("Line 2.");
+            playerActionCards = new PlayerActionCards(graphicsDevice, board);
         }
 
         public void DrawGraphics(GraphicsBatch graphicsBatch)
@@ -58,7 +61,7 @@ namespace NemesisMonoUI
                 room.Draw(graphicsDevice);
             }
             targetsView.Draw(graphicsDevice);
-            
+            playerActionCards.Draw(graphicsDevice);
         }
 
         public void Notify(object[] messages)

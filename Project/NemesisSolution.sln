@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGraph", "BoardGraph\BoardGraph.csproj", "{B9127170-CCD6-4954-84F3-51BE02F15503}"
 EndProject
@@ -74,6 +74,7 @@ Global
 		{C0F74667-62DA-4687-9CD6-27F3DBB80F79}.Release|x86.ActiveCfg = Release|Any CPU
 		{C0F74667-62DA-4687-9CD6-27F3DBB80F79}.Release|x86.Build.0 = Release|Any CPU
 		{93A0A803-DBBA-4D89-8215-E12F65E23335}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{93A0A803-DBBA-4D89-8215-E12F65E23335}.Debug|Any CPU.Build.0 = Debug|x86
 		{93A0A803-DBBA-4D89-8215-E12F65E23335}.Debug|x86.ActiveCfg = Debug|x86
 		{93A0A803-DBBA-4D89-8215-E12F65E23335}.Debug|x86.Build.0 = Debug|x86
 		{93A0A803-DBBA-4D89-8215-E12F65E23335}.Release|Any CPU.ActiveCfg = Release|x86

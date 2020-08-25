@@ -49,7 +49,7 @@ namespace NemesisLibrary
 
     public class NestProtection : NemesisEventCard
     {
-        public NestProtection() : base(2, "Nest Protection", resourceManager.GetString(""), Type.creeper.ToString())
+        public NestProtection() : base(2, "Nest Protection", "", Type.creeper.ToString())
         { }
     }
 
