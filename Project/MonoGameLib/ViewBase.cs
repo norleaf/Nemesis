@@ -63,6 +63,16 @@ namespace MonoGameLib
 
         public abstract void Draw(GraphicsDevice graphicsDevice);
 
+        public void DefaultDraw(GraphicsDevice graphicsDevice) //Do not make this method virtual, it is meant to be final
+        {
+            PrepareDraw(graphicsDevice);
+            foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseVertex: 0, startIndex: 0, primitiveCount: indexBuffer.IndexCount);
+            }
+        }
+
     }
 
     public static class ViewExtensions

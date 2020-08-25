@@ -13,38 +13,22 @@ namespace NemesisMonoUI
     public class PlayerActionCards : ViewBase, Listener
     {
         private Board board;
+        private List<ActionCard> actionCards;
         public PlayerActionCards(GraphicsDevice graphicsDevice, Board board) : base(graphicsDevice)
         {
             this.board = board;
-            
-            vertices.Add(new VertexPositionColor { Position = new Vector3(500, 500, 0), Color = new Color(255,255,255) });
-            vertices.Add(new VertexPositionColor { Position = new Vector3(550, 500, 0), Color = new Color(0,250,0) });
-            vertices.Add(new VertexPositionColor { Position = new Vector3(550, 550, 0), Color = new Color(255,0,255) });
-            vertices.Add(new VertexPositionColor { Position = new Vector3(500, 550, 0), Color = new Color(255,0,255) });
-            Init(graphicsDevice);
+            actionCards = new List<ActionCard>();
+            for(var i = 0; i < board.activePlayer.deck.HandCards.Count; i++)
+            {
+                actionCards.Add(new ActionCard(i, graphicsDevice));
+            }
+            //Init(graphicsDevice);
         }
 
-        public override void Init(GraphicsDevice graphicsDevice)
-        {
-            vertexBuffer = new VertexBuffer(graphicsDevice, typeof(VertexPositionColor), VerticeArray.Length, BufferUsage.WriteOnly);
-            vertexBuffer.SetData<VertexPositionColor>(VerticeArray);
-            indices = new List<short>
-            {
-                0,1,2,
-                0,2,3
-            };
-            indexBuffer = new IndexBuffer(graphicsDevice, typeof(short), indices.Count, BufferUsage.WriteOnly);
-        }
 
         public override void Draw(GraphicsDevice graphicsDevice)
         {
-            PrepareDraw(graphicsDevice);
-            foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
-            {
-                pass.Apply();
-                graphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseVertex: 0, startIndex: 0, primitiveCount: indexBuffer.IndexCount);
-
-            }
+            actionCards.Draw(graphicsDevice);
         }
 
             public void Notify(params object[] messages)
@@ -55,6 +39,22 @@ namespace NemesisMonoUI
         public void NotifyMove(Room room)
         {
             throw new NotImplementedException();
+        }
+    }
+
+    public class ActionCard : ViewBase
+    {
+
+        public Box box;
+
+        public ActionCard(int cardNumber, GraphicsDevice graphicsDevice) : base(graphicsDevice)
+        {
+            box = new Box(cardNumber * 60, 0, 50, 50, new Color(0, 0, 240), graphicsDevice);
+        }
+
+        public override void Draw(GraphicsDevice graphicsDevice)
+        {
+            box.Draw(graphicsDevice);
         }
     }
 }
