@@ -92,6 +92,10 @@
       <Project>{A56D3F06-46A9-4B5C-80EA-D5C8527BFA2D}</Project>
       <Name>MonoGameLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NemesisLib\NemesisLibrary.csproj">
+      <Project>{C0F74667-62DA-4687-9CD6-27F3DBB80F79}</Project>
+      <Name>NemesisLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

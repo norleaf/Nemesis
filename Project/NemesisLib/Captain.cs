@@ -14,15 +14,15 @@ namespace NemesisLibrary
             name = "Captain Brenegan";
             deck = new Deck<Card>(
                 new BasicRepairsCard(),
-                new SearchCard(),
-                new SearchCard(),
-                new SearchCard(),
-                new SearchCard(),
-                new SearchCard(),
-                new SearchCard(),
-                new SearchCard(),
-                new SearchCard(),
-                new SearchCard()
+                new SearchCard1(),
+                new SearchCard2(),
+                new SuppressiveFireCard(),
+                new OrderCard(),
+                new ReloadCard(),
+                new DemolitionCard(),
+                new RestCard(),
+                new MotivationCard(),
+                new InterruptionCard()
             );
             roomId = 11;
         }
