@@ -19,14 +19,5 @@ namespace BoardGraph
         }
     }
     
-    public class Contamination : Card
-    {
-        public bool infected;
-
-        public Contamination(string name, bool infected, params Option[] optionsParams) : base(name, optionsParams)
-        {
-            contamination = true;
-            this.infected = infected;
-        }
-    }
+   
 }

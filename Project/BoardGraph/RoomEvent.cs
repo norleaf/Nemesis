@@ -110,6 +110,7 @@ namespace BoardGraph
             room.corridors.ForEach(r => r.RemoveNoise(board));
             var player = board.activePlayer;
             var enemy = board.enemies.Pick();
+            enemy.roomId = room.id;
             board.targets.Add(enemy);
             if(enemy.surpriseAttackChance > player.UsableHandCards())
             {

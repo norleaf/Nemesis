@@ -7,7 +7,28 @@ using System.Threading.Tasks;
 
 namespace NemesisLibrary
 {
+    public class ContaminationCard : Card
+    {
+        public bool infected;
 
+        public ContaminationCard(string name, bool infected, params Option[] optionsParams) : base(name, optionsParams)
+        {
+            contamination = true;
+            this.infected = infected;
+        }
+
+        public static void GenerateBag(Bag<Card> contaminations)
+        {
+            for(int i = 0; i < 20; i++)
+            {
+                contaminations.Put(new ContaminationCard("contamination", false, new Option[0]));
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                contaminations.Put(new ContaminationCard("contamination", true, new Option[0]));
+            }
+        }
+    }
 
     public class BasicRepairsCard : Card
     {

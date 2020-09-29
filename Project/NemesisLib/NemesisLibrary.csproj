@@ -48,7 +48,7 @@
     <Compile Include="Captain.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="CraftOption.cs" />
-    <Compile Include="IntruderAttackCards.cs" />
+    <Compile Include="IntruderAttackCard.cs" />
     <Compile Include="NemesisBoard.cs" />
     <Compile Include="NemesisCards.cs" />
     <Compile Include="NemesisExtensions.cs" />

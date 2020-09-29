@@ -23,6 +23,15 @@ namespace BoardGraph
             list.AddRange(tempList);
             return list;
         }
+        public static Queue<T> ShuffleQue<T>(this Queue<T> queue)
+        {
+            var list = queue.ToList();
+            _ = list.Shuffle();
+            queue.Clear();
+            foreach (var item in list) 
+                queue.Enqueue(item);
+            return queue;
+        }
 
         public static List<T> Insert<T>(this List<T> list, T element)
         {

@@ -9,6 +9,7 @@ namespace BoardGraph
     {
         public int number;
         public bool slimed = false;
+        public bool infested = false;
         public bool signalSent = false;
         public bool passed = false;
         public bool firstPlayer = false;

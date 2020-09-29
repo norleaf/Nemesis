@@ -13,6 +13,7 @@ namespace BoardGraph
         public Dictionary<int,Room> rooms;
         public List<Corridor> corridors;
         public Bag<RoomEvent> roomEvents;
+        public Bag<Card> contaminations;
         public Targets targets;
         public Bag<Enemy> enemies;
         public Deck<AttackCard> attackCards;
@@ -33,6 +34,7 @@ namespace BoardGraph
             enemies = new Bag<Enemy>();
             attackCards = new Deck<AttackCard>();
             eventCards = new Deck<EventCard>();
+            contaminations = new Bag<Card>();
         }
 
         public List<Room> Rooms()
@@ -53,7 +55,6 @@ namespace BoardGraph
 
         private void ResolveEventCard()
         {
-            //todo: Put some event cards in here to avaoid crashes
             var card = eventCards.DrawCard();
             card.MoveEnemies(this);
             card.ResolveEvent(this);
@@ -154,8 +155,6 @@ namespace BoardGraph
                 EventPhase();
             }
         }
-
-        
     }
 
     public interface ILayout

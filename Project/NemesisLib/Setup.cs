@@ -23,12 +23,10 @@ namespace NemesisLibrary
             AddRoomEventTokens(board);
             MergeLayoutWithActualRooms();
 
-            board.eventCards = new Deck<EventCard>
-                (
-                    //new DamagingFireEvent(),
-                    //new DamagingFireEvent(),
-                   // new DamagingFireEvent()
-                );
+            board.eventCards.DrawPile = EventDeck.GenerateCards();
+            NemesisIntruder.GenerateIntruderBag(board.enemies);
+            IntruderAttackCardDeck.GenerateCards(board.attackCards.DrawPile);
+            ContaminationCard.GenerateBag(board.contaminations);
 
             SetupCaptain();
 
@@ -64,12 +62,7 @@ namespace NemesisLibrary
             }
         }
 
-        public void AddIntrudersTokens(Board board)
-        {
-            //TODO: figure out if nemesis intruders needs to be classes
-            //find out how many starts in the token bag
-            throw new NotImplementedException();
-        }
+      
 
         public void AddRoomEventTokens(Board board)
         {
@@ -97,6 +90,7 @@ namespace NemesisLibrary
             {
                 board.roomEvents.Put(new DoorLock());
             }
+            
         }
     }
 

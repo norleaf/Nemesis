@@ -25,5 +25,10 @@ namespace NemesisLibrary
             string path = Environment.CurrentDirectory;
             File.WriteAllText(Path.Combine(path, fileName), json);
         }
+
+        public static string[] TypeToString(this Type[] types)
+        {
+            return types.Select(x => x.ToString()).ToArray();
+        }
     }
 }

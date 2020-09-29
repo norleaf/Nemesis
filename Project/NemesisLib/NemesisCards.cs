@@ -9,58 +9,54 @@ using System.Threading.Tasks;
 
 namespace NemesisLibrary
 {
-    public abstract class NemesisEventCard : EventCard
-    { 
+    public class NemesisEventCard : EventCard
+    {
         public int moveDirection;
         public ResourceManager resourceManager;
+        public Action<Board> EventEffect;
 
-        protected NemesisEventCard(int moveDirection, string name, string description, params string[] types) : base(name,description,types)
+
+
+        public NemesisEventCard(int moveDirection, string name, string description, Action<Board> eventEffect, params Type[] types) : base(name, description, types.TypeToString())
         {
+            this.EventEffect = eventEffect;
             this.moveDirection = moveDirection;
-            
+
         }
 
         public override void ResolveEvent(Board board)
         {
+            EventEffect(board);
             board.eventCards.Discard(this);
         }
 
         public override void MoveEnemies(Board board)
         {
+
             //todo: Implement movement of aliens
         }
 
+
+    }
+
+    public static class EventDeck
+    {
        
-    }
 
-    public class DamagingFire : NemesisEventCard
-    {
-        public DamagingFire() : base(1,"Damaging Fire","...", Type.adult.ToString())
+        public static Queue<EventCard> GenerateCards()
         {
-        }
+            Queue<EventCard> cards = new Queue<EventCard>();
 
-        public override void ResolveEvent(Board board)
-        {
-            base.ResolveEvent(board);
-            board.listener.Notify(name, description);
-            //todo: resolve damaging fire
+
+
+            cards.Enqueue(new NemesisEventCard(1, "Coolant Leak", "Coolant leak description coming soon", EventEffectActions.coolleak, new Type[] { Type.adult, Type.breeder, Type.queen }));
+
+            return cards;
         }
     }
 
-    public class NestProtection : NemesisEventCard
+    public static class EventEffectActions
     {
-        public NestProtection() : base(2, "Nest Protection", "", Type.creeper.ToString())
-        { }
+        public static Action<Board> coolleak = (b) => { };
     }
-
-    //public class TestCards
-    //{
-    //    List<Card> cards;
-
-    //    public TestCards()
-    //    {
-    //        cards = new List<Card>();
-
-    //    }
-    //}
 }

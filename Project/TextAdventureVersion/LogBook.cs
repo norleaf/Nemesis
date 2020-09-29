@@ -17,7 +17,7 @@ namespace TextAdventureVersion
             var setup = new Setup();
             board = setup.board;
             setup.AddRoomEventTokens(board);
-            setup.AddIntrudersTokens(board);
+         //   setup.AddIntrudersTokens(board);
             player = new Captain();
             player.firstPlayer = true;
             player.FillHand();

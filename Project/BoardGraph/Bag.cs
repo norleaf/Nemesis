@@ -29,6 +29,7 @@ namespace BoardGraph
         /// <returns></returns>
         public T Pick()
         {
+            var type = typeof(T); //todo: line purely development info
             int i = random.Next(Tokens.Count());
             T token = Tokens[i];
             Tokens.RemoveAt(i);
