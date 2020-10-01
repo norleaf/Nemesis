@@ -14,9 +14,18 @@ namespace NemesisMonoUI
             foreach (var room in view.board.rooms.Values)
             {
                 room.DrawText(graphicsBatch);
+                var targets = view.board.targets.All.Where(x => x.roomId == room.id).ToList();
+                for(var i = 0; i < targets.Count(); i++ )
+                {
+                    targets[i].DrawTargetText(i, room,graphicsBatch);
+                }
             }
             view.nemesisConsole.DrawText(graphicsBatch);
+
+           
         }
+
+        
     }
 
     public class BoardView : ViewBase, Listener

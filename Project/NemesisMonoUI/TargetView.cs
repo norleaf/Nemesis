@@ -10,6 +10,16 @@ using Microsoft.Xna.Framework;
 
 namespace NemesisMonoUI
 {
+    public static class TargetViewExtensions
+    {
+        public static void DrawTargetText(this Target target, int index, Room room, GraphicsBatch graphicsBatch)
+        {
+            var padding = 2;
+            Color color = target is PlayerCharacter ? Color.Blue : Color.Red;
+            graphicsBatch.DrawString(graphicsBatch.DefaultFont, target.name, new Vector2(room.x, room.y + index + padding) * RoomViewExtensions.RoomScale, color, 0, Vector2.Zero, 0.3f, SpriteEffects.None, 0);
+        }
+    }
+
     public class TargetView : ViewBase, Listener
     {
         public Body body;
@@ -50,7 +60,7 @@ namespace NemesisMonoUI
                 //graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length /* divide by two for half circle I think/ 2*/);
                 graphicsDevice.DrawIndexedPrimitives(PrimitiveType.LineStrip, baseVertex: 0, startIndex: 0, primitiveCount: VerticeArray.Length );
             }
-
+            
         }
 
         public void Notify(params object[] messages)

@@ -194,6 +194,7 @@ namespace NemesisMonoUI
             string name = room.isDiscovered ? room.name : "unknown";
             graphicsBatch.DrawString(graphicsBatch.DefaultFont, name, new Vector2(room.x, room.y) * RoomScale, Color.GhostWhite, 0, Vector2.Zero, 0.3f, SpriteEffects.None, 0);
             graphicsBatch.DrawString(graphicsBatch.DefaultFont, room.RoomPoint().ToString(), new Vector2(room.x, room.y + 1) * RoomScale, Color.GhostWhite, 0, Vector2.Zero, 0.3f, SpriteEffects.None, 0);
+            
         }
 
         public static Point RoomPoint(this Room room)
